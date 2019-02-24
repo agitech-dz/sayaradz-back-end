@@ -20,7 +20,7 @@ from django.contrib.auth.models import User
 from sayaradz.models import Make, MakeUser
 from rest_framework import routers
 from sayaradz.views import UserViewSet, MakeViewSet, MakeUserViewSet
-
+from rest_framework.documentation import include_docs_urls 
 # Routers provide an easy way of automatically determining the URL conf.
 
 router = routers.DefaultRouter()
@@ -41,6 +41,9 @@ urlpatterns = [
 
     path(r'', include(router.urls)),
 
-    path(r'api/', include('rest_framework.urls', namespace='rest_framework'))
+    path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
+
+    path(r'docs/', include_docs_urls(title='Sayara DZ API')),
+
 
 ]

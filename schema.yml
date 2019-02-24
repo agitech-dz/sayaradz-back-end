@@ -1,0 +1,182 @@
+info:
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
+paths:
+  /api/makes/:
+    get:
+      operationId: makes_list
+      tags:
+      - makes
+    post:
+      operationId: makes_create
+      tags:
+      - makes
+  /api/makes/{id}/:
+    delete:
+      operationId: makes_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make.
+          title: ID
+          type: integer
+      tags:
+      - makes
+    get:
+      operationId: makes_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make.
+          title: ID
+          type: integer
+      tags:
+      - makes
+    patch:
+      operationId: makes_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make.
+          title: ID
+          type: integer
+      tags:
+      - makes
+    put:
+      operationId: makes_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make.
+          title: ID
+          type: integer
+      tags:
+      - makes
+  /api/makeusers/:
+    get:
+      operationId: makeusers_list
+      tags:
+      - makeusers
+    post:
+      operationId: makeusers_create
+      tags:
+      - makeusers
+  /api/makeusers/{id}/:
+    delete:
+      operationId: makeusers_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make user.
+          title: ID
+          type: integer
+      tags:
+      - makeusers
+    get:
+      operationId: makeusers_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make user.
+          title: ID
+          type: integer
+      tags:
+      - makeusers
+    patch:
+      operationId: makeusers_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make user.
+          title: ID
+          type: integer
+      tags:
+      - makeusers
+    put:
+      operationId: makeusers_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this make user.
+          title: ID
+          type: integer
+      tags:
+      - makeusers
+  /api/users/:
+    get:
+      operationId: users_list
+      tags:
+      - users
+    post:
+      operationId: users_create
+      tags:
+      - users
+  /api/users/{id}/:
+    delete:
+      operationId: users_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this user.
+          title: ID
+          type: integer
+      tags:
+      - users
+    get:
+      operationId: users_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this user.
+          title: ID
+          type: integer
+      tags:
+      - users
+    patch:
+      operationId: users_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this user.
+          title: ID
+          type: integer
+      tags:
+      - users
+    put:
+      operationId: users_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this user.
+          title: ID
+          type: integer
+      tags:
+      - users
+servers:
+- url: ''
