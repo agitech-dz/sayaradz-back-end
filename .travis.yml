@@ -1,0 +1,13 @@
+language: python # => 1
+    python: # => 2
+      - "3.7"
+    services: # => 3
+      - postgrsql
+    env: # => 4
+      -DJANGO=2.1 DB=postgrsql
+    install: # => 5
+      - pip install -r requirements.txt
+    before_script: # => 6
+      - psql -c 'create database test_db;' -U postgres
+    script: # => 7
+      - python manage.py test
