@@ -5,8 +5,6 @@ env:
   - DJANGO=1.4
 install:
   - pip install -q Django==$DJANGO
-script:
-  - python manage.py test
 deploy:
   provider: heroku
   api_key:
