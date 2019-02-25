@@ -12,12 +12,12 @@ class  MakeUserTest(TestCase):
 
 	def testMakeContent(self):
 		make = Make.objects.latest('id')
-		expectedMakeName = f'{make.name}'
+		expectedMakeName = make.name
 		self.assertEquals(expectedMakeName, 'MakeTest')
 
 	def testMakeUserContent(self):
 		makeUser = MakeUser.objects.latest('id')
-		expectedMakeUserMail = f'{makeUser.email}'
+		expectedMakeUserMail = makeUser.email
 		self.assertEquals(expectedMakeUserMail, 'test@test.com')
 
 
