@@ -1,12 +1,14 @@
 language: python
+services:
+- postgresql
 python:
-  - "2.7"
+- 3.4
 env:
-  - DJANGO=1.11.20
-install:
-  - pip install -q Django==$DJANGO
+- DJANGO=1.8 DB=postgres
+before_script:
+- psql -c 'create database ledenbestand;' -U postgres
 script:
-  - python sayaradz/tests.py
+- python sayaradz/test
 deploy:
   provider: heroku
   api_key:
