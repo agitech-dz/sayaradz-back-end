@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.7.2"
+  - "2.7"
 env:
   - DJANGO=2.0
 install:
