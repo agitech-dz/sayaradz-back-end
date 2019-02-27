@@ -1,21 +1,16 @@
 language: python
-
+services:
+- postgresql
 python:
-  - 2.7
-
-services: postgresql
-
+- 3.4
 env:
-  - DJANGO=2.1.7
-
-
-install:
-  - pip install -r requirements.txt
-  - pip install django==$DJANGO --quiet
-  - pip install psycopg2 --quiet
-
+- DJANGO=1.8 DB=postgres
 before_script:
-  - psql -c "CREATE DATABASE mydb;" -U postgres
-
+- psql -c 'create database ledenbestand;' -U postgres
 script:
-  - python manage.py syncdb --noinput
+- python sayaradz/test
+deploy:
+  provider: heroku
+  api_key:
+    app: sayaradz-back-end
+    secure: xUXDmidm4+KdcWFG22sRc+B2zqUTsJDK8OJU9bRYj2jT6ZjkXkMH49ioE2/Y6hJawMjMpz3rrmPbzokDawa0XTeHVSVTPFOq0HATrNT2MXcDhpyOvnAUnu8f8bsWBEhFhlYofPsXOgaPRFOCqKxbfvbyss2ZhjISp+qXhWcK5OziKE6NupSspoPd73mzmdMbcW8A5Di/Usv+oUUFi29rNRzhfQvhDJMkQxOdn/B8r6k63IuvYOljYBUJfZZFwSqCmM3BC+Lco0s9qQs4RPSk8cSmlp0Gb1teuot1HMrWSKK9nUnzsiA/2wXI+NzzTsRa9AjGLEIgHrcgZMS9fEcpVglIW1O383uFMBVrVI+ITA4uLWA1Y9hFpzBH0CjKhPRCqBlXoBvsCHVHOV248fIOKgVL7lXSppci61wmiTTUiNk4eQO3q1gOHUm6Fi9pAXzuokSNRp0aVTXVMJaGCdE1LT7hNyNMcqZShcb7C99lSqncfUWcWxVxu3QIeJn+quAiIh6eKTx3XDwkhHA+ryuevxq0Xjt67ktWd5tKWC1AouztBEB1WbawIH3WMGkT0N9haKJJ7a0qN4Umy+njtQ0yyh6PmJp2AgvkrbdvWTMWamK5kA7wE61vd+nRKcYmJOrBu6/dKtibeC0ENQvVqXsI4I0kvk1+5RmGBcPtJt2LSp0=
