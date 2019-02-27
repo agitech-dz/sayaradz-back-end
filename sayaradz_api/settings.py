@@ -25,7 +25,9 @@ SECRET_KEY = 'tbgeak6_)g-+lknmhw!77)s-5_xk#zedysyerz!=9&mqehnc)r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+#'83632ba8.ngrok.io'
+]
 
 
 # Application definition
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'sayaradz',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +86,10 @@ DATABASES = {
             'PASSWORD': "sayaradz",
             'HOST': "localhost",
             'PORT': "5432",
+            'TEST': {
+                'NAME': 'sayaradz_test',
+            },
+
         }
     }
 
@@ -132,3 +139,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+REST_FRAMEWORK = {
+    
+    #'DEFAULT_RENDERER_CLASSES': (
+        #'rest_framework.renderers.JSONRenderer',
+   # ),
+    #'DEFAULT_PARSER_CLASSES': (
+        #'rest_framework.parsers.JSONParser',
+    #),
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
+
+AUTH_USER_MODEL = 'sayaradz.MyUser'

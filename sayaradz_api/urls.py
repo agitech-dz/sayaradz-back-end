@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from django.contrib.auth.models import User
-from sayaradz.models import Make, MakeUser
+from sayaradz.models import Make, MakeUser, MyUser
 from rest_framework import routers
-from sayaradz.views import UserViewSet, MakeViewSet, MakeUserViewSet
+from sayaradz.views import UserViewSet, MakeViewSet, MakeUserViewSet, AdminLoginAPIView, MakeUserLoginAPIView, TokenAPIView
+
+
 from rest_framework.documentation import include_docs_urls 
 # Routers provide an easy way of automatically determining the URL conf.
 
@@ -44,6 +45,12 @@ urlpatterns = [
     path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
 
     path(r'docs/', include_docs_urls(title='Sayara DZ API')),
+
+    path('admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
+
+    path('makeuser/login/', MakeUserLoginAPIView.as_view(), name="login_makeuser"),
+
+    path('tokens/<key>/', TokenAPIView.as_view(), name="token"),
 
 
 ]
