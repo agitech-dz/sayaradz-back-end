@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-from sayaradz.models import Make, MakeUser, MyUser
+from django.contrib.auth.models import User
+from sayaradz.models import Manufacturer, ManufacturerUser
 from rest_framework import routers
-from sayaradz.views import UserViewSet, MakeViewSet, MakeUserViewSet, AdminLoginAPIView, MakeUserLoginAPIView, TokenAPIView
+from sayaradz.views import UserRegistrationAPIView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView
 
+from rest_framework.authtoken import views as rest_framework_views
 
 from rest_framework.documentation import include_docs_urls 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -28,9 +29,9 @@ router = routers.DefaultRouter()
 
 router.register(r'api/users', UserViewSet)
 
-router.register(r'api/makes', MakeViewSet)
+router.register(r'api/manufacturers', ManufacturerViewSet)
 
-router.register(r'api/makeusers', MakeUserViewSet)
+router.register(r'api/manufacturers-users', ManufacturerUserViewSet)
 
 # Wire up our API using automatic URL routing.
 
@@ -44,13 +45,23 @@ urlpatterns = [
 
     path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
 
-    path(r'docs/', include_docs_urls(title='Sayara DZ API')),
+    path(r'api/docs/', include_docs_urls(title='Sayara DZ API')),
 
-    path('admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
+    path('api/admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
 
-    path('makeuser/login/', MakeUserLoginAPIView.as_view(), name="login_makeuser"),
+    path('api/manufacturer-user/login/', ManufacturerUserLoginAPIView.as_view(), name="login_Manufactureruser"),
 
-    path('tokens/<key>/', TokenAPIView.as_view(), name="token"),
+    #path('tokens/<key>/', TokenAPIView.as_view(), name="token"),
+
+	path('api/admin/register/', UserRegistrationAPIView.as_view(), name="Admins"),
+
+    path('api/manufacturer-user/register/', ManufacturerUserRegistrationAPIView.as_view(), name="ManufacturerUser"),
+
+    path('api/manufacturer/{id}/manufacturer-users', ManufacturerViewSet),
+
+    
+
+   
 
 
 ]

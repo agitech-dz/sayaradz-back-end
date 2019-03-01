@@ -1,21 +1,27 @@
+import django_filters.rest_framework
+
 from django.shortcuts import render
 
 from rest_framework import routers, serializers, viewsets
 
 from rest_framework.permissions import IsAuthenticated
 
-from sayaradz_api.serializers import UserSerializer, MakeSerializer, MakeUserSerializer, AdminLoginSerializer, MakeUserLoginSerializer, TokenSerializer
+from sayaradz_api.serializers import UserRegistrationSerializer, ManufacturerUserRegistrationSerializer, UserSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer
 
 
-from sayaradz.models import Make, MakeUser, MyUser
+from sayaradz.models import Manufacturer, ManufacturerUser
 
 from rest_framework import status
 
 from rest_framework.authtoken.models import Token
 
-from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView
+from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
 
 from rest_framework.response import Response
+
+from django.contrib.auth.models import User
+
+
 
 
 
@@ -25,7 +31,7 @@ from rest_framework.response import Response
 
 class UserViewSet(viewsets.ModelViewSet):
 
-    queryset = MyUser.objects.all()
+    queryset = User.objects.all()
 
     serializer_class = UserSerializer
 
@@ -33,34 +39,95 @@ class UserViewSet(viewsets.ModelViewSet):
 
 # ViewSets define the view behavior.
 
-class MakeViewSet(viewsets.ModelViewSet):
+class ManufacturerViewSet(viewsets.ModelViewSet):
 
 	#permission_classes = (IsAuthenticated,)  
 
-	queryset = Make.objects.all()
-
-	serializer_class = MakeSerializer
-
+	queryset = Manufacturer.objects.all()
+	serializer_class = ManufacturerSerializer
+	filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+	def list(self, request,*kwargs):
+		queryset = Manufacturer.objects.all()
+		count = Manufacturer.objects.all().count()
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({
+			'data':data,
+			'meta':{
+				'total':count
+				},
+			})
 # ViewSets define the view behavior.
 
-class MakeUserViewSet(viewsets.ModelViewSet):
+class ManufacturerUserViewSet(viewsets.ModelViewSet):
 
-    queryset = MakeUser.objects.all().select_related('user')
+	queryset = ManufacturerUser.objects.select_related('manufacturer').all()
 
-    serializer_class = MakeUserSerializer
+	serializer_class = ManufacturerUserSerializer
 
-class AdminLoginAPIView(ListCreateAPIView):
+	filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+	def list(self, request,*kwargs):
+		queryset = ManufacturerUser.objects.select_related('manufacturer').all()
+
+		count = ManufacturerUser.objects.all().count()
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+
+		return Response({
+			'data':data,
+			'meta':{
+				'total':count
+				},
+			})
+
+class UserRegistrationAPIView(CreateAPIView):
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = UserRegistrationSerializer
+
+	def post(self, request, *args, **kwargs):
+		serializer = self.get_serializer(data=request.data)
+		serializer.is_valid(raise_exception=True)
+		self.perform_create(serializer)
+
+		user = serializer.instance
+		token, created = Token.objects.get_or_create(user=user)
+		data = serializer.data
+		data["token"] = token.key
+
+		headers = self.get_success_headers(serializer.data)
+		return Response(data, status=status.HTTP_201_CREATED, headers=headers)
+
+class ManufacturerUserRegistrationAPIView(CreateAPIView):
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = ManufacturerUserRegistrationSerializer
+
+	def post(self, request, *args, **kwargs):
+		serializer = self.get_serializer(data=request.data)
+		serializer.is_valid(raise_exception=True)
+		self.perform_create(serializer)
+
+		user = serializer.instance
+		token, created = Token.objects.get_or_create(user=user)
+		data = serializer.data
+		data["token"] = token.key
+
+		headers = self.get_success_headers(serializer.data)
+		return Response(data, status=status.HTTP_201_CREATED, headers=headers)
+
+class AdminLoginAPIView(GenericAPIView):
 
 	authentication_classes = ()
 	permission_classes = ()
 	serializer_class = AdminLoginSerializer
-
+	
 	def post(self, request, *args, **kwargs):
 
 		serializer = self.get_serializer(data=request.data)
 
 		if serializer.is_valid():
-
+			
 			user = serializer.user
 
 			token, _ = Token.objects.get_or_create(user=user)
@@ -71,18 +138,19 @@ class AdminLoginAPIView(ListCreateAPIView):
 			)
 
 		else:
+			
 			return Response(
 				data=serializer.errors,
 				status=status.HTTP_400_BAD_REQUEST,
 			)
 
 
-class MakeUserLoginAPIView(ListCreateAPIView):
+class ManufacturerUserLoginAPIView(GenericAPIView):
 
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = AdminLoginSerializer
-
+	serializer_class = ManufacturerUserLoginSerializer
+	
 	def post(self, request, *args, **kwargs):
 
 		serializer = self.get_serializer(data=request.data)
@@ -90,12 +158,17 @@ class MakeUserLoginAPIView(ListCreateAPIView):
 		if serializer.is_valid():
 
 			user = serializer.user
+			if not user.is_superuser:
+				token, _ = Token.objects.get_or_create(user=user)
 
-			token, _ = Token.objects.get_or_create(user=user)
-
-			return Response(
-				data=TokenSerializer(token).data,
-				status=status.HTTP_200_OK,
+				return Response(
+					data=TokenSerializer(token).data,
+					status=status.HTTP_200_OK,
+				)
+			else:
+				return Response(
+				data="Login Failed",
+				status=status.HTTP_400_BAD_REQUEST,
 			)
 
 		else:
@@ -103,7 +176,6 @@ class MakeUserLoginAPIView(ListCreateAPIView):
 				data=serializer.errors,
 				status=status.HTTP_400_BAD_REQUEST,
 			)
-
 
 class TokenAPIView(RetrieveDestroyAPIView):
 
