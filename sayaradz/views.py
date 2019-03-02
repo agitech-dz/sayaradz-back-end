@@ -224,6 +224,7 @@ class ManufacturerUserFilter(django_filters.FilterSet):
 		fields = ['address', 'first_name','manufacturer', 'manufacturer__name']
 
 class ManufacturerUserList(ListAPIView):
+	
 	queryset = ManufacturerUser.objects.all()
 	serializer_class = ManufacturerUserSerializer
 	filter_class = ManufacturerUserFilter

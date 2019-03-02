@@ -47,9 +47,9 @@ urlpatterns = [
 
     path(r'api/docs/', include_docs_urls(title='Sayara DZ API')),
 
-    path(r'api/manufacturers-user-filter', ManufacturerUserList.as_view(), name="filer"),
+    path(r'api/manufacturers-user-filter', ManufacturerUserList.as_view(), name="filter"),
 
-    path(r'api/manufacturers-filter', ManufacturerUserList.as_view(), name="filer"),
+    path(r'api/manufacturers-filter', ManufacturerUserList.as_view(), name="filter"),
 
     path('api/admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
 
