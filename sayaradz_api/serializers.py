@@ -28,14 +28,14 @@ class ManufacturerUserSerializer(serializers.ModelSerializer):
 	
 	class Meta:
 		model = ManufacturerUser
-		fields = ('username','password', 'address', 'telephone', 'manufacturer', 'email', 'is_active')
+		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'manufacturer', 'email', 'is_active')
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
 
 	confirm_password = serializers.CharField(write_only=True)
 	class Meta:
 		model = User
-		fields = ("id", "username", "password", "confirm_password")
+		fields = ("id",'first_name', 'last_name', 'address', 'telephone', "username", "password", "confirm_password")
 	
 
 	def create(self, validated_data):

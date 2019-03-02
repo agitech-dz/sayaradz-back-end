@@ -25,10 +25,10 @@ SECRET_KEY = 'tbgeak6_)g-+lknmhw!77)s-5_xk#zedysyerz!=9&mqehnc)r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = [
- #   '5f09c875.ngrok.io'
+ALLOWED_HOSTS = [
+    '76b4524c.ngrok.io'
   #  'localhost:8000'
-#]
+]
 
 
 # Application definition
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
-
+    'corsheaders',
     'sayaradz',
      
 ]
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
-
+    'corsheaders.middleware.CorsMiddleware',
     'request_logging.middleware.LoggingMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -157,21 +157,19 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     
 
-    #'DEFAULT_RENDERER_CLASSES': (
-     #   'rest_framework.renderers.JSONRenderer',
-     #   ),
-    #'DEFAULT_PARSER_CLASSES': (
-     #   'rest_framework.parsers.JSONParser',
-    #),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    ),
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
-    #'DEFAULT_PERMISSION_CLASSES': (
-        #'rest_framework.permissions.IsAuthenticated',
-    #),
+    
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
 
@@ -181,6 +179,12 @@ REST_FRAMEWORK = {
     
 
 }
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+
 
 LOG_PATH = os.path.join(BASE_DIR, "log/")
 LOGGING = {

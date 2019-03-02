@@ -27,11 +27,11 @@ from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 
-router.register(r'api/users/', UserViewSet)
+#router.register(r'api/users/', UserViewSet)
 
 router.register(r'api/manufacturers', ManufacturerViewSet)
 
-router.register(r'api/manufacturers-users/', ManufacturerUserViewSet)
+router.register(r'api/manufacturers-users', ManufacturerUserViewSet)
 
 # Wire up our API using automatic URL routing.
 
@@ -45,25 +45,25 @@ urlpatterns = [
 
     path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
 
-    path(r'api/docs/', include_docs_urls(title='Sayara DZ API')),
+    path(r'api/docs', include_docs_urls(title='Sayara DZ API')),
 
     path(r'api/manufacturers-user-filter', ManufacturerUserList.as_view(), name="filter"),
 
-    path(r'api/manufacturers-filter', ManufacturerUserList.as_view(), name="filter"),
+    path(r'api/manufacturers-filter', ManufacturerList.as_view(), name="filter"),
 
-    path('api/admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
+    path('api/admin/login', AdminLoginAPIView.as_view(), name="login_admin"),
 
-    path('api/manufacturer-user/login/', ManufacturerUserLoginAPIView.as_view(), name="login_Manufactureruser"),
+    path('api/manufacturer-user/login', ManufacturerUserLoginAPIView.as_view(), name="login_Manufactureruser"),
 
-    path('api/admin/logout/', LogoutView.as_view(), name="logout_admin"),
+    path('api/admin/logout', LogoutView.as_view(), name="logout_admin"),
 
-    path('api/manufacturer-user/logout/', LogoutView.as_view(), name="logout_Manufactureruser"),
+    path('api/manufacturer-user/logout', LogoutView.as_view(), name="logout_Manufactureruser"),
 
     #path('tokens/<key>/', TokenAPIView.as_view(), name="token"),
 
-	path('api/admin/register/', UserRegistrationAPIView.as_view(), name="Admins"),
+	path('api/admin/register', UserRegistrationAPIView.as_view(), name="Admins"),
 
-    path('api/manufacturer-user/register/', ManufacturerUserRegistrationAPIView.as_view(), name="ManufacturerUser"),
+    path('api/manufacturer-user/register', ManufacturerUserRegistrationAPIView.as_view(), name="ManufacturerUser"),
 
     path('api/manufacturer/{id}/manufacturer-users', ManufacturerViewSet),
 

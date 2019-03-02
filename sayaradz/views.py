@@ -2,6 +2,8 @@ import django_filters
 #from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 
+from rest_framework.pagination import PageNumberPagination
+
 from django.contrib.auth import logout
 
 from django.shortcuts import render
@@ -35,13 +37,17 @@ class UserViewSet(viewsets.ModelViewSet):
 
     serializer_class = UserSerializer
 
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 25
 
 
 # ViewSets define the view behavior.
 
 class ManufacturerViewSet(viewsets.ModelViewSet):
-
-	#permission_classes = (IsAuthenticated,)  
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
 
 	queryset = Manufacturer.objects.all()
 	serializer_class = ManufacturerSerializer
@@ -49,13 +55,18 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
 		queryset = Manufacturer.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
 		count = Manufacturer.objects.all().count()
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response({
-			'data':data,
+			'results':data,
 			'meta':{
-				'total':count
+				'count':count
 				},
 			})
 
@@ -64,7 +75,8 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 # ViewSets define the view behavior.
 
 class ManufacturerUserViewSet(viewsets.ModelViewSet):
-
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
 	queryset = ManufacturerUser.objects.select_related('manufacturer').all()
 
 	serializer_class = ManufacturerUserSerializer
@@ -74,15 +86,20 @@ class ManufacturerUserViewSet(viewsets.ModelViewSet):
 
 	def list(self, request,*kwargs):
 		queryset = ManufacturerUser.objects.select_related('manufacturer').all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
 
-		count = ManufacturerUser.objects.all().count()
+
+		count1 = ManufacturerUser.objects.all().count()
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 
 		return Response({
-			'data':data,
+			'results':data,
 			'meta':{
-				'total':count
+				'count':count1
 				},
 			})
 
@@ -212,6 +229,7 @@ class TokenAPIView(RetrieveDestroyAPIView):
 
 class LogoutView(GenericAPIView):
 
+	serializer_class = ManufacturerUserLoginSerializer
 	def post(self, request):
 
 		django_logout(request)
@@ -224,24 +242,41 @@ class ManufacturerUserFilter(django_filters.FilterSet):
 		fields = ['address', 'first_name','manufacturer', 'manufacturer__name']
 
 class ManufacturerUserList(ListAPIView):
-	
+	permission_classes = (IsAuthenticated,)  
 	queryset = ManufacturerUser.objects.all()
 	serializer_class = ManufacturerUserSerializer
 	filter_class = ManufacturerUserFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('username', 'email', 'address', 'manufacturer__name')
 	ordering_fields = '__all__'
+	def get(self, request, *args, **kwargs):
+		queryset = ManufacturerUser.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
 
 
 class ManufacturerFilter(django_filters.FilterSet):
 	class Meta:
 		model = Manufacturer
-		fields = ['name', 'nationality']
+		fields = ['id', 'name', 'nationality']
 
 class ManufacturerList(ListAPIView):
-	queryset = Manufacturer.objects.all()
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	#queryset = Manufacturer.objects.all()
+
 	serializer_class = ManufacturerSerializer
 	filter_class = ManufacturerFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('name', 'nationality')	
 	ordering_fields = '__all__'
+
+	def get(self, request, *args, **kwargs):
+		queryset = Manufacturer.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
