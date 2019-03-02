@@ -4,11 +4,11 @@ services:
 python:
 - 3.4
 env:
-- DJANGO=1.8 DB=postgres
+- DJANGO
 before_script:
 - psql -c 'create database ledenbestand;' -U postgres
 script:
-- python sayaradz/test
+- pip install -r requirements.txt
 deploy:
   provider: heroku
   api_key:
