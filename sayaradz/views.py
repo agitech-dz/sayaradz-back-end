@@ -1,4 +1,8 @@
-import django_filters.rest_framework
+import django_filters
+#from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+
+from django.contrib.auth import logout
 
 from django.shortcuts import render
 
@@ -8,21 +12,17 @@ from rest_framework.permissions import IsAuthenticated
 
 from sayaradz_api.serializers import UserRegistrationSerializer, ManufacturerUserRegistrationSerializer, UserSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer
 
-
 from sayaradz.models import Manufacturer, ManufacturerUser
 
 from rest_framework import status
 
 from rest_framework.authtoken.models import Token
 
-from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
 
 from rest_framework.response import Response
 
 from django.contrib.auth.models import User
-
-
-
 
 
 # Create your views here.
@@ -45,7 +45,8 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 
 	queryset = Manufacturer.objects.all()
 	serializer_class = ManufacturerSerializer
-	filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+	#filter_backends = (DjangoFilterBackend,)
+	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
 		queryset = Manufacturer.objects.all()
 		count = Manufacturer.objects.all().count()
@@ -57,6 +58,9 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 				'total':count
 				},
 			})
+
+
+
 # ViewSets define the view behavior.
 
 class ManufacturerUserViewSet(viewsets.ModelViewSet):
@@ -65,7 +69,9 @@ class ManufacturerUserViewSet(viewsets.ModelViewSet):
 
 	serializer_class = ManufacturerUserSerializer
 
-	filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+	#filter_backends = (DjangoFilterBackend,)
+	#filter_fields = ('manufacturer', 'address', 'first_name')
+
 	def list(self, request,*kwargs):
 		queryset = ManufacturerUser.objects.select_related('manufacturer').all()
 
@@ -202,3 +208,39 @@ class TokenAPIView(RetrieveDestroyAPIView):
 			return Response(status=status.HTTP_204_NO_CONTENT)
 
 		return super(TokenAPIView, self).destroy(request, key, *args, **kwargs)
+
+
+class LogoutView(GenericAPIView):
+
+	def post(self, request):
+
+		django_logout(request)
+		return Response(status=204)
+
+
+class ManufacturerUserFilter(django_filters.FilterSet):
+	class Meta:
+		model = ManufacturerUser
+		fields = ['address', 'first_name','manufacturer', 'manufacturer__name']
+
+class ManufacturerUserList(ListAPIView):
+	queryset = ManufacturerUser.objects.all()
+	serializer_class = ManufacturerUserSerializer
+	filter_class = ManufacturerUserFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ('username', 'email', 'address', 'manufacturer__name')
+	ordering_fields = '__all__'
+
+
+class ManufacturerFilter(django_filters.FilterSet):
+	class Meta:
+		model = Manufacturer
+		fields = ['name', 'nationality']
+
+class ManufacturerList(ListAPIView):
+	queryset = Manufacturer.objects.all()
+	serializer_class = ManufacturerSerializer
+	filter_class = ManufacturerFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ('name', 'nationality')	
+	ordering_fields = '__all__'

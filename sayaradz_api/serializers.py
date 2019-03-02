@@ -28,7 +28,7 @@ class ManufacturerUserSerializer(serializers.ModelSerializer):
 	
 	class Meta:
 		model = ManufacturerUser
-		fields = ('username','password', 'address', 'telephone', 'manufacturer')
+		fields = ('username','password', 'address', 'telephone', 'manufacturer', 'email', 'is_active')
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
 

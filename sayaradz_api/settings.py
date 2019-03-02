@@ -25,10 +25,10 @@ SECRET_KEY = 'tbgeak6_)g-+lknmhw!77)s-5_xk#zedysyerz!=9&mqehnc)r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '5f09c875.ngrok.io'
-    #'localhost:8000'
-]
+#ALLOWED_HOSTS = [
+ #   '5f09c875.ngrok.io'
+  #  'localhost:8000'
+#]
 
 
 # Application definition
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
+
     'sayaradz',
      
 ]
@@ -152,14 +154,14 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    
 
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-        ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    ),
+    #'DEFAULT_RENDERER_CLASSES': (
+     #   'rest_framework.renderers.JSONRenderer',
+     #   ),
+    #'DEFAULT_PARSER_CLASSES': (
+     #   'rest_framework.parsers.JSONParser',
+    #),
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
@@ -169,6 +171,11 @@ REST_FRAMEWORK = {
     #'DEFAULT_PERMISSION_CLASSES': (
         #'rest_framework.permissions.IsAuthenticated',
     #),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+
+    
     
 
 }

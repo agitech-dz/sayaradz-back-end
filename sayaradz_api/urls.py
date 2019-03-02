@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth.models import User
 from sayaradz.models import Manufacturer, ManufacturerUser
 from rest_framework import routers
-from sayaradz.views import UserRegistrationAPIView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView
+from sayaradz.views import ManufacturerUserList, ManufacturerList, UserRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView
 
 from rest_framework.authtoken import views as rest_framework_views
 
@@ -27,11 +27,11 @@ from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 
-router.register(r'api/users', UserViewSet)
+router.register(r'api/users/', UserViewSet)
 
 router.register(r'api/manufacturers', ManufacturerViewSet)
 
-router.register(r'api/manufacturers-users', ManufacturerUserViewSet)
+router.register(r'api/manufacturers-users/', ManufacturerUserViewSet)
 
 # Wire up our API using automatic URL routing.
 
@@ -47,9 +47,17 @@ urlpatterns = [
 
     path(r'api/docs/', include_docs_urls(title='Sayara DZ API')),
 
+    path(r'api/manufacturers-user-filter', ManufacturerUserList.as_view(), name="filer"),
+
+    path(r'api/manufacturers-filter', ManufacturerUserList.as_view(), name="filer"),
+
     path('api/admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
 
     path('api/manufacturer-user/login/', ManufacturerUserLoginAPIView.as_view(), name="login_Manufactureruser"),
+
+    path('api/admin/logout/', LogoutView.as_view(), name="logout_admin"),
+
+    path('api/manufacturer-user/logout/', LogoutView.as_view(), name="logout_Manufactureruser"),
 
     #path('tokens/<key>/', TokenAPIView.as_view(), name="token"),
 
