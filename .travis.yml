@@ -2,7 +2,7 @@ language: python
 services:
 - postgresql
 python:
-- 3.4
+- "3.6"
 env:
 - DJANGO
 before_script:
