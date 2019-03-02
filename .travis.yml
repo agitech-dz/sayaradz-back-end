@@ -9,7 +9,7 @@ before_script:
 - psql -c 'create database ledenbestand;' -U postgres
 script:
 - pip install -r requirements.txt
-- python test.py
+- python sayaradz\tests.py
 deploy:
   provider: heroku
   api_key:
