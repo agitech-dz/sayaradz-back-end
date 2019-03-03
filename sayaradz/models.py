@@ -7,24 +7,24 @@ from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
 
 
-
-# Create your models here.
+#upload ManufacturerUser Avatars from web client to "manufacturerusers_account/avatars/" folder
 def get_upload_path1(instance, filename):
         return os.path.join('manufacturerusers_account/avatars/', now().date().strftime("%Y/%m/%d"), filename)
 
+
+#upload Car Photo from mobile client to "cars/photos/" folder
 def get_upload_path2(instance, filename):
         return os.path.join('cars/photos/', now().date().strftime("%Y/%m/%d"), filename)
 
+#upload Ad Photo from mobile client to "ads/photos/" folder
 def get_upload_path3(instance, filename):
         return os.path.join('ads/photos/', now().date().strftime("%Y/%m/%d"), filename)
-        
+
+#upload Automobilist Avatars from web client to "automobilists_account/avatars/" folder      
 def get_upload_path4(instance, filename):
         return os.path.join('automobilists_account/avatars/', now().date().strftime("%Y/%m/%d"), filename)
 
-
-
-#Utilisateur Fabricant
-
+#ManufacturerUser Model [Utilisateur Fabricant]
 class ManufacturerUser(User):
    
     address = models.TextField()
@@ -35,14 +35,15 @@ class ManufacturerUser(User):
     def save(self, *args, **kwargs):
         super(ManufacturerUser, self).save(*args, **kwargs) # Call the real   save() method
 
-#Fabricant
+#Manufacturer Model [Fabricant]
 class Manufacturer(models.Model):
-
     name = models.CharField(max_length=75, unique=True)
     nationality = models.CharField(max_length=45, blank=True)
+
     def __str__(self):
        return self.name
 
+#Model Model [Modèle]
 class Model(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
@@ -51,6 +52,7 @@ class Model(models.Model):
     def __str__(self):
        return self.name
 
+#Version Model [Version]
 class Version(models.Model):
     code = models.CharField(max_length=20, primary_key=True)
     name = models.CharField(max_length=50)
@@ -58,7 +60,7 @@ class Version(models.Model):
     def __str__(self):
        return self.name
 
-#Concessionnaire
+#CarSeller Model [Concessionnaire]
 class CarSeller(models.Model):
     name = models.CharField(max_length=50)
     telephone = models.CharField(max_length=15)
@@ -66,7 +68,7 @@ class CarSeller(models.Model):
     def __str__(self):
        return self.name
 
-#Option
+#Option Model [Option]
 class Option(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
@@ -76,6 +78,7 @@ class Option(models.Model):
     def __str__(self):
        return self.name
 
+#Color Model [Couleur]
 class Color(models.Model):
     code =  models.CharField(max_length=3, primary_key=True)
     name = models.CharField(max_length=50)
@@ -84,7 +87,7 @@ class Color(models.Model):
     def __str__(self):
        return self.name
 
-#Véhicule
+#Car Model [Voiture]
 class Car(models.Model):
     numChassis = models.CharField(max_length=50, primary_key=True)
     color = models.ForeignKey(Model, on_delete=models.SET_NULL, db_column='color', null=True)
@@ -95,22 +98,19 @@ class Car(models.Model):
     photo3 = models.ImageField(blank=True, upload_to=get_upload_path2)
     seller = models.ForeignKey(CarSeller, on_delete=models.SET_NULL, null=True)
 
-    
-
-#Véhicule Occasion
+#OccCar Model [Voiture Occasion] 
 class OccCar(Car):
 
     def __str__(self):
        return self.numChassis
 
-#Véhicule nouvel
+#NewCar Model [Voiture Neuve] 
 class NewCar(Car):
 
     def __str__(self):
        return self.numChassis
 
-
-
+#LigneTarif Model [Ligne Tarif] 
 class LigneTarif(models.Model):
     
     dataBegin = models.DateField(auto_now=True)
@@ -120,16 +120,19 @@ class LigneTarif(models.Model):
     def __str__(self):
        return self.name
 
+#LigneTarifVersion Model [Ligne Tarif Version] 
 class LigneTarifVersion(LigneTarif):
     code = models.OneToOneField(Version, on_delete=models.CASCADE)
-     
+
+#LigneTarifOption Model [Ligne Tarif Option]  
 class LigneTarifOption(LigneTarif):
     code = models.OneToOneField(Option, on_delete=models.CASCADE)
 
+#LigneTarifColor Model [Ligne Tarif Couleur]
 class LigneTarifColor(LigneTarif):
     code = models.OneToOneField(Color, on_delete=models.CASCADE)
 
-
+#Automobilist Model [Automobiliste]
 class Automobilist(models.Model):
     #email = models.EmailField(max_length=255, unique=True, db_index=True)
     firstName = models.CharField(max_length=50)
@@ -141,12 +144,10 @@ class Automobilist(models.Model):
     followedModels = models.ManyToManyField(Model)
     followedVersions = models.ManyToManyField(Version)
 
-
-    
     def __str__(self):
        return self.name
 
-
+#Command Model [Commande]
 class Command(models.Model):
     date = models.DateTimeField(auto_now=True)
     price = models.FloatField()
@@ -158,7 +159,7 @@ class Command(models.Model):
     def __str__(self):
        return self.name
 
-#Annonce
+#Ad Model [Annonce]
 class Ad(models.Model):
     minPrice = models.FloatField()
     date = models.DateTimeField(auto_now=True)
@@ -167,9 +168,8 @@ class Ad(models.Model):
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path3)
     photo2 = models.ImageField(blank=True, upload_to=get_upload_path3)
     photo3 = models.ImageField(blank=True, upload_to=get_upload_path3)
-    
-    
-#Offre
+
+#Offer Model [Offre]
 class Offer(models.Model):
     date = models.DateTimeField(auto_now=True)
     offredAmount = models.FloatField()
