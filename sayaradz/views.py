@@ -12,7 +12,7 @@ from rest_framework import routers, serializers, viewsets
 
 from rest_framework.permissions import IsAuthenticated
 
-from sayaradz_api.serializers import UserRegistrationSerializer, ManufacturerUserRegistrationSerializer, UserSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer
+from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer
 
 from sayaradz.models import Manufacturer, ManufacturerUser
 
@@ -35,7 +35,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
 
-    serializer_class = UserSerializer
+    serializer_class = AdminSerializer
 
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
@@ -70,6 +70,12 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 				},
 			})
 
+	def destroy(self, *args, **kwargs):
+         serializer = self.get_serializer(self.get_object())
+         super().destroy(*args, **kwargs)
+         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 
 
 # ViewSets define the view behavior.
@@ -103,10 +109,10 @@ class ManufacturerUserViewSet(viewsets.ModelViewSet):
 				},
 			})
 
-class UserRegistrationAPIView(CreateAPIView):
+class AdminRegistrationAPIView(CreateAPIView):
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = UserRegistrationSerializer
+	serializer_class = AdminRegistrationSerializer
 
 	def post(self, request, *args, **kwargs):
 		serializer = self.get_serializer(data=request.data)
@@ -152,8 +158,19 @@ class AdminLoginAPIView(GenericAPIView):
 		if serializer.is_valid():
 			
 			user = serializer.user
+			if user.is_superuser:
+				token, _ = Token.objects.get_or_create(user=user)
 
-			token, _ = Token.objects.get_or_create(user=user)
+				return Response(
+					data=TokenSerializer(token).data,
+					status=status.HTTP_200_OK,
+				)
+			else:
+				return Response(
+				data="Login Failed",
+				status=status.HTTP_400_BAD_REQUEST,
+				)
+			
 
 			return Response(
 				data=TokenSerializer(token).data,
@@ -264,19 +281,20 @@ class ManufacturerFilter(django_filters.FilterSet):
 		fields = ['id', 'name', 'nationality']
 
 class ManufacturerList(ListAPIView):
-	pagination_class = StandardResultsSetPagination
+	
 	permission_classes = (IsAuthenticated,)  
-	#queryset = Manufacturer.objects.all()
+	queryset = Manufacturer.objects.all()
 
 	serializer_class = ManufacturerSerializer
 	filter_class = ManufacturerFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('name', 'nationality')	
 	ordering_fields = '__all__'
+	pagination_class = StandardResultsSetPagination
 
 	def get(self, request, *args, **kwargs):
-		queryset = Manufacturer.objects.all()
-		page = self.paginate_queryset(queryset)
+		#queryset = Manufacturer.objects.all()
+		page = self.paginate_queryset(self.queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
 			return self.get_paginated_response(serializer.data)

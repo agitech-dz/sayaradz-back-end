@@ -9,7 +9,7 @@ from django.contrib.auth.hashers import make_password
 
 
 # Serializers define the API representation.
-class UserSerializer(serializers.ModelSerializer):
+class AdminSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'password' , 'is_superuser')
@@ -30,19 +30,19 @@ class ManufacturerUserSerializer(serializers.ModelSerializer):
 		model = ManufacturerUser
 		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'manufacturer', 'email', 'is_active')
 
-class UserRegistrationSerializer(serializers.ModelSerializer):
+class AdminRegistrationSerializer(serializers.ModelSerializer):
 
 	confirm_password = serializers.CharField(write_only=True)
 	class Meta:
 		model = User
-		fields = ("id",'first_name', 'last_name', 'address', 'telephone', "username", "password", "confirm_password")
+		fields = ("id",'first_name', 'last_name', "username", "password", "confirm_password")
 	
 
 	def create(self, validated_data):
 		del validated_data["confirm_password"]
 		validated_data["password"] = make_password(validated_data['password'])
 		
-		return super(UserRegistrationSerializer, self).create(validated_data)
+		return super(AdminRegistrationSerializer, self).create(validated_data)
 
 	def validate(self, attrs):
 		if attrs.get('password') != attrs.get('confirm_password'):
@@ -91,7 +91,7 @@ class ManufacturerUserRegistrationSerializer(serializers.ModelSerializer):
 	confirm_password = serializers.CharField(write_only=True)
 	class Meta:
 		model = ManufacturerUser
-		fields = ("id", "username", "password", "confirm_password","manufacturer", "address")
+		fields = ("id", "username","first_name","last_name", "password", "confirm_password","manufacturer", "address", "telephone", "is_active")
 	
 
 	def create(self, validated_data):

@@ -26,7 +26,7 @@ SECRET_KEY = 'tbgeak6_)g-+lknmhw!77)s-5_xk#zedysyerz!=9&mqehnc)r'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '76b4524c.ngrok.io'
+    '7d074e6d.ngrok.io'
   #  'localhost:8000'
 ]
 
@@ -174,6 +174,8 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
 
     ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+
 
     
     
