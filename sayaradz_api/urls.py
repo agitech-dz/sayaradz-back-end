@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth.models import User
 from sayaradz.models import Manufacturer, ManufacturerUser
 from rest_framework import routers
-from sayaradz.views import ManufacturerUserList, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView
+from sayaradz.views import ManufacturerUserList, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView, MyModelViewSet
 
 from rest_framework.authtoken import views as rest_framework_views
 
@@ -32,6 +32,8 @@ router = routers.DefaultRouter()
 router.register(r'api/manufacturers', ManufacturerViewSet, base_name='manufacturers')
 
 router.register(r'api/manufacturers-users', ManufacturerUserViewSet)
+
+router.register(r'api/models', MyModelViewSet)
 
 # Wire up our API using automatic URL routing.
 
@@ -65,7 +67,7 @@ urlpatterns = [
 
     path('api/manufacturer-user/register/', ManufacturerUserRegistrationAPIView.as_view(), name="register_manufactureruser"),
 
-    path('api/manufacturer/{id}/manufacturer-users', ManufacturerViewSet),
+    #path('api/models/', MyModelViewSet)
 
 
 ]

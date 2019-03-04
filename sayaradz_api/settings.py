@@ -183,7 +183,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-
+"""
 
 LOG_PATH = os.path.join(BASE_DIR, "log/")
 LOGGING = {
@@ -223,3 +223,4 @@ LOGGING = {
         
     },
 }
+"""

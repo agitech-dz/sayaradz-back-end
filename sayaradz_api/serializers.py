@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
-from sayaradz.models import Manufacturer, ManufacturerUser
+from sayaradz.models import Manufacturer, ManufacturerUser, MyModel
 from django.contrib.auth.models import User 
 from django.contrib.auth.hashers import make_password
 
@@ -31,10 +31,11 @@ ManufacturerUserSerializer : defines ManufacturerUser model representation
 feilds : ('id','username','first_name', 'last_name',  'address', 'telephone', 'manufacturer', 'email', 'is_active')
 """
 class ManufacturerUserSerializer(serializers.ModelSerializer):
-	manufacturer = serializers.ReadOnlyField(source='manufacturer.name') 
+	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
+	manufacturer = serializers.ReadOnlyField(source='manufacturer.id') 
 	class Meta:
 		model = ManufacturerUser
-		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'manufacturer', 'email', 'is_active')
+		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'email', 'is_active', 'manufacturer', 'manufacturer_name')
 
 """
 AdminRegistrationSerializer : defines required Admin registration feilds  
@@ -157,3 +158,13 @@ class ManufacturerUserLoginSerializer(serializers.Serializer):
 
 		else:
 			raise serializers.ValidationError(self.error_messages['invalid_credentials'])
+
+"""
+ModelSerializer : defines Manufacturer model representation
+feilds : ('code','name', 'manufacturer')
+"""
+class MyModelSerializer(serializers.ModelSerializer):
+	
+	class Meta:
+		model = MyModel
+		fields = ('code','name', 'manufacturer')

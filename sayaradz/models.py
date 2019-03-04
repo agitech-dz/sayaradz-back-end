@@ -32,6 +32,9 @@ class ManufacturerUser(User):
     manufacturer = models.ForeignKey( 'manufacturer', on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, upload_to=get_upload_path1)
     
+    class Meta:
+        ordering = ['id']
+
     def save(self, *args, **kwargs):
         super(ManufacturerUser, self).save(*args, **kwargs) # Call the real   save() method
 
@@ -40,11 +43,14 @@ class Manufacturer(models.Model):
     name = models.CharField(max_length=75, unique=True)
     nationality = models.CharField(max_length=45, blank=True)
 
+    class Meta:
+        ordering = ['id']
+        
     def __str__(self):
        return self.name
 
 #Model Model [Modèle]
-class Model(models.Model):
+class MyModel(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
@@ -72,7 +78,7 @@ class CarSeller(models.Model):
 class Option(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
-    model = models.ForeignKey(Model, on_delete=models.CASCADE)
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
     versions = models.ManyToManyField(Version)
 
     def __str__(self):
@@ -82,7 +88,7 @@ class Option(models.Model):
 class Color(models.Model):
     code =  models.CharField(max_length=3, primary_key=True)
     name = models.CharField(max_length=50)
-    model = models.ForeignKey(Model, on_delete=models.CASCADE)
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
 
     def __str__(self):
        return self.name
@@ -90,7 +96,7 @@ class Color(models.Model):
 #Car Model [Voiture]
 class Car(models.Model):
     numChassis = models.CharField(max_length=50, primary_key=True)
-    color = models.ForeignKey(Model, on_delete=models.SET_NULL, db_column='color', null=True)
+    color = models.ForeignKey(MyModel, on_delete=models.SET_NULL, db_column='color', null=True)
     version = models.ForeignKey(Manufacturer, on_delete=models.SET_NULL, db_column='version', null=True)
     options = models.ManyToManyField(Option)
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path2)
@@ -141,7 +147,7 @@ class Automobilist(models.Model):
     address = models.TextField()
     telephone =  models.CharField(max_length=15)
     avatar = models.ImageField(blank=True, upload_to=get_upload_path4)
-    followedModels = models.ManyToManyField(Model)
+    followedModels = models.ManyToManyField(MyModel)
     followedVersions = models.ManyToManyField(Version)
 
     def __str__(self):

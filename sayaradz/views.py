@@ -5,8 +5,8 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.permissions import IsAuthenticated
-from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer
-from sayaradz.models import Manufacturer, ManufacturerUser
+from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer
+from sayaradz.models import Manufacturer, ManufacturerUser, MyModel
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
@@ -71,15 +71,14 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 """
 ManufacturerUserViewSet : get, delete, patch, partial_update, put, paginated output
 """
-
 class ManufacturerUserViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = ManufacturerUser.objects.select_related('manufacturer').all()
+	queryset = ManufacturerUser.objects.all()
 	serializer_class = ManufacturerUserSerializer
 
 	def list(self, request,*kwargs):
-		queryset = ManufacturerUser.objects.select_related('manufacturer').all()
+		queryset = ManufacturerUser.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -302,6 +301,27 @@ class ManufacturerList(ListAPIView):
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('name', 'nationality')	
 	ordering_fields = '__all__'
+
+	
+"""
+ModelViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class MyModelViewSet(viewsets.ModelViewSet):
+
 	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = MyModel.objects.all()
+	serializer_class = MyModelSerializer
+
+	def list(self, request,*kwargs):
+		queryset = MyModel.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
 
 	
