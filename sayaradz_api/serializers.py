@@ -31,7 +31,7 @@ ManufacturerUserSerializer : defines ManufacturerUser model representation
 feilds : ('id','username','first_name', 'last_name',  'address', 'telephone', 'manufacturer', 'email', 'is_active')
 """
 class ManufacturerUserSerializer(serializers.ModelSerializer):
-	
+	manufacturer = serializers.ReadOnlyField(source='manufacturer.name') 
 	class Meta:
 		model = ManufacturerUser
 		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'manufacturer', 'email', 'is_active')
@@ -101,28 +101,35 @@ class TokenSerializer(serializers.ModelSerializer):
 		model = Token
 		fields = ("auth_token", "created", "user")
 
-
+"""
+ManufacturerUserRegistrationSerializer : defines required ManufacturerUser registration feilds  
+feilds : ("id", "username","first_name","last_name", "password", "confirm_password","manufacturer", "address", "telephone", "is_active")
+"""
 class ManufacturerUserRegistrationSerializer(serializers.ModelSerializer):
 
 	confirm_password = serializers.CharField(write_only=True)
+
 	class Meta:
 		model = ManufacturerUser
 		fields = ("id", "username","first_name","last_name", "password", "confirm_password","manufacturer", "address", "telephone", "is_active")
 	
-
 	def create(self, validated_data):
+
 		del validated_data["confirm_password"]
 		validated_data["password"] = make_password(validated_data['password'])
 		
 		return super(ManufacturerUserRegistrationSerializer, self).create(validated_data)
 
 	def validate(self, attrs):
+
 		if attrs.get('password') != attrs.get('confirm_password'):
 			raise serializers.ValidationError("Those passwords don't match.")
 		return attrs
 
-
-
+"""
+ManufacturerUserLoginSerializer : defines required ManufacturerUser Login feilds  
+feilds : ("username", "password")
+"""
 class ManufacturerUserLoginSerializer(serializers.Serializer):
 
 	username = serializers.CharField(required=True)
@@ -134,6 +141,7 @@ class ManufacturerUserLoginSerializer(serializers.Serializer):
 	}
 
 	def __init__(self, *args, **kwargs):
+
 		super(ManufacturerUserLoginSerializer, self).__init__(*args, **kwargs)
 		self.user = None
 
