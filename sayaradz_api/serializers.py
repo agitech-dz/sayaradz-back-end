@@ -35,7 +35,7 @@ class ManufacturerUserSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = ManufacturerUser
-		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'email', 'is_active', 'manufacturer', 'manufacturer_name')
+		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'email', 'is_blocked', 'manufacturer', 'manufacturer_name')
 
 """
 AdminRegistrationSerializer : defines required Admin registration feilds  

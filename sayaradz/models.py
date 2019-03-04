@@ -31,6 +31,7 @@ class ManufacturerUser(User):
     telephone =  models.CharField(max_length=15)
     manufacturer = models.ForeignKey( 'manufacturer', on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, upload_to=get_upload_path1)
+    is_blocked = models.BooleanField(default=False)
     
     class Meta:
         ordering = ['id']

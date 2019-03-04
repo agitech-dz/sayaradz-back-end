@@ -198,17 +198,24 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 
 			user = serializer.user
 			if not user.is_superuser:
-				token, _ = Token.objects.get_or_create(user=user)
+				if not user.is_blocked:
+					token, _ = Token.objects.get_or_create(user=user)
 
-				return Response(
-					data=TokenSerializer(token).data,
-					status=status.HTTP_200_OK,
-				)
+					return Response(
+						data=TokenSerializer(token).data,
+						status=status.HTTP_200_OK,
+					)
+				else:
+					return Response(
+						data="Blocked",
+						status=status.HTTP_400_BAD_REQUEST,
+					)
+
 			else:
 				return Response(
 				data="Login Failed",
 				status=status.HTTP_400_BAD_REQUEST,
-			)
+				)
 
 		else:
 			return Response(
