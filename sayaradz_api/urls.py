@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth.models import User
 from sayaradz.models import Manufacturer, ManufacturerUser
 from rest_framework import routers
-from sayaradz.views import ManufacturerUserList, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView, MyModelViewSet
+from sayaradz.views import ManufacturerUserList, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView, MyModelViewSet, MyModelList
 
 from rest_framework.authtoken import views as rest_framework_views
 
@@ -49,9 +49,9 @@ urlpatterns = [
 
     path(r'api/docs', include_docs_urls(title='Sayara DZ API')),
 
-    path(r'api/manufacturers-user-filter', ManufacturerUserList.as_view(), name="filter"),
+    path(r'api/manufacturers-user-filter', ManufacturerUserList.as_view(), name="manufactureruser_filter"),
 
-    path(r'api/manufacturers-filter', ManufacturerList.as_view(), name="filter"),
+    path(r'api/manufacturers-filter', ManufacturerList.as_view(), name="manufacturer_filter"),
 
     path('api/admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
 
@@ -67,7 +67,7 @@ urlpatterns = [
 
     path('api/manufacturer-user/register/', ManufacturerUserRegistrationAPIView.as_view(), name="register_manufactureruser"),
 
-    #path('api/models/', MyModelViewSet)
+    path('api/models-filter', MyModelList.as_view(), name="model_filter")
 
 
 ]

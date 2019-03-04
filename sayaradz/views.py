@@ -324,4 +324,29 @@ class MyModelViewSet(viewsets.ModelViewSet):
 		data = serializer.data
 		return Response({'results':data})
 
+"""
+MyModelFilter : filter Model output data by ['code', 'name','manufacturer', 'manufacturer__name']
+"""
+class MyModelFilter(django_filters.FilterSet):
+	class Meta:
+		model = MyModel
+		fields = ['code', 'name', 'manufacturer', 'manufacturer__name']
+
+"""
+ManufacturerUserList : Get only, allows to get ManufacturerUser output data 
+ : using  	filtering by ['address', 'first_name','manufacturer', 'manufacturer__name'],
+			Search
+			ordering
+"""
+class MyModelList(ListAPIView):
+
+	permission_classes = (IsAuthenticated,)  
+	queryset = MyModel.objects.all()
+	serializer_class = MyModelSerializer
+	filter_class = MyModelFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ( 'code', 'name', 'manufacturer__name')
+	ordering_fields = '__all__'
+
+
 	

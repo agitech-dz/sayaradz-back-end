@@ -11,10 +11,10 @@ AdminSerializer : defines Admin model representation
 feilds : ('username', 'email', 'first_name', 'last_name', 'password' , 'is_superuser')
 """
 class AdminSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'password' , 'is_superuser')
-
 
 """
 ManufacturerSerializer : defines Manufacturer model representation
@@ -32,7 +32,7 @@ feilds : ('id','username','first_name', 'last_name',  'address', 'telephone', 'm
 """
 class ManufacturerUserSerializer(serializers.ModelSerializer):
 	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
-	manufacturer = serializers.ReadOnlyField(source='manufacturer.id') 
+
 	class Meta:
 		model = ManufacturerUser
 		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'email', 'is_active', 'manufacturer', 'manufacturer_name')
@@ -60,6 +60,7 @@ class AdminRegistrationSerializer(serializers.ModelSerializer):
 		if attrs.get('password') != attrs.get('confirm_password'):
 			raise serializers.ValidationError("Those passwords don't match.")
 		return attrs
+
 """
 AdminLoginSerializer : defines required Admin Login feilds  
 feilds : ("username", "password")
@@ -78,7 +79,6 @@ class AdminLoginSerializer(serializers.Serializer):
 
 		super(AdminLoginSerializer, self).__init__(*args, **kwargs)
 		self.user = None
-
 
 	def validate(self, attrs):
 
@@ -164,7 +164,8 @@ ModelSerializer : defines Manufacturer model representation
 feilds : ('code','name', 'manufacturer')
 """
 class MyModelSerializer(serializers.ModelSerializer):
-	
+
+	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
 	class Meta:
 		model = MyModel
-		fields = ('code','name', 'manufacturer')
+		fields = ('code','name', 'manufacturer', 'manufacturer_name')
