@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
-from sayaradz.models import Manufacturer, ManufacturerUser, MyModel
+from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version
 from django.contrib.auth.models import User 
 from django.contrib.auth.hashers import make_password
 
@@ -112,7 +112,7 @@ class ManufacturerUserRegistrationSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = ManufacturerUser
-		fields = ("id", "username","first_name","last_name", "password", "confirm_password","manufacturer", "address", "telephone", "is_active")
+		fields = ("id", "username","first_name","last_name", "password", "confirm_password","manufacturer", "address", "telephone", 'is_blocked')
 	
 	def create(self, validated_data):
 
@@ -161,7 +161,7 @@ class ManufacturerUserLoginSerializer(serializers.Serializer):
 
 """
 ModelSerializer : defines Manufacturer model representation
-feilds : ('code','name', 'manufacturer')
+feilds : ('code','name', 'manufacturer', 'manufacturer_name')
 """
 class MyModelSerializer(serializers.ModelSerializer):
 
@@ -169,3 +169,27 @@ class MyModelSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = MyModel
 		fields = ('code','name', 'manufacturer', 'manufacturer_name')
+
+"""
+OptionSerializer : defines Option model representation
+feilds : ('code','name', 'model', 'model_name')
+"""
+class OptionSerializer(serializers.ModelSerializer):
+
+	model_name = serializers.ReadOnlyField(source='model.name') 
+	class Meta:
+		model = Option
+		fields = ('code','name', 'model', 'model_name')
+
+"""
+VersionSerializer : defines Version model representation
+fields = ('code','name', 'options')
+ 
+"""
+class VersionSerializer(serializers.ModelSerializer):
+
+	options = OptionSerializer(read_only=True, many=True) 
+	
+	class Meta:
+		model = Version
+		fields = ('code','name', 'options')

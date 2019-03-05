@@ -59,10 +59,21 @@ class MyModel(models.Model):
     def __str__(self):
        return self.name
 
+#Option Model [Option]
+class Option(models.Model):
+    code = models.CharField(max_length=10, primary_key=True)
+    name = models.CharField(max_length=50)
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
+   
+
+    def __str__(self):
+       return self.name
+       
 #Version Model [Version]
 class Version(models.Model):
     code = models.CharField(max_length=20, primary_key=True)
     name = models.CharField(max_length=50)
+    options = models.ManyToManyField(Option)
 
     def __str__(self):
        return self.name
@@ -71,16 +82,6 @@ class Version(models.Model):
 class CarSeller(models.Model):
     name = models.CharField(max_length=50)
     telephone = models.CharField(max_length=15)
-
-    def __str__(self):
-       return self.name
-
-#Option Model [Option]
-class Option(models.Model):
-    code = models.CharField(max_length=10, primary_key=True)
-    name = models.CharField(max_length=50)
-    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
-    versions = models.ManyToManyField(Version)
 
     def __str__(self):
        return self.name

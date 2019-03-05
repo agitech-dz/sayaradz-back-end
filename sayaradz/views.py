@@ -5,8 +5,8 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.permissions import IsAuthenticated
-from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer
-from sayaradz.models import Manufacturer, ManufacturerUser, MyModel
+from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer, VersionSerializer, OptionSerializer
+from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
@@ -340,8 +340,8 @@ class MyModelFilter(django_filters.FilterSet):
 		fields = ['code', 'name', 'manufacturer', 'manufacturer__name']
 
 """
-ManufacturerUserList : Get only, allows to get ManufacturerUser output data 
- : using  	filtering by ['address', 'first_name','manufacturer', 'manufacturer__name'],
+MyModelList : Get only, allows to get ManufacturerUser output data 
+ : using  	filtering by ['code', 'name', 'manufacturer__name'],
 			Search
 			ordering
 """
@@ -355,5 +355,24 @@ class MyModelList(ListAPIView):
 	search_fields = ( 'code', 'name', 'manufacturer__name')
 	ordering_fields = '__all__'
 
+"""
+OptionViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class OptionViewSet(viewsets.ModelViewSet):
+
+	#pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = Option.objects.all()
+	serializer_class = OptionSerializer
+
+"""
+VersionViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class VersionViewSet(viewsets.ModelViewSet):
+
+	#pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = Version.objects.all()
+	serializer_class = VersionSerializer
 
 	
