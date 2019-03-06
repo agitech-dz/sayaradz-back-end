@@ -81,7 +81,7 @@ class Version(models.Model):
     code = models.CharField(max_length=20, primary_key=True)
     name = models.CharField(max_length=50)
     options = models.ManyToManyField(Option)
-    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
 
     def __str__(self):
        return self.name

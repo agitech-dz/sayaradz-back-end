@@ -5,8 +5,8 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.permissions import IsAuthenticated
-from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer, VersionSerializer, OptionSerializer
-from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option
+from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ColorSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer, VersionSerializer, OptionSerializer
+from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option, Color
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
@@ -370,12 +370,45 @@ VersionViewSet : get, delete, patch, partial_update, put, paginated output
 """
 class VersionViewSet(viewsets.ModelViewSet):
 
-	#pagination_class = StandardResultsSetPagination
-	
-
+	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = Version.objects.all().prefetch_related('options')
 	serializer_class = VersionSerializer
+
+	def list(self, request,*kwargs):
+		queryset = Version.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
+"""
+ColorViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class ColorViewSet(viewsets.ModelViewSet):
+
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = Color.objects.all().prefetch_related('options')
+	serializer_class = ColorSerializer
+
+	def list(self, request,*kwargs):
+		queryset = Color.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
+
+
 
 	
 	

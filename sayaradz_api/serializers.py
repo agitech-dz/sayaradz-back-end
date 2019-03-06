@@ -3,7 +3,7 @@ from drf_writable_nested import WritableNestedModelSerializer
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
-from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option
+from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option, Color
 from django.contrib.auth.models import User 
 from django.contrib.auth.hashers import make_password
 
@@ -185,16 +185,26 @@ class OptionSerializer(serializers.ModelSerializer):
 
 """
 VersionSerializer : defines Version model representation
-fields = ('code','name', 'options')
- 
+fields = ('code','name', 'options', 'model')
 """
-class VersionSerializer(WritableNestedModelSerializer):
+class VersionSerializer(serializers.ModelSerializer):
 
 	options = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Option.objects.all()) 
-	#manufacturer = serializers.ReadOnlyField(source='manufacturer.id') 
+	
 
 	class Meta:
 		model = Version
-		fields = ('code','name', 'options', 'manufacturer')
+		fields = ('code','name', 'options', 'model')
+
+"""
+ColorSerializer : defines Color model representation
+fields = ('code','name', 'manufacturer')
+"""
+class ColorSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Color
+		fields = ('code','name', 'model')
+
 
 	
