@@ -56,6 +56,10 @@ class MyModel(models.Model):
     name = models.CharField(max_length=50)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['code']
+        unique_together = ("code", "manufacturer")
+
     def __str__(self):
        return self.name
 
@@ -64,7 +68,10 @@ class Option(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
     model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
-   
+    
+    class Meta:
+        ordering = ['code']
+        unique_together = ("code", "model")
 
     def __str__(self):
        return self.name
@@ -74,9 +81,11 @@ class Version(models.Model):
     code = models.CharField(max_length=20, primary_key=True)
     name = models.CharField(max_length=50)
     options = models.ManyToManyField(Option)
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
 
     def __str__(self):
        return self.name
+
 
 #CarSeller Model [Concessionnaire]
 class CarSeller(models.Model):

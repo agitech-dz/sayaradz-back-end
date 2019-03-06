@@ -27,7 +27,7 @@ from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 
-#router.register(r'api/users/', UserViewSet)
+router.register(r'api/admins/', UserViewSet)
 
 router.register(r'api/manufacturers', ManufacturerViewSet, base_name='manufacturers')
 

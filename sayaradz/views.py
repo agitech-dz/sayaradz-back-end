@@ -371,8 +371,11 @@ VersionViewSet : get, delete, patch, partial_update, put, paginated output
 class VersionViewSet(viewsets.ModelViewSet):
 
 	#pagination_class = StandardResultsSetPagination
+	
+
 	permission_classes = (IsAuthenticated,)  
-	queryset = Version.objects.all()
+	queryset = Version.objects.all().prefetch_related('options')
 	serializer_class = VersionSerializer
 
+	
 	

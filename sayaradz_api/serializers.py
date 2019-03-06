@@ -1,8 +1,9 @@
 from rest_framework import serializers
+from drf_writable_nested import WritableNestedModelSerializer
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
-from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version
+from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option
 from django.contrib.auth.models import User 
 from django.contrib.auth.hashers import make_password
 
@@ -177,19 +178,23 @@ feilds : ('code','name', 'model', 'model_name')
 class OptionSerializer(serializers.ModelSerializer):
 
 	model_name = serializers.ReadOnlyField(source='model.name') 
+	manufacturer = serializers.ReadOnlyField(source='model.manufacturer_id') 
 	class Meta:
 		model = Option
-		fields = ('code','name', 'model', 'model_name')
+		fields = ('code','name', 'model', 'model_name', 'manufacturer')
 
 """
 VersionSerializer : defines Version model representation
 fields = ('code','name', 'options')
  
 """
-class VersionSerializer(serializers.ModelSerializer):
+class VersionSerializer(WritableNestedModelSerializer):
 
-	options = OptionSerializer(read_only=True, many=True) 
-	
+	options = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Option.objects.all()) 
+	#manufacturer = serializers.ReadOnlyField(source='manufacturer.id') 
+
 	class Meta:
 		model = Version
-		fields = ('code','name', 'options')
+		fields = ('code','name', 'options', 'manufacturer')
+
+	
