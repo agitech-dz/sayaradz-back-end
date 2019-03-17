@@ -15,7 +15,6 @@ deploy:
     app: sayaradz-back-end
     secure: CJ6ib5lZnGk6YJ5jkzuLJY1x6UcBUktFylCjQH+i5/mBx21VLM5KsbfA/x/h8Oj+/prLOvHFFG4CkiTSGaWHfvic+t2GEgORbRiYWkz0ObzNys4vEzg2q10+slXm4EiqPApddzwvdABTjII/z7qafAjtXCU6iATHHuloWk6Er8Pxja2HF0ZbrXgpfAnHXOqvuZYaJoneed/oELifwpLcdSS6WhAcNfcmpdsgSsilKE++cP/WACgBtl7mf/btOOQgdrqaJfGTQwf4l/ScmX7PtOqTePo5WGV0g1Pqw0Y20pqrHU4aD278jyPh8A+EXAAWdUNpnv1shiU3s7FYQwzqyF1msM4P5PF4OoZOSZai8ueJiE6w+RtahzprAtyb3cknRxo7JpSiepZQ4gml91OKtsIiuBWN8nsIk7CdM61hniCsOXm+GftwBHJl/GHon5B+JovQSu30Y0qorJJZ9x3e2jd0AZq2UTVyPrr4hvJxjFgEA/cAIyYMyaF7xrgGR6mY8yDMe0ubooycRiNO8gukhEBHfKi7je6PBHHVzD43IccVkzbCEquHzrpCtK2kte2Lqn+g4WpJX4PfeHn/Wn55Xtv2GlD8DsCNqX0GTOR8/s4s8aQuP/bOsA6RyojOrE2/dwWlI+tlYX9oAKWIMstSx5eMc7LwwMmgYfahskNIxGQ=
   run:
-      - "pip install -r requirements.txt"
       - "python manage.py makemigrations"
       - "python manage.py migrate"
       - "python manage.py runserver 0.0.0.0:8000"
