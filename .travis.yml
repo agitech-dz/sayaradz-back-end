@@ -6,9 +6,13 @@ python:
 env:
 - DJANGO
 before_script:
-- psql -c 'create database ledenbestand;' -U postgres
+- psql -c 'create database sayaradz_db1;' -U postgres
+- pip install virtualenv
+- virtualenv env --no-site-packages
+- source env/bin/activate
 script:
 - pip install -r requirements.txt
+- python manage.py test
 deploy:
   provider: heroku
   api_key:

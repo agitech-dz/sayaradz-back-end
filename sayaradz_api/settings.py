@@ -26,8 +26,8 @@ SECRET_KEY = 'tbgeak6_)g-+lknmhw!77)s-5_xk#zedysyerz!=9&mqehnc)r'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '53f409a2.ngrok.io'
-  #  'localhost:8000'
+    '53f409a2.ngrok.io',
+    'localhost'
 ]
 
 
