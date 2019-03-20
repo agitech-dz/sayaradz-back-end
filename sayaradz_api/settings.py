@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '53f409a2.ngrok.io',
-    'localhost'
+    'localhost',
+    'sayaradz-back-end.herokuapp.com'
 ]
 
 
