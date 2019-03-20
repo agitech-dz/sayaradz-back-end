@@ -1,17 +1,12 @@
 language: python
-services:
-- postgresql
+
 python:
 - "3.6"
-env:
-- DJANGO
-before_script:
-- psql -c 'create database sayaradz_db1;' -U postgres
-- pip install virtualenv
-- virtualenv env --no-site-packages
-- source env/bin/activate
+services:
+  - docker
+before_script: pip install docker-compose
 script:
-- pip install -r requirements.txt
+  - docker-compose run web sh -c "python manage.py test"
 
 deploy:
   provider: heroku
