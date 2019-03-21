@@ -9,7 +9,7 @@ before_install:
 before_script: pip install docker-compose
 script:
   - docker-compose run web python manage.py test -v 2
-  - docker build -t web
+  - docker build -t web .
   - docker tag web registry.heroku.com/$HEROKU_APP_NAME/web
 
 deploy:
