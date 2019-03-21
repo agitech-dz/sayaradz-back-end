@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth.models import User
 from sayaradz.models import Manufacturer, ManufacturerUser
 from rest_framework import routers
-from sayaradz.views import ManufacturerUserList, ColorViewSet, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView, MyModelViewSet, MyModelList, OptionViewSet, VersionViewSet
+from sayaradz.views import ManufacturerUserList, AutomobilistManufacturerViewSet, ColorViewSet, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView, MyModelViewSet, MyModelList, OptionViewSet, VersionViewSet
 
 from rest_framework.authtoken import views as rest_framework_views
 
@@ -40,6 +40,11 @@ router.register(r'api/options', OptionViewSet)
 router.register(r'api/versions', VersionViewSet)
 
 router.register(r'api/colors', ColorViewSet)
+
+router.register(r'api/automobilist/models', MyModelViewSet)
+
+router.register(r'api/automobilist/versions', MyModelViewSet)
+
 
 # Wire up our API using automatic URL routing.
 
@@ -73,7 +78,10 @@ urlpatterns = [
 
     path('api/manufacturer-user/register/', ManufacturerUserRegistrationAPIView.as_view(), name="register_manufactureruser"),
 
-    path('api/models-filter', MyModelList.as_view(), name="model_filter")
+    path('api/models-filter', MyModelList.as_view(), name="model_filter"),
+
+    path('api/automobilist/manufacturers', AutomobilistManufacturerViewSet.as_view(), name='automobilist_manufacturers')
+
 
 
 ]

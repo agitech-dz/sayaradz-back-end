@@ -108,7 +108,7 @@ class Color(models.Model):
 class Car(models.Model):
     numChassis = models.CharField(max_length=50, primary_key=True)
     color = models.ForeignKey(MyModel, on_delete=models.SET_NULL, db_column='color', null=True)
-    version = models.ForeignKey(Manufacturer, on_delete=models.SET_NULL, db_column='version', null=True)
+    version = models.ForeignKey(Version, on_delete=models.SET_NULL, db_column='version', null=True)
     options = models.ManyToManyField(Option)
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path2)
     photo2 = models.ImageField(blank=True, upload_to=get_upload_path2)
@@ -198,3 +198,11 @@ class Offer(models.Model):
 
 
 
+
+#Country Model [Nationalité]
+class Country(models.Model):
+    
+    country = models.CharField(max_length=100)
+
+    def __str__(self):
+       return self.country
