@@ -1,0 +1,925 @@
+2019-03-17 22:51:17,287 [INFO]- [36mGET /[0m
+2019-03-17 22:51:17,288 [DEBUG]- [36m{'HTTP_HOST': 'localhost:3000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_PURPOSE': 'prefetch', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y', 'HTTP_IF_NONE_MATCH': 'W/"fe-gVyX9VfJSeTEnAfnRhstdQ"'}[0m
+2019-03-17 22:51:17,421 [INFO]- [35mGET / - 400[0m
+2019-03-17 22:51:17,422 [WARNING]- Bad Request: /
+2019-03-17 22:51:29,582 [INFO]- [36mGET /api[0m
+2019-03-17 22:51:29,584 [DEBUG]- [36m{'HTTP_HOST': 'localhost:3000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:51:29,669 [INFO]- [35mGET /api - 400[0m
+2019-03-17 22:51:29,670 [WARNING]- Bad Request: /api
+2019-03-17 22:51:36,232 [INFO]- [36mGET /admin[0m
+2019-03-17 22:51:36,233 [DEBUG]- [36m{'HTTP_HOST': 'localhost:3000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:51:36,267 [INFO]- [35mGET /admin - 400[0m
+2019-03-17 22:51:36,268 [WARNING]- Bad Request: /admin
+2019-03-17 22:52:43,260 [INFO]- [36mGET /admin[0m
+2019-03-17 22:52:43,260 [DEBUG]- [36m{'HTTP_HOST': 'localhost:3000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:52:43,306 [INFO]- [35mGET /admin - 400[0m
+2019-03-17 22:52:43,307 [WARNING]- Bad Request: /admin
+2019-03-17 22:53:22,713 [INFO]- [36mGET /[0m
+2019-03-17 22:53:22,715 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:53:22,823 [INFO]- [35mGET / - 400[0m
+2019-03-17 22:53:22,823 [WARNING]- Bad Request: /
+2019-03-17 22:53:23,495 [INFO]- [36mGET /favicon.ico[0m
+2019-03-17 22:53:23,496 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:53:23,528 [INFO]- [35mGET /favicon.ico - 400[0m
+2019-03-17 22:53:23,529 [WARNING]- Bad Request: /favicon.ico
+2019-03-17 22:53:29,182 [INFO]- [36mGET /[0m
+2019-03-17 22:53:29,188 [DEBUG]- [36m{'HTTP_HOST': '127.0.0.1:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'PGADMIN_KEY=5a2b2064-10ff-4be3-9d79-dbe7ad3918d0; pga4_session=ba753618-cff2-42c7-b28b-8654f21b57cc!/er+Dv+NiQG8LeUEJq6zJkEenUo=; PGADMIN_LANGUAGE=en'}[0m
+2019-03-17 22:53:29,241 [INFO]- [35mGET / - 400[0m
+2019-03-17 22:53:29,242 [WARNING]- Bad Request: /
+2019-03-17 22:53:29,892 [INFO]- [36mGET /favicon.ico[0m
+2019-03-17 22:53:29,893 [DEBUG]- [36m{'HTTP_HOST': '127.0.0.1:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://127.0.0.1:8000/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'PGADMIN_KEY=5a2b2064-10ff-4be3-9d79-dbe7ad3918d0; pga4_session=ba753618-cff2-42c7-b28b-8654f21b57cc!/er+Dv+NiQG8LeUEJq6zJkEenUo=; PGADMIN_LANGUAGE=en'}[0m
+2019-03-17 22:53:29,937 [INFO]- [35mGET /favicon.ico - 400[0m
+2019-03-17 22:53:29,938 [WARNING]- Bad Request: /favicon.ico
+2019-03-17 22:54:11,982 [INFO]- [36mGET /[0m
+2019-03-17 22:54:11,983 [DEBUG]- [36m{'HTTP_HOST': '127.0.0.1:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'PGADMIN_KEY=5a2b2064-10ff-4be3-9d79-dbe7ad3918d0; pga4_session=ba753618-cff2-42c7-b28b-8654f21b57cc!/er+Dv+NiQG8LeUEJq6zJkEenUo=; PGADMIN_LANGUAGE=en'}[0m
+2019-03-17 22:54:12,030 [INFO]- [35mGET / - 400[0m
+2019-03-17 22:54:12,031 [WARNING]- Bad Request: /
+2019-03-17 22:54:12,327 [INFO]- [36mGET /favicon.ico[0m
+2019-03-17 22:54:12,328 [DEBUG]- [36m{'HTTP_HOST': '127.0.0.1:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://127.0.0.1:8000/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'PGADMIN_KEY=5a2b2064-10ff-4be3-9d79-dbe7ad3918d0; pga4_session=ba753618-cff2-42c7-b28b-8654f21b57cc!/er+Dv+NiQG8LeUEJq6zJkEenUo=; PGADMIN_LANGUAGE=en'}[0m
+2019-03-17 22:54:12,361 [INFO]- [35mGET /favicon.ico - 400[0m
+2019-03-17 22:54:12,361 [WARNING]- Bad Request: /favicon.ico
+2019-03-17 22:54:19,288 [INFO]- [36mGET /[0m
+2019-03-17 22:54:19,289 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:54:19,356 [INFO]- [35mGET / - 400[0m
+2019-03-17 22:54:19,357 [WARNING]- Bad Request: /
+2019-03-17 22:54:19,969 [INFO]- [36mGET /favicon.ico[0m
+2019-03-17 22:54:19,970 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:54:20,013 [INFO]- [35mGET /favicon.ico - 400[0m
+2019-03-17 22:54:20,013 [WARNING]- Bad Request: /favicon.ico
+2019-03-17 22:54:30,642 [INFO]- [36mGET /[0m
+2019-03-17 22:54:30,644 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:54:30,769 [INFO]- [35mGET / - 400[0m
+2019-03-17 22:54:30,770 [WARNING]- Bad Request: /
+2019-03-17 22:54:31,074 [INFO]- [36mGET /favicon.ico[0m
+2019-03-17 22:54:31,075 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:54:31,111 [INFO]- [35mGET /favicon.ico - 400[0m
+2019-03-17 22:54:31,112 [WARNING]- Bad Request: /favicon.ico
+2019-03-17 22:54:42,213 [INFO]- [36mGET /admin[0m
+2019-03-17 22:54:42,214 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:54:42,284 [INFO]- [35mGET /admin - 400[0m
+2019-03-17 22:54:42,285 [WARNING]- Bad Request: /admin
+2019-03-17 22:54:42,779 [INFO]- [36mGET /favicon.ico[0m
+2019-03-17 22:54:42,780 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/admin', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:54:42,827 [INFO]- [35mGET /favicon.ico - 400[0m
+2019-03-17 22:54:42,829 [WARNING]- Bad Request: /favicon.ico
+2019-03-17 22:56:02,958 [INFO]- [36mGET /admin[0m
+2019-03-17 22:56:02,960 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:02,964 [INFO]- [36mGET /admin - 301[0m
+2019-03-17 22:56:02,976 [INFO]- [36mGET /admin/[0m
+2019-03-17 22:56:02,977 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:03,069 [INFO]- [36mGET /admin/ - 302[0m
+2019-03-17 22:56:03,073 [INFO]- [36mGET /admin/login/?next=/admin/[0m
+2019-03-17 22:56:03,073 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:03,164 [INFO]- [36mGET /admin/login/?next=/admin/ - 200[0m
+2019-03-17 22:56:03,598 [INFO]- [36mGET /favicon.ico[0m
+2019-03-17 22:56:03,600 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/admin/login/?next=/admin/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:03,611 [INFO]- [35mGET /favicon.ico - 404[0m
+2019-03-17 22:56:03,612 [WARNING]- Not Found: /favicon.ico
+2019-03-17 22:56:12,483 [INFO]- [36mGET /[0m
+2019-03-17 22:56:12,484 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:12,486 [INFO]- [36mGET / - 200[0m
+2019-03-17 22:56:12,486 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '139'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-17 22:56:12,487 [DEBUG]- [36mb'{"api/manufacturers":"http://localhost:8000/api/manufacturers/","api/manufacturers-users":"http://localhost:8000/api/manufacturers-users/"}'[0m
+2019-03-17 22:56:23,678 [INFO]- [36mGET /api[0m
+2019-03-17 22:56:23,679 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:23,684 [INFO]- [35mGET /api - 404[0m
+2019-03-17 22:56:23,684 [WARNING]- Not Found: /api
+2019-03-17 22:56:40,096 [INFO]- [36mGET /api/manufacturers[0m
+2019-03-17 22:56:40,097 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:40,097 [INFO]- [36mGET /api/manufacturers - 301[0m
+2019-03-17 22:56:40,105 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-17 22:56:40,106 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:40,107 [INFO]- [35mGET /api/manufacturers/ - 401[0m
+2019-03-17 22:56:40,108 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-17 22:56:40,108 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-17 22:56:40,109 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-17 22:56:54,033 [INFO]- [36mGET /admin/[0m
+2019-03-17 22:56:54,034 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:54,035 [INFO]- [36mGET /admin/ - 302[0m
+2019-03-17 22:56:54,040 [INFO]- [36mGET /admin/login/?next=/admin/[0m
+2019-03-17 22:56:54,041 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:54,057 [INFO]- [36mGET /admin/login/?next=/admin/ - 200[0m
+2019-03-17 22:56:58,545 [INFO]- [36mPOST /admin/login/?next=/admin/[0m
+2019-03-17 22:56:58,546 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/admin/login/?next=/admin/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=IhiDcPhwAzZugY3EXUhwpBe5gBwMDiG6Ex4UnkzUhlvRzhLmrsHOF2SkYd6biA3y'}[0m
+2019-03-17 22:56:58,546 [DEBUG]- [36mb'csrfmiddlewaretoken=DROxA7KDlXJIy8duw40aaCrsp2bm8Rbaz7AOLC212Jf5RrVc0Cqsq35H7ELLN9yC&username=admin&password=admin&next=%2Fadmin%2F'[0m
+2019-03-17 22:56:58,885 [INFO]- [36mPOST /admin/login/?next=/admin/ - 302[0m
+2019-03-17 22:56:58,890 [INFO]- [36mGET /admin/[0m
+2019-03-17 22:56:58,890 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/admin/login/?next=/admin/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op; sessionid=brpk2w2ra3a4qnubawqngjjkjaj48i84'}[0m
+2019-03-17 22:56:59,139 [INFO]- [36mGET /admin/ - 200[0m
+2019-03-17 22:57:09,083 [INFO]- [36mGET /admin/auth/user/[0m
+2019-03-17 22:57:09,083 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/admin/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op; sessionid=brpk2w2ra3a4qnubawqngjjkjaj48i84'}[0m
+2019-03-17 22:57:09,182 [INFO]- [36mGET /admin/auth/user/ - 200[0m
+2019-03-17 22:57:09,240 [INFO]- [36mGET /admin/jsi18n/[0m
+2019-03-17 22:57:09,247 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/admin/auth/user/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op; sessionid=brpk2w2ra3a4qnubawqngjjkjaj48i84'}[0m
+2019-03-17 22:57:09,324 [INFO]- [36mGET /admin/jsi18n/ - 200[0m
+2019-03-18 19:28:55,241 [INFO]- [36mGET /[0m
+2019-03-18 19:28:55,243 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_PURPOSE': 'prefetch', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op; sessionid=brpk2w2ra3a4qnubawqngjjkjaj48i84'}[0m
+2019-03-18 19:28:55,355 [INFO]- [36mGET / - 200[0m
+2019-03-18 19:28:55,356 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '139')}[0m
+2019-03-18 19:28:55,356 [DEBUG]- [36mb'{"api/manufacturers":"http://localhost:8000/api/manufacturers/","api/manufacturers-users":"http://localhost:8000/api/manufacturers-users/"}'[0m
+2019-03-18 19:28:56,073 [INFO]- [36mGET /favicon.ico[0m
+2019-03-18 19:28:56,074 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'image/webp,image/apng,image/*,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:28:56,085 [INFO]- [35mGET /favicon.ico - 404[0m
+2019-03-18 19:28:56,086 [WARNING]- Not Found: /favicon.ico
+2019-03-18 19:56:54,593 [INFO]- [36mGET /admin[0m
+2019-03-18 19:56:54,596 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:56:54,603 [INFO]- [36mGET /admin - 301[0m
+2019-03-18 19:56:54,615 [INFO]- [36mGET /admin/[0m
+2019-03-18 19:56:54,616 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:56:54,635 [INFO]- [36mGET /admin/ - 302[0m
+2019-03-18 19:56:54,641 [INFO]- [36mGET /admin/login/?next=/admin/[0m
+2019-03-18 19:56:54,642 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:56:54,686 [INFO]- [36mGET /admin/login/?next=/admin/ - 200[0m
+2019-03-18 19:56:57,379 [INFO]- [36mPOST /admin/login/?next=/admin/[0m
+2019-03-18 19:56:57,380 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/admin/login/?next=/admin/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:56:57,380 [DEBUG]- [36mb'csrfmiddlewaretoken=4WD9iBTuinn1KlpUHNZggAjfXRO6z79BokVkbKtVCfvh4fmZ7znzZUtxWTqhHjQ5&username=admin&password=admin&next=%2Fadmin%2F'[0m
+2019-03-18 19:56:57,607 [INFO]- [36mPOST /admin/login/?next=/admin/ - 200[0m
+2019-03-18 19:57:07,948 [INFO]- [36mPOST /admin/login/?next=/admin/[0m
+2019-03-18 19:57:07,949 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_REFERER': 'http://localhost:8000/admin/login/?next=/admin/', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:57:07,949 [DEBUG]- [36mb'csrfmiddlewaretoken=yaXrcZ4tdOPaXiNnYoLstyrsT946fObqSyfC58EUxGXqhcKsoa9LcSBKSbGhn0SU&username=root&password=root&next=%2Fadmin%2F'[0m
+2019-03-18 19:57:08,142 [INFO]- [36mPOST /admin/login/?next=/admin/ - 200[0m
+2019-03-18 19:57:14,385 [INFO]- [36mGET /api[0m
+2019-03-18 19:57:14,386 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:57:14,392 [INFO]- [35mGET /api - 404[0m
+2019-03-18 19:57:14,392 [WARNING]- Not Found: /api
+2019-03-18 19:57:24,693 [INFO]- [36mGET /api/manufacturers[0m
+2019-03-18 19:57:24,694 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:57:24,695 [INFO]- [36mGET /api/manufacturers - 301[0m
+2019-03-18 19:57:24,702 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-18 19:57:24,703 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:57:24,705 [INFO]- [35mGET /api/manufacturers/ - 401[0m
+2019-03-18 19:57:24,705 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-18 19:57:24,706 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-18 19:57:24,706 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-18 19:57:32,303 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-18 19:57:32,304 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic YWRtaW46YWRtaW4=', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:57:32,503 [INFO]- [35mGET /api/manufacturers/ - 401[0m
+2019-03-18 19:57:32,504 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '39')}[0m
+2019-03-18 19:57:32,507 [ERROR]- [35mb'{"detail":"Invalid username/password."}'[0m
+2019-03-18 19:57:32,508 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-18 19:57:46,043 [INFO]- [36mGET /[0m
+2019-03-18 19:57:46,044 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-18 19:57:46,047 [INFO]- [36mGET / - 200[0m
+2019-03-18 19:57:46,047 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '139'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-18 19:57:46,048 [DEBUG]- [36mb'{"api/manufacturers":"http://localhost:8000/api/manufacturers/","api/manufacturers-users":"http://localhost:8000/api/manufacturers-users/"}'[0m
+2019-03-20 14:07:37,919 [INFO]- [36mGET /[0m
+2019-03-20 14:07:37,921 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_PURPOSE': 'prefetch', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:07:37,939 [INFO]- [36mGET / - 200[0m
+2019-03-20 14:07:37,941 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '139'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 14:07:37,942 [DEBUG]- [36mb'{"api/manufacturers":"http://localhost:8000/api/manufacturers/","api/manufacturers-users":"http://localhost:8000/api/manufacturers-users/"}'[0m
+2019-03-20 14:11:30,707 [INFO]- [36mGET /[0m
+2019-03-20 14:11:30,708 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:11:30,722 [INFO]- [36mGET / - 200[0m
+2019-03-20 14:11:30,726 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '139'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 14:11:30,727 [DEBUG]- [36mb'{"api/manufacturers":"http://localhost:8000/api/manufacturers/","api/manufacturers-users":"http://localhost:8000/api/manufacturers-users/"}'[0m
+2019-03-20 14:11:43,474 [INFO]- [36mGET /api[0m
+2019-03-20 14:11:43,475 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:11:43,489 [INFO]- [35mGET /api - 404[0m
+2019-03-20 14:11:43,489 [WARNING]- Not Found: /api
+2019-03-20 14:11:55,335 [INFO]- [36mGET /api/docs[0m
+2019-03-20 14:11:55,336 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:11:55,475 [INFO]- [36mGET /api/docs - 200[0m
+2019-03-20 14:11:55,586 [INFO]- [36mGET /api/docsschema.js[0m
+2019-03-20 14:11:55,592 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 14:11:55,697 [INFO]- [36mGET /api/docsschema.js - 200[0m
+2019-03-20 14:12:49,914 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-20 14:12:49,915 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:12:49,917 [DEBUG]- [36mb'{"username":"user","password":"user"}'[0m
+2019-03-20 14:12:50,098 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-20 14:12:50,098 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '67')}[0m
+2019-03-20 14:12:50,098 [ERROR]- [35mb'{"non_field_errors":["Unable to login with provided credentials."]}'[0m
+2019-03-20 14:12:50,098 [WARNING]- Bad Request: /api/admin/login/
+2019-03-20 14:13:15,813 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-20 14:13:15,814 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:13:15,815 [DEBUG]- [36mb'{"first_name":"root","last_name":"root","username":"root","password":"root","confirm_password":"root"}'[0m
+2019-03-20 14:13:15,996 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-20 14:13:15,996 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '208')}[0m
+2019-03-20 14:13:15,996 [DEBUG]- [36mb'{"id":2,"first_name":"root","last_name":"root","username":"root","password":"pbkdf2_sha256$120000$K8VJbMHMPS63$BdIpR17CtRzuWQyfBUa9XvEsaqV26VQUGHYMa8hDRGs=","token":"b47ba5b9830e1e79200b522a40df958b5670c2b2"}'[0m
+2019-03-20 14:13:36,439 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-20 14:13:36,440 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:13:36,442 [DEBUG]- [36mb'{"username":"root","password":"root"}'[0m
+2019-03-20 14:13:36,624 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-20 14:13:36,625 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-20 14:13:36,625 [DEBUG]- [36mb'{"auth_token":"b47ba5b9830e1e79200b522a40df958b5670c2b2","created":"2019-03-20T14:13:15.993219Z","user":2}'[0m
+2019-03-20 14:14:01,196 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-20 14:14:01,197 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:14:01,198 [INFO]- [35mGET /api/manufacturers/ - 401[0m
+2019-03-20 14:14:01,199 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 14:14:01,199 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-20 14:14:01,199 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-20 14:14:07,031 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-20 14:14:07,031 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic cm9vdDpyb290', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 14:14:07,205 [INFO]- [36mGET /api/manufacturers/ - 200[0m
+2019-03-20 14:14:07,205 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '52')}[0m
+2019-03-20 14:14:07,205 [DEBUG]- [36mb'{"count":0,"next":null,"previous":null,"results":[]}'[0m
+2019-03-20 14:15:38,875 [INFO]- [36mGET /api/docs[0m
+2019-03-20 14:15:38,877 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:15:38,988 [INFO]- [36mGET /api/docs - 200[0m
+2019-03-20 14:15:39,093 [INFO]- [36mGET /api/docsschema.js[0m
+2019-03-20 14:15:39,097 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 14:15:39,132 [INFO]- [36mGET /api/docsschema.js - 200[0m
+2019-03-20 14:16:02,820 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-20 14:16:02,821 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:16:02,822 [DEBUG]- [36mb'{"username":"admin","password":"admin"}'[0m
+2019-03-20 14:16:02,989 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-20 14:16:02,990 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-20 14:16:02,990 [DEBUG]- [36mb'{"auth_token":"025048ba78d119b358fe96dc76f468e9ce3ebefb","created":"2019-03-20T14:16:02.981119Z","user":1}'[0m
+2019-03-20 14:50:53,696 [INFO]- [36mGET /api/docs[0m
+2019-03-20 14:50:53,697 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 14:50:53,799 [INFO]- [36mGET /api/docs - 200[0m
+2019-03-20 14:50:53,877 [INFO]- [36mGET /api/docsschema.js[0m
+2019-03-20 14:50:53,883 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 14:50:53,981 [INFO]- [36mGET /api/docsschema.js - 200[0m
+2019-03-20 17:22:53,407 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-20 17:22:53,409 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:53,409 [DEBUG]- [36mb'{"username":"testadmin"}'[0m
+2019-03-20 17:22:53,413 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-20 17:22:53,414 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '40')}[0m
+2019-03-20 17:22:53,426 [ERROR]- [35mb'{"password":["This field is required."]}'[0m
+2019-03-20 17:22:53,436 [WARNING]- Bad Request: /api/admin/login/
+2019-03-20 17:22:53,440 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-20 17:22:53,441 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:53,442 [DEBUG]- [36mb'{"username":"testadmin","password":"you_know_nothing"}'[0m
+2019-03-20 17:22:53,564 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-20 17:22:53,565 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-20 17:22:53,566 [DEBUG]- [36mb'{"auth_token":"34715c616894300de1fd3cb388a16577029ca7f3","created":"2019-03-20T17:22:53.562669Z","user":1}'[0m
+2019-03-20 17:22:53,569 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-20 17:22:53,570 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:53,570 [DEBUG]- [36mb'{"username":"testadmin","password":"I_know"}'[0m
+2019-03-20 17:22:53,689 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-20 17:22:53,692 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '67')}[0m
+2019-03-20 17:22:53,700 [ERROR]- [35mb'{"non_field_errors":["Unable to login with provided credentials."]}'[0m
+2019-03-20 17:22:53,708 [WARNING]- Bad Request: /api/admin/login/
+2019-03-20 17:22:53,716 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-20 17:22:53,716 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:53,716 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"654654"}'[0m
+2019-03-20 17:22:53,843 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-20 17:22:53,843 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '205')}[0m
+2019-03-20 17:22:53,843 [DEBUG]- [36mb'{"id":2,"first_name":"","last_name":"","username":"testadmin","password":"pbkdf2_sha256$120000$Elh6UCll3PhE$PD4Z32GLTWm1iqnXwtMe8YLZTUrWbla8WrrO2tZGGWY=","token":"f4c63d6d1fdea554fefabc21a109fe53399f1a64"}'[0m
+2019-03-20 17:22:53,849 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-20 17:22:53,849 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:53,849 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"INVALID_PASSWORD"}'[0m
+2019-03-20 17:22:53,853 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-20 17:22:53,853 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-20 17:22:53,862 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-20 17:22:53,871 [WARNING]- Bad Request: /api/admin/register/
+2019-03-20 17:22:53,874 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-20 17:22:53,875 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:53,875 [DEBUG]- [36mb'{"username":"testadmin1","email":"test1@testadmin.com","password":"123123","confirm_password":"123123"}'[0m
+2019-03-20 17:22:54,002 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-20 17:22:54,002 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '206')}[0m
+2019-03-20 17:22:54,002 [DEBUG]- [36mb'{"id":3,"first_name":"","last_name":"","username":"testadmin1","password":"pbkdf2_sha256$120000$QCx0Ob0mE807$kyArwQyOgG/x7Z+Q48DdbCYqGIyc0pdumDQiw5RyLjY=","token":"209b4f4770b0f40eecb2f605739622dd7fa149dd"}'[0m
+2019-03-20 17:22:54,003 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-20 17:22:54,003 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:54,003 [DEBUG]- [36mb'{"username":"testadmin1","email":"test2@testadmin.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST"}'[0m
+2019-03-20 17:22:54,007 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-20 17:22:54,007 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-20 17:22:54,016 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-20 17:22:54,026 [WARNING]- Bad Request: /api/admin/register/
+2019-03-20 17:22:54,038 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-20 17:22:54,039 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:54,039 [DEBUG]- [36mb'{"username":"testuser","email":"test@testuser.com","password":"password","confirm_password":"INVALID_PASSWORD","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-20 17:22:54,046 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-20 17:22:54,046 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-20 17:22:54,056 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-20 17:22:54,065 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-20 17:22:54,069 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-20 17:22:54,069 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:54,069 [DEBUG]- [36mb'{"username":"testuser88","email":"test@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-20 17:22:54,194 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-20 17:22:54,194 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '284')}[0m
+2019-03-20 17:22:54,194 [DEBUG]- [36mb'{"id":4,"username":"testuser88","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$SxW1YZnYdiG0$i3n7rtC0hTY7uZDNrmTIynWcfZuBd1qERADz11G0m5g=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"23ecc7f0459d0f302ac310b65b45e266083660a8"}'[0m
+2019-03-20 17:22:54,200 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-20 17:22:54,200 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:54,200 [DEBUG]- [36mb'{"username":"testuser1","email":"test1@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-20 17:22:54,326 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-20 17:22:54,326 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '283')}[0m
+2019-03-20 17:22:54,326 [DEBUG]- [36mb'{"id":5,"username":"testuser1","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$3igywuADtp5D$TTlHMkTw9G4e2UAJXu8Feqp9joRQCpdgP6pcS8Q1K/w=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"039c279be4952209ea728351101bc1e272f1a110"}'[0m
+2019-03-20 17:22:54,327 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-20 17:22:54,327 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:54,327 [DEBUG]- [36mb'{"username":"testuser1","email":"test2@testuser.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-20 17:22:54,332 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-20 17:22:54,332 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-20 17:22:54,342 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-20 17:22:54,352 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-20 17:22:54,606 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-20 17:22:54,606 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=4lb47uonphjx9c78775qx5khmfvllxo3; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-20 17:22:54,606 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-20 17:22:54,612 [INFO]- [36mPOST /api/manufacturers/ - 201[0m
+2019-03-20 17:22:54,612 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '66'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 17:22:54,612 [DEBUG]- [36mb'{"id":3,"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-20 17:22:54,616 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-20 17:22:54,616 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-20 17:22:54,616 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-20 17:22:54,617 [INFO]- [35mPOST /api/manufacturers/ - 401[0m
+2019-03-20 17:22:54,617 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 17:22:54,624 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-20 17:22:54,632 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-20 17:22:54,765 [INFO]- [36mGET /api/manufacturers/1000/[0m
+2019-03-20 17:22:54,765 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=c1e1alh2ej9b7cisf0d2qqlrgg3l83yo; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-20 17:22:54,768 [INFO]- [35mGET /api/manufacturers/1000/ - 404[0m
+2019-03-20 17:22:54,768 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '23'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 17:22:54,778 [ERROR]- [35mb'{"detail":"Not found."}'[0m
+2019-03-20 17:22:54,788 [WARNING]- Not Found: /api/manufacturers/1000/
+2019-03-20 17:22:54,934 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-20 17:22:54,934 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=2xl3s6i9xnksmp8hgyn36rds51h5agd3; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-20 17:22:54,934 [DEBUG]- [36mb'{"name":"existing_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-20 17:22:54,939 [INFO]- [35mPOST /api/manufacturers/ - 400[0m
+2019-03-20 17:22:54,939 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '56'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 17:22:54,947 [ERROR]- [35mb'{"name":["manufacturer with this name already exists."]}'[0m
+2019-03-20 17:22:54,956 [WARNING]- Bad Request: /api/manufacturers/
+2019-03-20 17:22:55,096 [INFO]- [36mPATCH /api/manufacturers/4/[0m
+2019-03-20 17:22:55,096 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=ypxllydmw7exyau7v2jfhj1u88hs85ok; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-20 17:22:55,096 [DEBUG]- [36mb'{"nationality":"updated_nationality"}'[0m
+2019-03-20 17:22:55,103 [INFO]- [36mPATCH /api/manufacturers/4/ - 200[0m
+2019-03-20 17:22:55,103 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '77'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 17:22:55,103 [DEBUG]- [36mb'{"id":4,"name":"existing_manifactuerer2","nationality":"updated_nationality"}'[0m
+2019-03-20 17:58:55,892 [INFO]- [36mGET /[0m
+2019-03-20 17:58:55,894 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 17:58:55,901 [INFO]- [36mGET / - 200[0m
+2019-03-20 17:58:55,906 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '139'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 17:58:55,908 [DEBUG]- [36mb'{"api/manufacturers":"http://localhost:8000/api/manufacturers/","api/manufacturers-users":"http://localhost:8000/api/manufacturers-users/"}'[0m
+2019-03-20 17:59:02,899 [INFO]- [36mGET /api/docs[0m
+2019-03-20 17:59:02,900 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 17:59:03,010 [INFO]- [36mGET /api/docs - 200[0m
+2019-03-20 17:59:03,111 [INFO]- [36mGET /api/docsschema.js[0m
+2019-03-20 17:59:03,112 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 17:59:03,148 [INFO]- [36mGET /api/docsschema.js - 200[0m
+2019-03-20 17:59:15,467 [INFO]- [36mGET /api/manufacturers-users/[0m
+2019-03-20 17:59:15,467 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 17:59:15,468 [INFO]- [35mGET /api/manufacturers-users/ - 401[0m
+2019-03-20 17:59:15,468 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 17:59:15,469 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-20 17:59:15,469 [WARNING]- Unauthorized: /api/manufacturers-users/
+2019-03-20 17:59:15,473 [INFO]- [36mGET /api/manufacturers-users/[0m
+2019-03-20 17:59:15,473 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic cm9vdDpyb290', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 17:59:15,606 [INFO]- [35mGET /api/manufacturers-users/ - 401[0m
+2019-03-20 17:59:15,606 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '39')}[0m
+2019-03-20 17:59:15,606 [ERROR]- [35mb'{"detail":"Invalid username/password."}'[0m
+2019-03-20 17:59:15,607 [WARNING]- Unauthorized: /api/manufacturers-users/
+2019-03-20 17:59:22,222 [INFO]- [36mGET /api/manufacturers-users/[0m
+2019-03-20 17:59:22,223 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic cm9vdDpyb290', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 17:59:22,368 [INFO]- [35mGET /api/manufacturers-users/ - 401[0m
+2019-03-20 17:59:22,368 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '39')}[0m
+2019-03-20 17:59:22,368 [ERROR]- [35mb'{"detail":"Invalid username/password."}'[0m
+2019-03-20 17:59:22,369 [WARNING]- Unauthorized: /api/manufacturers-users/
+2019-03-20 17:59:27,768 [INFO]- [36mGET /api/manufacturers-users/[0m
+2019-03-20 17:59:27,769 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic YWRtaW46YWRtaW4=', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 17:59:27,941 [INFO]- [35mGET /api/manufacturers-users/ - 401[0m
+2019-03-20 17:59:27,943 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '39')}[0m
+2019-03-20 17:59:27,943 [ERROR]- [35mb'{"detail":"Invalid username/password."}'[0m
+2019-03-20 17:59:27,943 [WARNING]- Unauthorized: /api/manufacturers-users/
+2019-03-20 17:59:59,931 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-20 17:59:59,931 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 17:59:59,931 [DEBUG]- [36mb'{"first_name":"admin","last_name":"admin","username":"admin","password":"admin","confirm_password":"admin"}'[0m
+2019-03-20 18:00:00,128 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-20 18:00:00,128 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '211')}[0m
+2019-03-20 18:00:00,129 [DEBUG]- [36mb'{"id":1,"first_name":"admin","last_name":"admin","username":"admin","password":"pbkdf2_sha256$120000$DHhAb9znAmEb$ijXCQvt+8bU9GcI+pCF6hs2UWzige1u+MeTRSGhG150=","token":"34f1dd25c921cca8d4760ac6e998c7b57aaf8647"}'[0m
+2019-03-20 18:00:28,856 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-20 18:00:28,856 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 18:00:28,860 [INFO]- [35mGET /api/manufacturers/ - 401[0m
+2019-03-20 18:00:28,860 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-20 18:00:28,860 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-20 18:00:28,860 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-20 18:00:32,762 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-20 18:00:32,762 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic YWRtaW46YWRtaW4=', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 18:00:32,915 [INFO]- [36mGET /api/manufacturers/ - 200[0m
+2019-03-20 18:00:32,915 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '52')}[0m
+2019-03-20 18:00:32,915 [DEBUG]- [36mb'{"count":0,"next":null,"previous":null,"results":[]}'[0m
+2019-03-20 18:00:50,591 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-20 18:00:50,591 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic YWRtaW46YWRtaW4=', 'HTTP_ORIGIN': 'http://localhost:8000', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 18:00:50,591 [DEBUG]- [36mb'{"name":"Fiat","nationality":"Italy"}'[0m
+2019-03-20 18:00:50,763 [INFO]- [36mPOST /api/manufacturers/ - 201[0m
+2019-03-20 18:00:50,763 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '44')}[0m
+2019-03-20 18:00:50,764 [DEBUG]- [36mb'{"id":1,"name":"Fiat","nationality":"Italy"}'[0m
+2019-03-20 18:01:02,010 [INFO]- [36mGET /api/manufacturers/[0m
+2019-03-20 18:01:02,010 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_AUTHORIZATION': 'Basic YWRtaW46YWRtaW4=', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 18:01:02,174 [INFO]- [36mGET /api/manufacturers/ - 200[0m
+2019-03-20 18:01:02,174 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '96')}[0m
+2019-03-20 18:01:02,174 [DEBUG]- [36mb'{"count":1,"next":null,"previous":null,"results":[{"id":1,"name":"Fiat","nationality":"Italy"}]}'[0m
+2019-03-20 19:44:18,863 [INFO]- [36mGET /api/docs[0m
+2019-03-20 19:44:18,863 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CACHE_CONTROL': 'max-age=0', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com'}[0m
+2019-03-20 19:44:18,937 [INFO]- [36mGET /api/docs - 200[0m
+2019-03-20 19:44:19,045 [INFO]- [36mGET /api/docsschema.js[0m
+2019-03-20 19:44:19,045 [DEBUG]- [36m{'HTTP_HOST': 'localhost:8000', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36', 'HTTP_ACCEPT': '*/*', 'HTTP_X_GOOG_AUTHENTICATED_USER_EMAIL': 'amineguerras@yatechnologies.com', 'HTTP_REFERER': 'http://localhost:8000/api/docs', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, br', 'HTTP_ACCEPT_LANGUAGE': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6', 'HTTP_COOKIE': 'csrftoken=SqsfSmfZchFc8hXxdQIw95RmANK8APHVcOKqLvPqw9NssbUCDC6PSp1EzPmjI1op'}[0m
+2019-03-20 19:44:19,080 [INFO]- [36mGET /api/docsschema.js - 200[0m
+2019-03-21 21:31:37,382 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:31:37,383 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,384 [DEBUG]- [36mb'{"username":"testadmin"}'[0m
+2019-03-21 21:31:37,392 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:31:37,393 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '40')}[0m
+2019-03-21 21:31:37,412 [ERROR]- [35mb'{"password":["This field is required."]}'[0m
+2019-03-21 21:31:37,421 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:31:37,425 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:31:37,426 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,426 [DEBUG]- [36mb'{"username":"testadmin","password":"you_know_nothing"}'[0m
+2019-03-21 21:31:37,539 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-21 21:31:37,540 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-21 21:31:37,540 [DEBUG]- [36mb'{"auth_token":"6aa8e82470ff49d84af7580f37460c9539260be7","created":"2019-03-21T21:31:37.538106Z","user":1}'[0m
+2019-03-21 21:31:37,544 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:31:37,544 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,545 [DEBUG]- [36mb'{"username":"testadmin","password":"I_know"}'[0m
+2019-03-21 21:31:37,654 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:31:37,654 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '67')}[0m
+2019-03-21 21:31:37,664 [ERROR]- [35mb'{"non_field_errors":["Unable to login with provided credentials."]}'[0m
+2019-03-21 21:31:37,672 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:31:37,680 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:31:37,681 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,682 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"654654"}'[0m
+2019-03-21 21:31:37,796 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:31:37,796 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '205')}[0m
+2019-03-21 21:31:37,796 [DEBUG]- [36mb'{"id":2,"first_name":"","last_name":"","username":"testadmin","password":"pbkdf2_sha256$120000$VEfC5d9Xw6d8$93fFEw5pFKWB2IcQrz641Mi34QzClQabKbPvcj1/ZvQ=","token":"5be937aeb68543fe45ed8388dbbd85dad7a44520"}'[0m
+2019-03-21 21:31:37,801 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:31:37,801 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,801 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"INVALID_PASSWORD"}'[0m
+2019-03-21 21:31:37,805 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:31:37,805 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:31:37,813 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:31:37,821 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:31:37,824 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:31:37,824 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,824 [DEBUG]- [36mb'{"username":"testadmin1","email":"test1@testadmin.com","password":"123123","confirm_password":"123123"}'[0m
+2019-03-21 21:31:37,936 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:31:37,937 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '206')}[0m
+2019-03-21 21:31:37,937 [DEBUG]- [36mb'{"id":3,"first_name":"","last_name":"","username":"testadmin1","password":"pbkdf2_sha256$120000$KSltbvcThEL6$2AN6eZFlTbD2uIfvyFkiO6zMJdBRfcXPNeg0qL0QHUE=","token":"3633fa3ab76509e6a543a4905385c236f89cdce5"}'[0m
+2019-03-21 21:31:37,937 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:31:37,937 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,937 [DEBUG]- [36mb'{"username":"testadmin1","email":"test2@testadmin.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST"}'[0m
+2019-03-21 21:31:37,942 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:31:37,943 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:31:37,950 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:31:37,958 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:31:37,966 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:31:37,967 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,967 [DEBUG]- [36mb'{"username":"testuser","email":"test@testuser.com","password":"password","confirm_password":"INVALID_PASSWORD","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:31:37,972 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:31:37,973 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:31:37,980 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:31:37,987 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:31:37,990 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:31:37,990 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:37,990 [DEBUG]- [36mb'{"username":"testuser88","email":"test@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:31:38,105 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:31:38,105 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '284')}[0m
+2019-03-21 21:31:38,105 [DEBUG]- [36mb'{"id":4,"username":"testuser88","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$I6bj2PNgJZeW$5nRxL8HL1sEYYmxrDBrQZKF6geRACbmgEGBt9qJninY=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"d9d955b5b12719fef58825fda9c6842143ae57dc"}'[0m
+2019-03-21 21:31:38,111 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:31:38,111 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:38,112 [DEBUG]- [36mb'{"username":"testuser1","email":"test1@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:31:38,228 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:31:38,228 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '283')}[0m
+2019-03-21 21:31:38,228 [DEBUG]- [36mb'{"id":5,"username":"testuser1","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$zXBNnKGxMEZN$IIzZC8Wp9MUffVMfuuPvydhcQgUvJ7UoWXcpliAqS5k=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"65583c7273cb027aedd398c59cae0a344ff6f4eb"}'[0m
+2019-03-21 21:31:38,229 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:31:38,229 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:38,229 [DEBUG]- [36mb'{"username":"testuser1","email":"test2@testuser.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:31:38,233 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:31:38,233 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:31:38,240 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:31:38,247 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:31:38,486 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:31:38,486 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=k7wsfpqr276157jqkeqpjpww0avlgire; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:31:38,486 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:31:38,491 [INFO]- [36mPOST /api/manufacturers/ - 201[0m
+2019-03-21 21:31:38,491 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '66'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:31:38,491 [DEBUG]- [36mb'{"id":3,"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:31:38,494 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:31:38,494 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:31:38,494 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:31:38,495 [INFO]- [35mPOST /api/manufacturers/ - 401[0m
+2019-03-21 21:31:38,495 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:31:38,504 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-21 21:31:38,511 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-21 21:31:38,632 [INFO]- [36mGET /api/manufacturers/1000/[0m
+2019-03-21 21:31:38,632 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=y32md83aulkui9q5ogwr11p432gt9yif; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:31:38,635 [INFO]- [35mGET /api/manufacturers/1000/ - 404[0m
+2019-03-21 21:31:38,636 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '23'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:31:38,644 [ERROR]- [35mb'{"detail":"Not found."}'[0m
+2019-03-21 21:31:38,651 [WARNING]- Not Found: /api/manufacturers/1000/
+2019-03-21 21:31:38,773 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:31:38,773 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=44rapobyq8gfc1dvrrqr0uf8v9hhkxuu; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:31:38,773 [DEBUG]- [36mb'{"name":"existing_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:31:38,777 [INFO]- [35mPOST /api/manufacturers/ - 400[0m
+2019-03-21 21:31:38,777 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '56'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:31:38,785 [ERROR]- [35mb'{"name":["manufacturer with this name already exists."]}'[0m
+2019-03-21 21:31:38,791 [WARNING]- Bad Request: /api/manufacturers/
+2019-03-21 21:31:38,913 [INFO]- [36mPATCH /api/manufacturers/4/[0m
+2019-03-21 21:31:38,913 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=aw8k9ln93fmpnvi78j75oqvpaku1muqi; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:31:38,914 [DEBUG]- [36mb'{"nationality":"updated_nationality"}'[0m
+2019-03-21 21:31:38,918 [INFO]- [36mPATCH /api/manufacturers/4/ - 200[0m
+2019-03-21 21:31:38,918 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '77'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:31:38,918 [DEBUG]- [36mb'{"id":4,"name":"existing_manifactuerer2","nationality":"updated_nationality"}'[0m
+2019-03-21 21:32:34,370 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:32:34,371 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,371 [DEBUG]- [36mb'{"username":"testadmin"}'[0m
+2019-03-21 21:32:34,374 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:32:34,375 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '40')}[0m
+2019-03-21 21:32:34,384 [ERROR]- [35mb'{"password":["This field is required."]}'[0m
+2019-03-21 21:32:34,391 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:32:34,395 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:32:34,396 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,396 [DEBUG]- [36mb'{"username":"testadmin","password":"you_know_nothing"}'[0m
+2019-03-21 21:32:34,510 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-21 21:32:34,511 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-21 21:32:34,511 [DEBUG]- [36mb'{"auth_token":"85f94f5f0054fe832fc704fd81fa8f631dde3255","created":"2019-03-21T21:32:34.509131Z","user":1}'[0m
+2019-03-21 21:32:34,514 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:32:34,515 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,515 [DEBUG]- [36mb'{"username":"testadmin","password":"I_know"}'[0m
+2019-03-21 21:32:34,624 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:32:34,624 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '67')}[0m
+2019-03-21 21:32:34,634 [ERROR]- [35mb'{"non_field_errors":["Unable to login with provided credentials."]}'[0m
+2019-03-21 21:32:34,641 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:32:34,648 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:32:34,648 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,648 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"654654"}'[0m
+2019-03-21 21:32:34,764 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:32:34,764 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '205')}[0m
+2019-03-21 21:32:34,764 [DEBUG]- [36mb'{"id":2,"first_name":"","last_name":"","username":"testadmin","password":"pbkdf2_sha256$120000$eXRv3HcQ2bmk$8ZpeMQyGSpkznglfBLa86L8me1MnoeH1Bb4ReN+g2FU=","token":"17868752283becad8a72d30e95967215fa3a9173"}'[0m
+2019-03-21 21:32:34,769 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:32:34,769 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,769 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"INVALID_PASSWORD"}'[0m
+2019-03-21 21:32:34,772 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:32:34,772 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:32:34,779 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:32:34,785 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:32:34,789 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:32:34,789 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,789 [DEBUG]- [36mb'{"username":"testadmin1","email":"test1@testadmin.com","password":"123123","confirm_password":"123123"}'[0m
+2019-03-21 21:32:34,904 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:32:34,905 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '206')}[0m
+2019-03-21 21:32:34,905 [DEBUG]- [36mb'{"id":3,"first_name":"","last_name":"","username":"testadmin1","password":"pbkdf2_sha256$120000$Gtln9xqE6EYs$pQtdroLU1ksTROzS65YW+C1Na5WgdnrPVRzbZbvzBX4=","token":"115f68b0e1a9c527a0a3a9d0dc47d49487dbb1ab"}'[0m
+2019-03-21 21:32:34,905 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:32:34,905 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,905 [DEBUG]- [36mb'{"username":"testadmin1","email":"test2@testadmin.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST"}'[0m
+2019-03-21 21:32:34,909 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:32:34,909 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:32:34,917 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:32:34,924 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:32:34,933 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:32:34,933 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,933 [DEBUG]- [36mb'{"username":"testuser","email":"test@testuser.com","password":"password","confirm_password":"INVALID_PASSWORD","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:32:34,938 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:32:34,939 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:32:34,946 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:32:34,955 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:32:34,958 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:32:34,958 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:34,958 [DEBUG]- [36mb'{"username":"testuser88","email":"test@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:32:35,078 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:32:35,078 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '284')}[0m
+2019-03-21 21:32:35,078 [DEBUG]- [36mb'{"id":4,"username":"testuser88","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$NqAQNks5HVKy$QwRHNOkY2A86lCsoghwO+mRU/Rht89OU/BOvg/isvGs=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"ffe57401b38ef4fbdb17a3d6b1695f9d61787ed7"}'[0m
+2019-03-21 21:32:35,084 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:32:35,084 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:35,084 [DEBUG]- [36mb'{"username":"testuser1","email":"test1@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:32:35,198 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:32:35,198 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '283')}[0m
+2019-03-21 21:32:35,198 [DEBUG]- [36mb'{"id":5,"username":"testuser1","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$kAXntTB6mWbQ$detORMDqcmW+HzHAx6eg5fCzGOeYZLwZEEuuFX+m3Lw=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"da5186f8eb8680edd74b6529f188db5554992fca"}'[0m
+2019-03-21 21:32:35,199 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:32:35,199 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:35,199 [DEBUG]- [36mb'{"username":"testuser1","email":"test2@testuser.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:32:35,203 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:32:35,203 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:32:35,210 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:32:35,217 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:32:35,455 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:32:35,455 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=v6ob65bd3uiaugx3q3jq8mnyf4e4aj3k; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:32:35,455 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:32:35,459 [INFO]- [36mPOST /api/manufacturers/ - 201[0m
+2019-03-21 21:32:35,459 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '66'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:32:35,459 [DEBUG]- [36mb'{"id":3,"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:32:35,462 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:32:35,462 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:32:35,462 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:32:35,463 [INFO]- [35mPOST /api/manufacturers/ - 401[0m
+2019-03-21 21:32:35,463 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:32:35,470 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-21 21:32:35,476 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-21 21:32:35,596 [INFO]- [36mGET /api/manufacturers/1000/[0m
+2019-03-21 21:32:35,596 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=2yw549iq8yfax6mrt6uevwtlgqzad0i4; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:32:35,599 [INFO]- [35mGET /api/manufacturers/1000/ - 404[0m
+2019-03-21 21:32:35,599 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '23'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:32:35,608 [ERROR]- [35mb'{"detail":"Not found."}'[0m
+2019-03-21 21:32:35,615 [WARNING]- Not Found: /api/manufacturers/1000/
+2019-03-21 21:32:35,734 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:32:35,735 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=dybtfykshm9ci015wtu3idf3o2yn7l73; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:32:35,735 [DEBUG]- [36mb'{"name":"existing_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:32:35,739 [INFO]- [35mPOST /api/manufacturers/ - 400[0m
+2019-03-21 21:32:35,739 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '56'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:32:35,746 [ERROR]- [35mb'{"name":["manufacturer with this name already exists."]}'[0m
+2019-03-21 21:32:35,754 [WARNING]- Bad Request: /api/manufacturers/
+2019-03-21 21:32:35,875 [INFO]- [36mPATCH /api/manufacturers/4/[0m
+2019-03-21 21:32:35,875 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=1mpr6cpgi20xn9jm7kg79xf4e2346xpz; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:32:35,875 [DEBUG]- [36mb'{"nationality":"updated_nationality"}'[0m
+2019-03-21 21:32:35,881 [INFO]- [36mPATCH /api/manufacturers/4/ - 200[0m
+2019-03-21 21:32:35,881 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '77'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:32:35,881 [DEBUG]- [36mb'{"id":4,"name":"existing_manifactuerer2","nationality":"updated_nationality"}'[0m
+2019-03-21 21:33:08,338 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:08,339 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,339 [DEBUG]- [36mb'{"username":"testadmin"}'[0m
+2019-03-21 21:33:08,346 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:33:08,347 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '40')}[0m
+2019-03-21 21:33:08,362 [ERROR]- [35mb'{"password":["This field is required."]}'[0m
+2019-03-21 21:33:08,370 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:33:08,374 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:08,374 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,375 [DEBUG]- [36mb'{"username":"testadmin","password":"you_know_nothing"}'[0m
+2019-03-21 21:33:08,487 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-21 21:33:08,487 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-21 21:33:08,488 [DEBUG]- [36mb'{"auth_token":"e6776f3557d6a58676e1d4b14eaa4d4272808584","created":"2019-03-21T21:33:08.485718Z","user":1}'[0m
+2019-03-21 21:33:08,490 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:08,491 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,491 [DEBUG]- [36mb'{"username":"testadmin","password":"I_know"}'[0m
+2019-03-21 21:33:08,598 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:33:08,598 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '67')}[0m
+2019-03-21 21:33:08,608 [ERROR]- [35mb'{"non_field_errors":["Unable to login with provided credentials."]}'[0m
+2019-03-21 21:33:08,615 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:33:08,622 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:08,623 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,623 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"654654"}'[0m
+2019-03-21 21:33:08,736 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:33:08,736 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '205')}[0m
+2019-03-21 21:33:08,737 [DEBUG]- [36mb'{"id":2,"first_name":"","last_name":"","username":"testadmin","password":"pbkdf2_sha256$120000$8RbrpNzVPMbF$4MkDgt3VfOJx1lCkF4dojEHYwrfBvvePxOFX0NDttvg=","token":"5b54e5e67b14b7e63dba00700e8b4721a1dbc0d4"}'[0m
+2019-03-21 21:33:08,741 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:08,741 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,741 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"INVALID_PASSWORD"}'[0m
+2019-03-21 21:33:08,744 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:33:08,745 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:33:08,752 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:33:08,759 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:33:08,762 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:08,763 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,763 [DEBUG]- [36mb'{"username":"testadmin1","email":"test1@testadmin.com","password":"123123","confirm_password":"123123"}'[0m
+2019-03-21 21:33:08,878 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:33:08,878 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '206')}[0m
+2019-03-21 21:33:08,878 [DEBUG]- [36mb'{"id":3,"first_name":"","last_name":"","username":"testadmin1","password":"pbkdf2_sha256$120000$rriRh2B10NmS$WSpW2XEMpyOzpyrGWM1NpYA4p6utOmK30Awc5E/7ZO4=","token":"900fb3f7079f36ae4184dc52d7cc065a245a8cb9"}'[0m
+2019-03-21 21:33:08,879 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:08,879 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,879 [DEBUG]- [36mb'{"username":"testadmin1","email":"test2@testadmin.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST"}'[0m
+2019-03-21 21:33:08,883 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:33:08,883 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:33:08,890 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:33:08,897 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:33:08,906 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:08,906 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,906 [DEBUG]- [36mb'{"username":"testuser","email":"test@testuser.com","password":"password","confirm_password":"INVALID_PASSWORD","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:08,911 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:33:08,912 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:33:08,919 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:33:08,926 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:33:08,929 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:08,930 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:08,930 [DEBUG]- [36mb'{"username":"testuser88","email":"test@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:09,049 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:33:09,049 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '284')}[0m
+2019-03-21 21:33:09,049 [DEBUG]- [36mb'{"id":4,"username":"testuser88","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$1fF70Jp9U85D$xT7nBI2dpu3KxHFUJNhrdvkIa9gOWV3J7couzl6pNJk=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"f1ed78f979ce1189133f78b7a530227a8f298306"}'[0m
+2019-03-21 21:33:09,054 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:09,054 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:09,054 [DEBUG]- [36mb'{"username":"testuser1","email":"test1@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:09,175 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:33:09,175 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '283')}[0m
+2019-03-21 21:33:09,175 [DEBUG]- [36mb'{"id":5,"username":"testuser1","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$Y7wQTzpo3uCU$dbaGtfC7vwkk21ttE8Q/tzzgrlHhFIjJqLVdU5sSUIY=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"ffd2f0d43f7f38f6c87b87b369ab6b994beaff89"}'[0m
+2019-03-21 21:33:09,175 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:09,176 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:09,176 [DEBUG]- [36mb'{"username":"testuser1","email":"test2@testuser.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:09,179 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:33:09,180 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:33:09,187 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:33:09,194 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:33:09,431 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:09,431 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=qhc9dwz14tlshzw5iyipx3nwi1fziv4x; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:09,431 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:09,436 [INFO]- [36mPOST /api/manufacturers/ - 201[0m
+2019-03-21 21:33:09,436 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '66'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:09,436 [DEBUG]- [36mb'{"id":3,"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:09,438 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:09,439 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:09,439 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:09,439 [INFO]- [35mPOST /api/manufacturers/ - 401[0m
+2019-03-21 21:33:09,439 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:09,448 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-21 21:33:09,456 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-21 21:33:09,576 [INFO]- [36mGET /api/manufacturers/1000/[0m
+2019-03-21 21:33:09,576 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=gyqjviznsml24h4wd0vxu5sym0kckljk; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:09,579 [INFO]- [35mGET /api/manufacturers/1000/ - 404[0m
+2019-03-21 21:33:09,579 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '23'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:09,588 [ERROR]- [35mb'{"detail":"Not found."}'[0m
+2019-03-21 21:33:09,595 [WARNING]- Not Found: /api/manufacturers/1000/
+2019-03-21 21:33:09,715 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:09,715 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=oden87jm2mgnlrfjjgyn6dz78qi44wem; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:09,715 [DEBUG]- [36mb'{"name":"existing_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:09,719 [INFO]- [35mPOST /api/manufacturers/ - 400[0m
+2019-03-21 21:33:09,719 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '56'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:09,726 [ERROR]- [35mb'{"name":["manufacturer with this name already exists."]}'[0m
+2019-03-21 21:33:09,734 [WARNING]- Bad Request: /api/manufacturers/
+2019-03-21 21:33:09,856 [INFO]- [36mPATCH /api/manufacturers/4/[0m
+2019-03-21 21:33:09,856 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=6ykz95jj2aelk3y88efceskvrsewgwcm; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:09,856 [DEBUG]- [36mb'{"nationality":"updated_nationality"}'[0m
+2019-03-21 21:33:09,863 [INFO]- [36mPATCH /api/manufacturers/4/ - 200[0m
+2019-03-21 21:33:09,863 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '77'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:09,863 [DEBUG]- [36mb'{"id":4,"name":"existing_manifactuerer2","nationality":"updated_nationality"}'[0m
+2019-03-21 21:33:19,662 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:19,663 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:19,663 [DEBUG]- [36mb'{"username":"testadmin"}'[0m
+2019-03-21 21:33:19,666 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:33:19,667 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '40')}[0m
+2019-03-21 21:33:19,676 [ERROR]- [35mb'{"password":["This field is required."]}'[0m
+2019-03-21 21:33:19,683 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:33:19,686 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:19,686 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:19,686 [DEBUG]- [36mb'{"username":"testadmin","password":"you_know_nothing"}'[0m
+2019-03-21 21:33:19,798 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-21 21:33:19,798 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-21 21:33:19,798 [DEBUG]- [36mb'{"auth_token":"029513f4cb17cb148875164edc6413e7712de648","created":"2019-03-21T21:33:19.796792Z","user":1}'[0m
+2019-03-21 21:33:19,801 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:19,801 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:19,801 [DEBUG]- [36mb'{"username":"testadmin","password":"I_know"}'[0m
+2019-03-21 21:33:19,910 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:33:19,911 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '67')}[0m
+2019-03-21 21:33:19,921 [ERROR]- [35mb'{"non_field_errors":["Unable to login with provided credentials."]}'[0m
+2019-03-21 21:33:19,927 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:33:19,935 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:19,935 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:19,935 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"654654"}'[0m
+2019-03-21 21:33:20,051 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:33:20,052 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '205')}[0m
+2019-03-21 21:33:20,052 [DEBUG]- [36mb'{"id":2,"first_name":"","last_name":"","username":"testadmin","password":"pbkdf2_sha256$120000$Skw33JZKfcE1$4apvaKvUKIOdxe18WzDO88W4GjNBAW1fLt8ieWgYerc=","token":"41d7513ad6b04b9a6452c953bb0a421b08c0eef7"}'[0m
+2019-03-21 21:33:20,056 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:20,056 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,056 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"INVALID_PASSWORD"}'[0m
+2019-03-21 21:33:20,059 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:33:20,059 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:33:20,068 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:33:20,075 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:33:20,078 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:20,078 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,078 [DEBUG]- [36mb'{"username":"testadmin1","email":"test1@testadmin.com","password":"123123","confirm_password":"123123"}'[0m
+2019-03-21 21:33:20,195 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:33:20,195 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '206')}[0m
+2019-03-21 21:33:20,195 [DEBUG]- [36mb'{"id":3,"first_name":"","last_name":"","username":"testadmin1","password":"pbkdf2_sha256$120000$pjWvh1pkWgyb$40umk4L4UqX1ijqvD2r5E1Qz72W5c16/85CuS6BgLEs=","token":"2f162ac164344accf0c75204e23f1f65483096ab"}'[0m
+2019-03-21 21:33:20,196 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:20,196 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,196 [DEBUG]- [36mb'{"username":"testadmin1","email":"test2@testadmin.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST"}'[0m
+2019-03-21 21:33:20,200 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:33:20,200 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:33:20,207 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:33:20,214 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:33:20,223 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:20,224 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,224 [DEBUG]- [36mb'{"username":"testuser","email":"test@testuser.com","password":"password","confirm_password":"INVALID_PASSWORD","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:20,230 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:33:20,230 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:33:20,238 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:33:20,245 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:33:20,249 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:20,249 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,249 [DEBUG]- [36mb'{"username":"testuser88","email":"test@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:20,365 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:33:20,365 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '284')}[0m
+2019-03-21 21:33:20,365 [DEBUG]- [36mb'{"id":4,"username":"testuser88","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$XD9RgC2xSvGG$++RQpUbZuEAXLkPq5+2ZzGykZZPKya98A8XCIUTGBes=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"05ec12212b89196286bba6dff0123b7dd940d047"}'[0m
+2019-03-21 21:33:20,370 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:20,370 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,370 [DEBUG]- [36mb'{"username":"testuser1","email":"test1@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:20,489 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:33:20,489 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '283')}[0m
+2019-03-21 21:33:20,489 [DEBUG]- [36mb'{"id":5,"username":"testuser1","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$AE6uI1UydLpL$xpRp3bAMbJzXHQfwdkCVYI/dLYiMjgjdlooQFz23Fy4=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"85c8fb06fbdec1b83177a64a02bf477446091b82"}'[0m
+2019-03-21 21:33:20,489 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:20,489 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,489 [DEBUG]- [36mb'{"username":"testuser1","email":"test2@testuser.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:20,493 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:33:20,493 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:33:20,501 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:33:20,508 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:33:20,742 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:20,742 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=2gdh9596tm7on6l0z4khyyn2b5rcs37u; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:20,742 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:20,747 [INFO]- [36mPOST /api/manufacturers/ - 201[0m
+2019-03-21 21:33:20,747 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '66'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:20,747 [DEBUG]- [36mb'{"id":3,"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:20,750 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:20,750 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:20,751 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:20,751 [INFO]- [35mPOST /api/manufacturers/ - 401[0m
+2019-03-21 21:33:20,751 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:20,760 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-21 21:33:20,768 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-21 21:33:20,890 [INFO]- [36mGET /api/manufacturers/1000/[0m
+2019-03-21 21:33:20,890 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=folz0s4t8av59ss4oa4v5m55228cwh37; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:20,893 [INFO]- [35mGET /api/manufacturers/1000/ - 404[0m
+2019-03-21 21:33:20,893 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '23'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:20,901 [ERROR]- [35mb'{"detail":"Not found."}'[0m
+2019-03-21 21:33:20,908 [WARNING]- Not Found: /api/manufacturers/1000/
+2019-03-21 21:33:21,029 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:21,029 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=137mkood5jv04d5z5jurzut4ftjo3i1d; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:21,029 [DEBUG]- [36mb'{"name":"existing_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:21,033 [INFO]- [35mPOST /api/manufacturers/ - 400[0m
+2019-03-21 21:33:21,033 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '56'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:21,042 [ERROR]- [35mb'{"name":["manufacturer with this name already exists."]}'[0m
+2019-03-21 21:33:21,050 [WARNING]- Bad Request: /api/manufacturers/
+2019-03-21 21:33:21,170 [INFO]- [36mPATCH /api/manufacturers/4/[0m
+2019-03-21 21:33:21,170 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=1ja8aftclizp4c8d1q039sgppgqgmnd2; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:21,170 [DEBUG]- [36mb'{"nationality":"updated_nationality"}'[0m
+2019-03-21 21:33:21,175 [INFO]- [36mPATCH /api/manufacturers/4/ - 200[0m
+2019-03-21 21:33:21,175 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '77'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:21,175 [DEBUG]- [36mb'{"id":4,"name":"existing_manifactuerer2","nationality":"updated_nationality"}'[0m
+2019-03-21 21:33:40,720 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:40,721 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:40,722 [DEBUG]- [36mb'{"username":"testadmin"}'[0m
+2019-03-21 21:33:40,730 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:33:40,731 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '40')}[0m
+2019-03-21 21:33:40,748 [ERROR]- [35mb'{"password":["This field is required."]}'[0m
+2019-03-21 21:33:40,757 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:33:40,761 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:40,762 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:40,762 [DEBUG]- [36mb'{"username":"testadmin","password":"you_know_nothing"}'[0m
+2019-03-21 21:33:40,875 [INFO]- [36mPOST /api/admin/login/ - 200[0m
+2019-03-21 21:33:40,876 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '106')}[0m
+2019-03-21 21:33:40,877 [DEBUG]- [36mb'{"auth_token":"9e9b6b5e3685d8002f31ad4328779dfabdaac8a0","created":"2019-03-21T21:33:40.874151Z","user":1}'[0m
+2019-03-21 21:33:40,883 [INFO]- [36mPOST /api/admin/login/[0m
+2019-03-21 21:33:40,884 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:40,884 [DEBUG]- [36mb'{"username":"testadmin","password":"I_know"}'[0m
+2019-03-21 21:33:41,001 [INFO]- [35mPOST /api/admin/login/ - 400[0m
+2019-03-21 21:33:41,002 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '67')}[0m
+2019-03-21 21:33:41,010 [ERROR]- [35mb'{"non_field_errors":["Unable to login with provided credentials."]}'[0m
+2019-03-21 21:33:41,017 [WARNING]- Bad Request: /api/admin/login/
+2019-03-21 21:33:41,024 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:41,025 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,025 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"654654"}'[0m
+2019-03-21 21:33:41,140 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:33:41,141 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '205')}[0m
+2019-03-21 21:33:41,142 [DEBUG]- [36mb'{"id":2,"first_name":"","last_name":"","username":"testadmin","password":"pbkdf2_sha256$120000$l4xM2yaRnOJW$REUVMV3c6kcZMxmryi0paKjxm6TTpPs3v+XCgXQpJLc=","token":"9dca5ac8d95e07b1c318ad43b320ff1257d4d592"}'[0m
+2019-03-21 21:33:41,147 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:41,147 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,148 [DEBUG]- [36mb'{"username":"testadmin","email":"test@testadmin.com","password":"654654","confirm_password":"INVALID_PASSWORD"}'[0m
+2019-03-21 21:33:41,151 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:33:41,152 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:33:41,159 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:33:41,167 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:33:41,172 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:41,173 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,173 [DEBUG]- [36mb'{"username":"testadmin1","email":"test1@testadmin.com","password":"123123","confirm_password":"123123"}'[0m
+2019-03-21 21:33:41,288 [INFO]- [36mPOST /api/admin/register/ - 201[0m
+2019-03-21 21:33:41,288 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '206')}[0m
+2019-03-21 21:33:41,288 [DEBUG]- [36mb'{"id":3,"first_name":"","last_name":"","username":"testadmin1","password":"pbkdf2_sha256$120000$xCCzcwDrSHz2$vLF34Bm0uYVMcRP/04oKx1sbPG1p70ex9XCxJJjUxgI=","token":"a2e21e01207566cd6456dd8755f8e2e1fc6a9626"}'[0m
+2019-03-21 21:33:41,288 [INFO]- [36mPOST /api/admin/register/[0m
+2019-03-21 21:33:41,288 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,288 [DEBUG]- [36mb'{"username":"testadmin1","email":"test2@testadmin.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST"}'[0m
+2019-03-21 21:33:41,292 [INFO]- [35mPOST /api/admin/register/ - 400[0m
+2019-03-21 21:33:41,292 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:33:41,299 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:33:41,306 [WARNING]- Bad Request: /api/admin/register/
+2019-03-21 21:33:41,315 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:41,315 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,316 [DEBUG]- [36mb'{"username":"testuser","email":"test@testuser.com","password":"password","confirm_password":"INVALID_PASSWORD","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:41,321 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:33:41,322 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '53')}[0m
+2019-03-21 21:33:41,330 [ERROR]- [35mb'{"non_field_errors":["Those passwords don\'t match."]}'[0m
+2019-03-21 21:33:41,336 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:33:41,340 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:41,340 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,340 [DEBUG]- [36mb'{"username":"testuser88","email":"test@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:41,459 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:33:41,459 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '284')}[0m
+2019-03-21 21:33:41,459 [DEBUG]- [36mb'{"id":4,"username":"testuser88","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$1kISOHOHNY3s$ea1Xg0d64/mYCDYNfvJm6L4xLzhorKevLZDKcZ0iEMs=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"ae934b6d517a3c81234eb69ea92643225b235e7d"}'[0m
+2019-03-21 21:33:41,465 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:41,466 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,466 [DEBUG]- [36mb'{"username":"testuser1","email":"test1@testuser.com","password":"123123","confirm_password":"123123","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:41,583 [INFO]- [36mPOST /api/manufacturer-user/register/ - 201[0m
+2019-03-21 21:33:41,583 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '283')}[0m
+2019-03-21 21:33:41,583 [DEBUG]- [36mb'{"id":5,"username":"testuser1","first_name":"","last_name":"","password":"pbkdf2_sha256$120000$Hn9QkX9w7bK2$CdCEtezaXyh4hO8DtgRqn76AnLdWv4zq101oOY9pv+E=","manufacturer":1,"address":"testaddress","telephone":"00000","is_active":true,"token":"930911ce77910711753e1fd3e70c446b6de94620"}'[0m
+2019-03-21 21:33:41,583 [INFO]- [36mPOST /api/manufacturer-user/register/[0m
+2019-03-21 21:33:41,583 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,583 [DEBUG]- [36mb'{"username":"testuser1","email":"test2@testuser.com","password":"DOES_NOT_EXIST","confirm_password":"DOES_NOT_EXIST","address":"testaddress","manufacturer":1,"telephone":"00000"}'[0m
+2019-03-21 21:33:41,587 [INFO]- [35mPOST /api/manufacturer-user/register/ - 400[0m
+2019-03-21 21:33:41,587 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'POST, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58')}[0m
+2019-03-21 21:33:41,595 [ERROR]- [35mb'{"username":["A user with that username already exists."]}'[0m
+2019-03-21 21:33:41,602 [WARNING]- Bad Request: /api/manufacturer-user/register/
+2019-03-21 21:33:41,836 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:41,836 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=ovcwwdu86q78orp2p5lpojpmta8bhoea; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:41,836 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:41,842 [INFO]- [36mPOST /api/manufacturers/ - 201[0m
+2019-03-21 21:33:41,842 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '66'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:41,842 [DEBUG]- [36mb'{"id":3,"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:41,846 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:41,846 [DEBUG]- [36m{'HTTP_COOKIE': ''}[0m
+2019-03-21 21:33:41,846 [DEBUG]- [36mb'{"name":"new_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:41,846 [INFO]- [35mPOST /api/manufacturers/ - 401[0m
+2019-03-21 21:33:41,847 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'www-authenticate': ('WWW-Authenticate', 'Basic realm="api"'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '58'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:41,856 [ERROR]- [35mb'{"detail":"Authentication credentials were not provided."}'[0m
+2019-03-21 21:33:41,863 [WARNING]- Unauthorized: /api/manufacturers/
+2019-03-21 21:33:41,985 [INFO]- [36mGET /api/manufacturers/1000/[0m
+2019-03-21 21:33:41,985 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=kj74kcl8hrfrnkgkr430xcobtsa0xanh; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:41,988 [INFO]- [35mGET /api/manufacturers/1000/ - 404[0m
+2019-03-21 21:33:41,988 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '23'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:41,997 [ERROR]- [35mb'{"detail":"Not found."}'[0m
+2019-03-21 21:33:42,004 [WARNING]- Not Found: /api/manufacturers/1000/
+2019-03-21 21:33:42,128 [INFO]- [36mPOST /api/manufacturers/[0m
+2019-03-21 21:33:42,128 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=u8xle0e2y44uw2sr59d7o6lhxcjffnnf; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:42,128 [DEBUG]- [36mb'{"name":"existing_manifactuerer","nationality":"newnationality"}'[0m
+2019-03-21 21:33:42,133 [INFO]- [35mPOST /api/manufacturers/ - 400[0m
+2019-03-21 21:33:42,133 [ERROR]- [35m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, POST, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '56'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:42,140 [ERROR]- [35mb'{"name":["manufacturer with this name already exists."]}'[0m
+2019-03-21 21:33:42,148 [WARNING]- Bad Request: /api/manufacturers/
+2019-03-21 21:33:42,268 [INFO]- [36mPATCH /api/manufacturers/4/[0m
+2019-03-21 21:33:42,269 [DEBUG]- [36m{'HTTP_COOKIE': ' sessionid=vfbcqraxc0fjamlh6q7a5eeupr26dt23; Domain=None; expires=None; Max-Age=None; Path=/'}[0m
+2019-03-21 21:33:42,269 [DEBUG]- [36mb'{"nationality":"updated_nationality"}'[0m
+2019-03-21 21:33:42,273 [INFO]- [36mPATCH /api/manufacturers/4/ - 200[0m
+2019-03-21 21:33:42,274 [DEBUG]- [36m{'content-type': ('Content-Type', 'application/json'), 'allow': ('Allow', 'GET, PUT, PATCH, DELETE, HEAD, OPTIONS'), 'x-frame-options': ('X-Frame-Options', 'SAMEORIGIN'), 'content-length': ('Content-Length', '77'), 'vary': ('Vary', 'Cookie')}[0m
+2019-03-21 21:33:42,274 [DEBUG]- [36mb'{"id":4,"name":"existing_manifactuerer2","nationality":"updated_nationality"}'[0m
