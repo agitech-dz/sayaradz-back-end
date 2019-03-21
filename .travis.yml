@@ -5,7 +5,7 @@ services:
   - docker
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+  - docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
 before_script: pip install docker-compose
 script:
   - docker-compose run web python manage.py test -v 2
