@@ -436,10 +436,27 @@ class AutomobilistManufacturerViewSet(ListAPIView):
 				},
 			})
 
-	def destroy(self, *args, **kwargs):
-         serializer = self.get_serializer(self.get_object())
-         super().destroy(*args, **kwargs)
-         return Response(serializer.data, status=status.HTTP_200_OK)
+"""
+AutomobilistMyModelViewSet : get (read only endpoint) paginated output
+"""
+class AutomobilistMyModelViewSet(ListAPIView):
+
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = MyModel.objects.all()
+	serializer_class = MyModelSerializer
+
+	def list(self, request,*kwargs):
+		queryset = MyModel.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
 
 
 	
