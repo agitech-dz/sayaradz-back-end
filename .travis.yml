@@ -15,8 +15,8 @@ script:
 deploy:
   provider: script
   script:
-    "docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    heroku container: web release --app $HEROKU_APP_NAME"
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+    heroku container:release web --app $HEROKU_APP_NAME
 
       
       
