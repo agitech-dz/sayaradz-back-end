@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth.models import User
 from sayaradz.models import Manufacturer, ManufacturerUser
 from rest_framework import routers
-from sayaradz.views import ManufacturerUserList, AutomobilistVersionViewSet, AutomobilistMyModelViewSet, AutomobilistManufacturerViewSet, ColorViewSet, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView, MyModelViewSet, MyModelList, OptionViewSet, VersionViewSet
+from sayaradz.views import ManufacturerUserList, AutomobilistViewSet1, AutomobilistViewSet2,  AutomobilistVersionViewSet, AutomobilistMyModelViewSet, AutomobilistManufacturerViewSet, ColorViewSet, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView, MyModelViewSet, MyModelList, OptionViewSet, VersionViewSet
 
 from rest_framework.authtoken import views as rest_framework_views
 
@@ -40,6 +40,10 @@ router.register(r'api/options', OptionViewSet)
 router.register(r'api/versions', VersionViewSet)
 
 router.register(r'api/colors', ColorViewSet)
+
+router.register(r'api/automobilist/follow-model-or-version', AutomobilistViewSet1)
+
+router.register(r'api/automobilist/unfollow-model-or-version', AutomobilistViewSet2)
 
 
 
@@ -82,9 +86,6 @@ urlpatterns = [
 
     path('api/automobilist/models', AutomobilistMyModelViewSet.as_view(), name='automobilist_models'),
 
-    path('api/automobilist/versions', AutomobilistVersionViewSet.as_view(), name='automobilist_versions')
-
-
-
+    path('api/automobilist/versions', AutomobilistVersionViewSet.as_view(), name='automobilist_versions'),
 
 ]

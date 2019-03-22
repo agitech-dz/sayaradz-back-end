@@ -5,11 +5,12 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.permissions import IsAuthenticated
-from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ColorSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer, VersionSerializer, OptionSerializer
-from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option, Color
+from sayaradz_api.serializers import AdminRegistrationSerializer, AutomobilistFollowedModelsSerializer, AutomobilistSerializer1, AutomobilistSerializer2, ManufacturerUserRegistrationSerializer, AdminSerializer, ColorSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer, VersionSerializer, OptionSerializer
+from sayaradz.models import Manufacturer, Automobilist, ManufacturerUser, MyModel, Version, Option, Color
 from rest_framework import status
+from rest_framework import mixins
 from rest_framework.authtoken.models import Token
-from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView, UpdateAPIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 
@@ -477,6 +478,29 @@ class AutomobilistVersionViewSet(ListAPIView):
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response({'results':data})
+
+
+
+"""
+AutomobilistViewSet1
+"""
+class AutomobilistViewSet1(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+
+	queryset = Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
+	http_method_names = ('put', 'patch')
+	serializer_class = AutomobilistSerializer1
+	
+
+"""
+AutomobilistViewSet2 #delete 
+"""
+class AutomobilistViewSet2(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+
+    queryset = Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
+    http_method_names = ('put', 'patch')
+    serializer_class = AutomobilistSerializer2
+
+
 
 
 

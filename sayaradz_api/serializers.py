@@ -3,7 +3,7 @@ from drf_writable_nested import WritableNestedModelSerializer
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
-from sayaradz.models import Manufacturer, ManufacturerUser, MyModel, Version, Option, Color
+from sayaradz.models import Manufacturer, Automobilist, ManufacturerUser, MyModel, Version, Option, Color
 from django.contrib.auth.models import User 
 from django.contrib.auth.hashers import make_password
 
@@ -207,4 +207,85 @@ class ColorSerializer(serializers.ModelSerializer):
 		fields = ('code','name', 'model')
 
 
+
+"""
+AutomobilistSerializer1 : defines Automobilist model representation follow
+fields = ('id', 'followedModels', 'followedVersions')
+"""
+class AutomobilistSerializer1(serializers.ModelSerializer):
+
+	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=MyModel.objects.all()) 
+	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Version.objects.all()) 
+
+	class Meta:
+		model = Automobilist
+		fields = ('id', 'followedModels', 'followedVersions')
+
+	def update(self, instance, validated_data):
+
+		followedModels = validated_data.pop('followedModels', None)
+		followedVersions= validated_data.pop('followedVersions', None)
+		instance = super().update(instance, validated_data) # if you want to update other fields
+
+		# now add new followed Models 
+		if followedModels is not None:
+			for followedModel in followedModels:
+				instance.followedModels.add(followedModel)
+
+		# now add new followed Versions 
+		if followedVersions is not None:
+			for followedVersion in followedVersions:
+				instance.followedVersions.add(followedVersion)
+
+		instance.save()
+
+		return instance
+
+"""
+AutomobilistSerializer2 : defines Automobilist model representation unfollow
+fields = ('id', 'followedModels', 'followedVersions')
+"""
+class AutomobilistSerializer2(serializers.ModelSerializer):
+
+	id = serializers.CharField(source='automobilist')
+	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=MyModel.objects.all()) 
+	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Version.objects.all()) 
+
+	class Meta:
+		model = Automobilist
+		fields = ('id', 'followedModels', 'followedVersions')
+
+	def update(self, instance, validated_data):
+
+		followedModels = validated_data.pop('followedModels', None)
+		followedVersions= validated_data.pop('followedVersions', None)
+		instance = super().update(instance, validated_data) # if you want to update other fields
+
+		# now add new followed Models 
+		if followedModels is not None:
+			for followedModel in followedModels:
+				instance.followedModels.remove(followedModel)
+
+		# now add new followed Versions 
+		if followedVersions is not None:
+			for followedVersion in followedVersions:
+				instance.followedVersions.remove(followedVersion)
+
+		instance.save()
+
+		return instance
+
+
+"""
+AutomobilistFollowedModelsSerializer : defines Automobilist model representation
+fields = ('code','name', 'options', 'model')
+"""
+class AutomobilistFollowedModelsSerializer(serializers.ModelSerializer):
+
+	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=MyModel.objects.all()) 
+	#followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Version.objects.all()) 
+
+	class Meta:
+		model = Automobilist
+		fields = ('id', 'followedModels')
 	
