@@ -3,7 +3,7 @@ from drf_writable_nested import WritableNestedModelSerializer
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
-from sayaradz.models import Manufacturer, Automobilist, ManufacturerUser, MyModel, Version, Option, Color
+from sayaradz import models
 from django.contrib.auth.models import User 
 from django.contrib.auth.hashers import make_password
 
@@ -24,7 +24,7 @@ feilds : ('id','name', 'nationality')
 class ManufacturerSerializer(serializers.ModelSerializer):
 	
 	class Meta:
-		model = Manufacturer
+		model = models.Manufacturer
 		fields = ('id','name', 'nationality')
 
 """
@@ -35,7 +35,7 @@ class ManufacturerUserSerializer(serializers.ModelSerializer):
 	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
 
 	class Meta:
-		model = ManufacturerUser
+		model = models.ManufacturerUser
 		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'email', 'is_blocked', 'manufacturer', 'manufacturer_name')
 
 """
@@ -112,7 +112,7 @@ class ManufacturerUserRegistrationSerializer(serializers.ModelSerializer):
 	confirm_password = serializers.CharField(write_only=True)
 
 	class Meta:
-		model = ManufacturerUser
+		model = models.ManufacturerUser
 		fields = ("id", "username","first_name","last_name", "password", "confirm_password","manufacturer", "address", "telephone", 'is_blocked')
 	
 	def create(self, validated_data):
@@ -168,7 +168,7 @@ class MyModelSerializer(serializers.ModelSerializer):
 
 	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
 	class Meta:
-		model = MyModel
+		model = models.MyModel
 		fields = ('code','name', 'manufacturer', 'manufacturer_name')
 
 """
@@ -180,7 +180,7 @@ class OptionSerializer(serializers.ModelSerializer):
 	model_name = serializers.ReadOnlyField(source='model.name') 
 	manufacturer = serializers.ReadOnlyField(source='model.manufacturer_id') 
 	class Meta:
-		model = Option
+		model = models.Option
 		fields = ('code','name', 'model', 'model_name', 'manufacturer')
 
 """
@@ -189,11 +189,10 @@ fields = ('code','name', 'options', 'model')
 """
 class VersionSerializer(serializers.ModelSerializer):
 
-	options = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Option.objects.all()) 
-	
+	options = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Option.objects.all()) 
 
 	class Meta:
-		model = Version
+		model = models.Version
 		fields = ('code','name', 'options', 'model')
 
 """
@@ -203,10 +202,8 @@ fields = ('code','name', 'manufacturer')
 class ColorSerializer(serializers.ModelSerializer):
 
 	class Meta:
-		model = Color
+		model = models.Color
 		fields = ('code','name', 'model')
-
-
 
 """
 AutomobilistSerializer1 : defines Automobilist model representation follow
@@ -214,11 +211,11 @@ fields = ('id', 'followedModels', 'followedVersions')
 """
 class AutomobilistSerializer1(serializers.ModelSerializer):
 
-	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=MyModel.objects.all()) 
-	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Version.objects.all()) 
+	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.MyModel.objects.all()) 
+	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Version.objects.all()) 
 
 	class Meta:
-		model = Automobilist
+		model = models.Automobilist
 		fields = ('id', 'followedModels', 'followedVersions')
 
 	def update(self, instance, validated_data):
@@ -248,11 +245,11 @@ fields = ('id', 'followedModels', 'followedVersions')
 class AutomobilistSerializer2(serializers.ModelSerializer):
 
 	id = serializers.CharField(source='automobilist')
-	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=MyModel.objects.all()) 
-	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Version.objects.all()) 
+	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.MyModel.objects.all()) 
+	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Version.objects.all()) 
 
 	class Meta:
-		model = Automobilist
+		model = models.Automobilist
 		fields = ('id', 'followedModels', 'followedVersions')
 
 	def update(self, instance, validated_data):
@@ -274,18 +271,3 @@ class AutomobilistSerializer2(serializers.ModelSerializer):
 		instance.save()
 
 		return instance
-
-
-"""
-AutomobilistFollowedModelsSerializer : defines Automobilist model representation
-fields = ('code','name', 'options', 'model')
-"""
-class AutomobilistFollowedModelsSerializer(serializers.ModelSerializer):
-
-	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=MyModel.objects.all()) 
-	#followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=Version.objects.all()) 
-
-	class Meta:
-		model = Automobilist
-		fields = ('id', 'followedModels')
-	
