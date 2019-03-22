@@ -130,8 +130,8 @@ class NewCar(Car):
 #LigneTarif Model [Ligne Tarif] 
 class LigneTarif(models.Model):
     
-    dataBegin = models.DateField(auto_now=True)
-    dataEnd = models.DateField(auto_now=True)
+    dateBegin = models.DateField(auto_now=True)
+    dateEnd = models.DateField(auto_now=True)
     price = models.FloatField()
 
     def __str__(self):
