@@ -2,21 +2,24 @@ dist: xenial
 language: python
 python: 3.7
 services:
-  - docker
+- docker
 before_install:
-  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-  - docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
+- wget -qO- https://toolbelt.heroku.com/install.sh | sh
+- docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
 before_script: pip install docker-compose
 script:
-  - docker-compose run web python manage.py test -v 2
-  - docker build -t web .
-  - docker tag web registry.heroku.com/$HEROKU_APP_NAME/web
-
+- docker-compose run web python manage.py test -v 2
+- docker build -t web .
+- docker tag web registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:
   provider: script
-  script:
-    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    heroku container:release web --app $HEROKU_APP_NAME
-
-      
-      
+  script: docker push registry.heroku.com/$HEROKU_APP_NAME/web; heroku container:release
+    web --app $HEROKU_APP_NAME
+  on:
+    branches:
+    - master
+    - production
+notifications:
+  email: false
+  slack:
+    secure: wS/rakWlWCwRRZozPhUJt7vejz3xTd91yTw4hfwsiwt0lMvHDihcm9f00wLK+uJVI6lGytQ0U7aqkYTWnG778tCTpY2Mdp3CrAB6e2rhQ78+wHV+ouegQHbIwM0oeU/t4qR0pQSTYIZ2lTCtNNWsq3JYktceaYd53Co1zpJPgWUNA8meU3Rm6z2qzILb/O4o3a4seoIY5FAQDMCxPspW47DVvgU5O1qFlimmQDNuEdzIcbjY9U1bMuDOa0GIbgJhbMBKCOHOf7Z6Q0rt0cyJ0Ows/lNN3a7Mh1EznxfrJqUwAfFnTR/o86fInA3I2RQj2ROYYZL3GHe8Ymoh5nQPu6tzN9VFSDBglA5In4ewLBg1oDYxILlieQfViIsA1AmU8sUY7AdrzXcUauUCHqCVM6UqKMJuBvVN4BKCc+5168r/CxxlEvIJ531auzUty4VkxuhJwnqKobXrkT9EEQWYCVrmbEAO+tbH6Z6zBRn1wBtoI8svZBNyVNfnsbCKK4RNBmc9cDGm5/jaDUegeQLf/2CRKiNLLjg4WjbJw7Uz/YjJrM1r/9qyyBEX7lWrM5NIr7GB/75NkW3LZ62Hmdy1R5UMClhLadCwiYBJH280i8tQvG46UkScbsPh3mxalNB9/McC3WI6ROFiVbWXyk7ga9R5yMl9/Jgf/HzgXzT2tZY=
