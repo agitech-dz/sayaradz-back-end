@@ -5,7 +5,7 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.permissions import IsAuthenticated
-from sayaradz_api.serializers import AdminRegistrationSerializer, AutomobilistFollowedModelsSerializer, AutomobilistSerializer1, AutomobilistSerializer2, ManufacturerUserRegistrationSerializer, AdminSerializer, ColorSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer, MyModelSerializer, VersionSerializer, OptionSerializer
+from sayaradz_api import serializers 
 from sayaradz.models import Manufacturer, Automobilist, ManufacturerUser, MyModel, Version, Option, Color
 from rest_framework import status
 from rest_framework import mixins
@@ -22,7 +22,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
 
-    serializer_class = AdminSerializer
+    serializer_class = serializers.AdminSerializer
 
 """
 Define the pagination logic
@@ -41,7 +41,7 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 	permission_classes = (IsAuthenticated,)  
 
 	queryset = Manufacturer.objects.all()
-	serializer_class = ManufacturerSerializer
+	serializer_class = serializers.ManufacturerSerializer
 	#filter_backends = (DjangoFilterBackend,)
 	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
@@ -76,7 +76,7 @@ class ManufacturerUserViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = ManufacturerUser.objects.all()
-	serializer_class = ManufacturerUserSerializer
+	serializer_class = serializers.ManufacturerUserSerializer
 
 	def list(self, request,*kwargs):
 		queryset = ManufacturerUser.objects.all()
@@ -102,7 +102,7 @@ AdminRegistrationAPIView : post only, allows to create new admin account
 class AdminRegistrationAPIView(CreateAPIView):
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = AdminRegistrationSerializer
+	serializer_class = serializers.AdminRegistrationSerializer
 
 	def post(self, request, *args, **kwargs):
 		serializer = self.get_serializer(data=request.data)
@@ -125,7 +125,7 @@ ManufacturerUserRegistrationAPIView : post only, allows to create new manufactur
 class ManufacturerUserRegistrationAPIView(CreateAPIView):
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = ManufacturerUserRegistrationSerializer
+	serializer_class = serializers.ManufacturerUserRegistrationSerializer
 
 	def post(self, request, *args, **kwargs):
 		serializer = self.get_serializer(data=request.data)
@@ -147,7 +147,7 @@ class AdminLoginAPIView(GenericAPIView):
 
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = AdminLoginSerializer
+	serializer_class = serializers.AdminLoginSerializer
 	
 	def post(self, request, *args, **kwargs):
 
@@ -189,7 +189,7 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = ManufacturerUserLoginSerializer
+	serializer_class = serializers.ManufacturerUserLoginSerializer
 	
 	def post(self, request, *args, **kwargs):
 
@@ -227,7 +227,7 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 class TokenAPIView(RetrieveDestroyAPIView):
 
 	lookup_field = "key"
-	serializer_class = TokenSerializer
+	serializer_class = serializers.TokenSerializer
 	queryset = Token.objects.all()
 
 	def filter_queryset(self, queryset):
@@ -255,7 +255,7 @@ LogoutView : post only, allows users logout
 """
 class LogoutView(GenericAPIView):
 
-	serializer_class = ManufacturerUserLoginSerializer
+	serializer_class = serializers.ManufacturerUserLoginSerializer
 	def post(self, request):
 
 		django_logout(request)
@@ -278,7 +278,7 @@ ManufacturerUserList : Get only, allows to get ManufacturerUser output data
 class ManufacturerUserList(ListAPIView):
 	permission_classes = (IsAuthenticated,)  
 	queryset = ManufacturerUser.objects.all()
-	serializer_class = ManufacturerUserSerializer
+	serializer_class = serializers.ManufacturerUserSerializer
 	filter_class = ManufacturerUserFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('username', 'email', 'address', 'manufacturer__name')
@@ -304,7 +304,7 @@ class ManufacturerList(ListAPIView):
 	permission_classes = (IsAuthenticated,)  
 	queryset = Manufacturer.objects.all()
 
-	serializer_class = ManufacturerSerializer
+	serializer_class = serializers.ManufacturerSerializer
 	filter_class = ManufacturerFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('name', 'nationality')	
@@ -319,7 +319,7 @@ class MyModelViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = MyModel.objects.all()
-	serializer_class = MyModelSerializer
+	serializer_class = serializers.MyModelSerializer
 
 	def list(self, request,*kwargs):
 		queryset = MyModel.objects.all()
@@ -350,7 +350,7 @@ class MyModelList(ListAPIView):
 
 	permission_classes = (IsAuthenticated,)  
 	queryset = MyModel.objects.all()
-	serializer_class = MyModelSerializer
+	serializer_class = serializers.MyModelSerializer
 	filter_class = MyModelFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ( 'code', 'name', 'manufacturer__name')
@@ -364,7 +364,7 @@ class OptionViewSet(viewsets.ModelViewSet):
 	#pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = Option.objects.all()
-	serializer_class = OptionSerializer
+	serializer_class = serializers.OptionSerializer
 
 """
 VersionViewSet : get, delete, patch, partial_update, put, paginated output
@@ -374,7 +374,7 @@ class VersionViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = Version.objects.all().prefetch_related('options')
-	serializer_class = VersionSerializer
+	serializer_class = serializers.VersionSerializer
 
 	def list(self, request,*kwargs):
 		queryset = Version.objects.all()
@@ -395,7 +395,7 @@ class ColorViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = Color.objects.all().prefetch_related('options')
-	serializer_class = ColorSerializer
+	serializer_class = serializers.ColorSerializer
 
 	def list(self, request,*kwargs):
 		queryset = Color.objects.all()
@@ -417,7 +417,7 @@ class AutomobilistManufacturerViewSet(ListAPIView):
 	permission_classes = (IsAuthenticated,)  
 
 	queryset = Manufacturer.objects.all()
-	serializer_class = ManufacturerSerializer
+	serializer_class = serializers.ManufacturerSerializer
 	#filter_backends = (DjangoFilterBackend,)
 	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
@@ -445,7 +445,7 @@ class AutomobilistMyModelViewSet(ListAPIView):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = MyModel.objects.all()
-	serializer_class = MyModelSerializer
+	serializer_class = serializers.MyModelSerializer
 
 	def list(self, request,*kwargs):
 		queryset = MyModel.objects.all()
@@ -466,7 +466,7 @@ class AutomobilistVersionViewSet(ListAPIView):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 	queryset = Version.objects.all().prefetch_related('options')
-	serializer_class = VersionSerializer
+	serializer_class = serializers.VersionSerializer
 
 	def list(self, request,*kwargs):
 		queryset = Version.objects.all()
@@ -488,7 +488,7 @@ class AutomobilistViewSet1(mixins.UpdateModelMixin, viewsets.GenericViewSet):
 
 	queryset = Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
 	http_method_names = ('put', 'patch')
-	serializer_class = AutomobilistSerializer1
+	serializer_class = serializers.AutomobilistSerializer1
 	
 
 """
@@ -498,7 +498,7 @@ class AutomobilistViewSet2(mixins.UpdateModelMixin, viewsets.GenericViewSet):
 
     queryset = Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
     http_method_names = ('put', 'patch')
-    serializer_class = AutomobilistSerializer2
+    serializer_class = serializers.AutomobilistSerializer2
 
 
 
