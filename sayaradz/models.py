@@ -106,6 +106,7 @@ class Color(models.Model):
 
 #Car Model [Voiture]
 class Car(models.Model):
+
     numChassis = models.CharField(max_length=50, primary_key=True)
     color = models.ForeignKey(MyModel, on_delete=models.SET_NULL, db_column='color', null=True)
     version = models.ForeignKey(Version, on_delete=models.SET_NULL, db_column='version', null=True)
@@ -130,8 +131,8 @@ class NewCar(Car):
 #LigneTarif Model [Ligne Tarif] 
 class LigneTarif(models.Model):
     
-    dateBegin = models.DateField(auto_now=True)
-    dateEnd = models.DateField(auto_now=True)
+    dateBegin = models.DateField()
+    dateEnd = models.DateField()
     price = models.FloatField()
 
     def __str__(self):

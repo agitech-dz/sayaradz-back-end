@@ -6,13 +6,14 @@ from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.permissions import IsAuthenticated
 from sayaradz_api import serializers 
-from sayaradz.models import Manufacturer, Automobilist, ManufacturerUser, MyModel, Version, Option, Color
+from sayaradz import models
 from rest_framework import status
 from rest_framework import mixins
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView, UpdateAPIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
+from rest_framework.views import APIView
 
 
 """
@@ -40,7 +41,7 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 
-	queryset = Manufacturer.objects.all()
+	queryset = models.Manufacturer.objects.all()
 	serializer_class = serializers.ManufacturerSerializer
 	#filter_backends = (DjangoFilterBackend,)
 	#filter_fields = ('name', 'nationality')
@@ -51,7 +52,7 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 			serializer = self.get_serializer(page, many=True)
 			return self.get_paginated_response(serializer.data)
 
-		count = Manufacturer.objects.all().count()
+		count = models.Manufacturer.objects.all().count()
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response({
@@ -75,17 +76,17 @@ ManufacturerUserViewSet : get, delete, patch, partial_update, put, paginated out
 class ManufacturerUserViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = ManufacturerUser.objects.all()
+	queryset = models.ManufacturerUser.objects.all()
 	serializer_class = serializers.ManufacturerUserSerializer
 
 	def list(self, request,*kwargs):
-		queryset = ManufacturerUser.objects.all()
+		queryset = models.ManufacturerUser.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
 			return self.get_paginated_response(serializer.data)
 
-		count1 = ManufacturerUser.objects.all().count()
+		count1 = models.ManufacturerUser.objects.all().count()
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 
@@ -266,7 +267,7 @@ ManufacturerUserFilter : filter ManufacturerUser output data by ['address', 'fir
 """
 class ManufacturerUserFilter(django_filters.FilterSet):
 	class Meta:
-		model = ManufacturerUser
+		model = models.ManufacturerUser
 		fields = ['address', 'first_name','manufacturer', 'manufacturer__name']
 
 """
@@ -277,7 +278,7 @@ ManufacturerUserList : Get only, allows to get ManufacturerUser output data
 """
 class ManufacturerUserList(ListAPIView):
 	permission_classes = (IsAuthenticated,)  
-	queryset = ManufacturerUser.objects.all()
+	queryset = models.ManufacturerUser.objects.all()
 	serializer_class = serializers.ManufacturerUserSerializer
 	filter_class = ManufacturerUserFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
@@ -290,7 +291,7 @@ ManufacturerUserFilter : filter ManufacturerUser output data by ['id', 'name', '
 """
 class ManufacturerFilter(django_filters.FilterSet):
 	class Meta:
-		model = Manufacturer
+		model = models.Manufacturer
 		fields = ['id', 'name', 'nationality']
 
 """
@@ -302,7 +303,7 @@ ManufacturerList : Get only, allows to get Manufacturer output data
 class ManufacturerList(ListAPIView):
 	
 	permission_classes = (IsAuthenticated,)  
-	queryset = Manufacturer.objects.all()
+	queryset = models.Manufacturer.objects.all()
 
 	serializer_class = serializers.ManufacturerSerializer
 	filter_class = ManufacturerFilter
@@ -318,11 +319,11 @@ class MyModelViewSet(viewsets.ModelViewSet):
 
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = MyModel.objects.all()
+	queryset = models.MyModel.objects.all()
 	serializer_class = serializers.MyModelSerializer
 
 	def list(self, request,*kwargs):
-		queryset = MyModel.objects.all()
+		queryset = models.MyModel.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -337,7 +338,7 @@ MyModelFilter : filter Model output data by ['code', 'name','manufacturer', 'man
 """
 class MyModelFilter(django_filters.FilterSet):
 	class Meta:
-		model = MyModel
+		model = models.MyModel
 		fields = ['code', 'name', 'manufacturer', 'manufacturer__name']
 
 """
@@ -349,7 +350,7 @@ MyModelList : Get only, allows to get ManufacturerUser output data
 class MyModelList(ListAPIView):
 
 	permission_classes = (IsAuthenticated,)  
-	queryset = MyModel.objects.all()
+	queryset = models.MyModel.objects.all()
 	serializer_class = serializers.MyModelSerializer
 	filter_class = MyModelFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
@@ -363,7 +364,7 @@ class OptionViewSet(viewsets.ModelViewSet):
 
 	#pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = Option.objects.all()
+	queryset = models.Option.objects.all()
 	serializer_class = serializers.OptionSerializer
 
 """
@@ -373,11 +374,11 @@ class VersionViewSet(viewsets.ModelViewSet):
 
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = Version.objects.all().prefetch_related('options')
+	queryset = models.Version.objects.all().prefetch_related('options')
 	serializer_class = serializers.VersionSerializer
 
 	def list(self, request,*kwargs):
-		queryset = Version.objects.all()
+		queryset = models.Version.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -394,11 +395,11 @@ class ColorViewSet(viewsets.ModelViewSet):
 
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = Color.objects.all().prefetch_related('options')
+	queryset = models.Color.objects.all().prefetch_related('options')
 	serializer_class = serializers.ColorSerializer
 
 	def list(self, request,*kwargs):
-		queryset = Color.objects.all()
+		queryset = models.Color.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -416,18 +417,18 @@ class AutomobilistManufacturerViewSet(ListAPIView):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 
-	queryset = Manufacturer.objects.all()
+	queryset = models.Manufacturer.objects.all()
 	serializer_class = serializers.ManufacturerSerializer
 	#filter_backends = (DjangoFilterBackend,)
 	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
-		queryset = Manufacturer.objects.all()
+		queryset = models.Manufacturer.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
 			return self.get_paginated_response(serializer.data)
 
-		count = Manufacturer.objects.all().count()
+		count = models.Manufacturer.objects.all().count()
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response({
@@ -444,11 +445,11 @@ class AutomobilistMyModelViewSet(ListAPIView):
 
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = MyModel.objects.all()
+	queryset = models.MyModel.objects.all()
 	serializer_class = serializers.MyModelSerializer
 
 	def list(self, request,*kwargs):
-		queryset = MyModel.objects.all()
+		queryset = models.MyModel.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -465,11 +466,11 @@ class AutomobilistVersionViewSet(ListAPIView):
 
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = Version.objects.all().prefetch_related('options')
+	queryset = models.Version.objects.all().prefetch_related('options')
 	serializer_class = serializers.VersionSerializer
 
 	def list(self, request,*kwargs):
-		queryset = Version.objects.all()
+		queryset = models.Version.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -486,7 +487,7 @@ AutomobilistViewSet1
 """
 class AutomobilistViewSet1(mixins.UpdateModelMixin, viewsets.GenericViewSet):
 
-	queryset = Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
+	queryset = models.Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
 	http_method_names = ('put', 'patch')
 	serializer_class = serializers.AutomobilistSerializer1
 	
@@ -496,9 +497,61 @@ AutomobilistViewSet2 #delete
 """
 class AutomobilistViewSet2(mixins.UpdateModelMixin, viewsets.GenericViewSet):
 
-    queryset = Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
+    queryset = models.Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
     http_method_names = ('put', 'patch')
     serializer_class = serializers.AutomobilistSerializer2
+
+"""
+LigneTarifVersionViewSet
+"""
+class LigneTarifVersionViewSet(viewsets.ModelViewSet):
+
+    queryset = models.LigneTarifVersion.objects.all()
+
+    serializer_class = serializers.LigneTarifVersionSerializer
+
+"""
+LigneTarifOptionViewSet
+"""
+class LigneTarifOptionViewSet(viewsets.ModelViewSet):
+
+    queryset = models.LigneTarifOption.objects.all()
+
+    serializer_class = serializers.LigneTarifOptionSerializer
+
+"""
+Composer Véhicule
+"""
+class ComposeCarView(APIView):
+
+	def get_object(self, code):
+		versionPrice = False
+		optionPrice = False
+
+		try:
+			price =  models.LigneTarifVersion.objects.get(code=code).price
+			versionPrice = True
+
+		except models.LigneTarifVersion.DoesNotExist:
+			try:
+				price =  models.LigneTarifOption.objects.get(code=code).price
+				optionPrice = True
+
+			except models.LigneTarifOption.DoesNotExist:
+				raise Http404
+
+		return price
+
+	def get(self, request, code, format=None):
+		print(code)
+		price = self.get_object(code)
+		data={
+			'price': price
+		}
+		return Response(data)
+
+
+
 
 
 

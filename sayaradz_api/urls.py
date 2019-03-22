@@ -19,8 +19,8 @@ from django.contrib.auth.models import User
 from rest_framework import routers
 from sayaradz import views 
 from rest_framework.authtoken import views as rest_framework_views
-
 from rest_framework.documentation import include_docs_urls 
+
 # Routers provide an easy way of automatically determining the URL conf.
 
 router = routers.DefaultRouter()
@@ -39,11 +39,13 @@ router.register(r'api/versions', views.VersionViewSet)
 
 router.register(r'api/colors', views.ColorViewSet)
 
+router.register(r'api/tarifs-versions', views.LigneTarifVersionViewSet)
+
+router.register(r'api/tarifs-options', views.LigneTarifOptionViewSet)
+
 router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistViewSet1)
 
 router.register(r'api/automobilist/unfollow-model-or-version', views.AutomobilistViewSet2)
-
-
 
 
 # Wire up our API using automatic URL routing.
@@ -85,5 +87,9 @@ urlpatterns = [
     path('api/automobilist/models', views.AutomobilistMyModelViewSet.as_view(), name='automobilist_models'),
 
     path('api/automobilist/versions', views.AutomobilistVersionViewSet.as_view(), name='automobilist_versions'),
+
+    path('api/automobilist/option-price/<code>', views.ComposeCarView.as_view(), name='option_price'),
+
+    path('api/automobilist/version-price/<code>', views.ComposeCarView.as_view(), name='version_price'),
 
 ]
