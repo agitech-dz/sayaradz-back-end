@@ -520,6 +520,14 @@ class LigneTarifOptionViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.LigneTarifOptionSerializer
 
 """
+NewCarViewSet
+"""
+class NewCarViewSet(viewsets.ModelViewSet):
+
+    queryset = models.NewCar.objects.all()
+    serializer_class = serializers.NewCarSerializer
+
+"""
 Composer Véhicule
 """
 class ComposeCarView(APIView):
@@ -549,6 +557,32 @@ class ComposeCarView(APIView):
 			'price': price
 		}
 		return Response(data)
+
+
+"""
+NewCarFilter : filter New Cars output data by ['code', 'name','manufacturer', 'manufacturer__name']
+"""
+class NewCarFilter(django_filters.FilterSet):
+	class Meta:
+		model = models.NewCar
+		fields = ['numChassis', 'color','version', 'options', 'color__name']
+
+"""
+NewCarList : Get only, allows to get New Car output data 
+ : using  	filtering by ['numChassis', 'color','version', 'options'],
+			Search
+			ordering
+"""
+class NewCarList(ListAPIView):
+
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.NewCar.objects.all()
+	serializer_class = serializers.NewCarSerializer
+	filter_class = NewCarFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ('numChassis', 'color','version', 'options')
+	ordering_fields = '__all__'
+
 
 
 

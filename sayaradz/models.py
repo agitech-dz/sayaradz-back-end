@@ -108,7 +108,7 @@ class Color(models.Model):
 class Car(models.Model):
 
     numChassis = models.CharField(max_length=50, primary_key=True)
-    color = models.ForeignKey(MyModel, on_delete=models.SET_NULL, db_column='color', null=True)
+    color = models.ForeignKey(Color, on_delete=models.SET_NULL, db_column='color', null=True)
     version = models.ForeignKey(Version, on_delete=models.SET_NULL, db_column='version', null=True)
     options = models.ManyToManyField(Option)
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path2)

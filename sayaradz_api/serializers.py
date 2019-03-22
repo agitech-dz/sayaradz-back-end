@@ -295,3 +295,12 @@ class LigneTarifOptionSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.LigneTarifOption
 		fields = ('id', 'code','dateBegin', 'dateEnd', 'price')
+
+class NewCarSerializer(serializers.ModelSerializer):
+
+	#version = VersionSerializer(read_only = True)
+	options = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Option.objects.all()) 
+
+	class Meta:
+		model = models.NewCar
+		fields = ('numChassis', 'color','version', 'options', 'seller')

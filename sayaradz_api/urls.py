@@ -43,6 +43,8 @@ router.register(r'api/tarifs-versions', views.LigneTarifVersionViewSet)
 
 router.register(r'api/tarifs-options', views.LigneTarifOptionViewSet)
 
+router.register(r'api/newcars', views.NewCarViewSet)
+
 router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistViewSet1)
 
 router.register(r'api/automobilist/unfollow-model-or-version', views.AutomobilistViewSet2)
@@ -91,5 +93,7 @@ urlpatterns = [
     path('api/automobilist/option-price/<code>', views.ComposeCarView.as_view(), name='option_price'),
 
     path('api/automobilist/version-price/<code>', views.ComposeCarView.as_view(), name='version_price'),
+
+    path('api/automobilist/newcars-filter', views.NewCarList.as_view(), name='newcar_filter'),
 
 ]
