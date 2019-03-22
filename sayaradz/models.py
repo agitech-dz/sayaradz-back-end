@@ -168,7 +168,7 @@ class Automobilist(models.Model):
 #Command Model [Commande]
 class Command(models.Model):
     date = models.DateTimeField(auto_now=True)
-    price = models.FloatField()
+    total = models.FloatField()
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     isVlidated = models.BooleanField(default=False)

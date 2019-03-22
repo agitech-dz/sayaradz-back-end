@@ -296,6 +296,18 @@ class LigneTarifOptionSerializer(serializers.ModelSerializer):
 		model = models.LigneTarifOption
 		fields = ('id', 'code','dateBegin', 'dateEnd', 'price')
 
+"""
+LigneTarifColorSerializer : defines LigneTarifVersion model representation
+fields = ('code','name', 'manufacturer')
+"""
+class LigneTarifColorSerializer(serializers.ModelSerializer):
+
+	#version = VersionSerializer(read_only = True)
+
+	class Meta:
+		model = models.LigneTarifColor
+		fields = ('id', 'code','dateBegin', 'dateEnd', 'price')
+
 class NewCarSerializer(serializers.ModelSerializer):
 
 	#version = VersionSerializer(read_only = True)
