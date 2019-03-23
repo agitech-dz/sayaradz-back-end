@@ -77,8 +77,8 @@ class Migration(migrations.Migration):
             name='LigneTarif',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('dataBegin', models.DateField(auto_now=True)),
-                ('dataEnd', models.DateField(auto_now=True)),
+                ('dateBegin', models.DateField()),
+                ('dateEnd', models.DateField()),
                 ('price', models.FloatField()),
             ],
         ),
