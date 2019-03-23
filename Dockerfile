@@ -10,4 +10,4 @@ RUN \
  apk add jpeg-dev zlib-dev &&\
  python3 -m pip install -r requirements.txt --no-cache-dir && \
  apk --purge del .build-deps
-CMD python manage.py runserver 0.0.0.0:$PORT
+CMD python manage.py migrate && python manage.py runserver 0.0.0.0:$PORT
