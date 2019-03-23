@@ -46,7 +46,7 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 	#filter_backends = (DjangoFilterBackend,)
 	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
-		queryset = Manufacturer.objects.all()
+		queryset = models.Manufacturer.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -161,7 +161,7 @@ class AdminLoginAPIView(GenericAPIView):
 				token, _ = Token.objects.get_or_create(user=user)
 
 				return Response(
-					data=TokenSerializer(token).data,
+					data=serializers.TokenSerializer(token).data,
 					status=status.HTTP_200_OK,
 				)
 			else:
@@ -204,7 +204,7 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 					token, _ = Token.objects.get_or_create(user=user)
 
 					return Response(
-						data=TokenSerializer(token).data,
+						data=serializers.TokenSerializer(token).data,
 						status=status.HTTP_200_OK,
 					)
 				else:
@@ -242,8 +242,6 @@ class TokenAPIView(RetrieveDestroyAPIView):
 			return Response(serializer.data)
 		return super(TokenAPIView, self).retrieve(request, key, *args, **kwargs)
 
-
-
 	def destroy(self, request, key, *args, **kwargs):
 		if key == "current":
 			Token.objects.get(key=request.auth.key).delete()
@@ -277,6 +275,7 @@ ManufacturerUserList : Get only, allows to get ManufacturerUser output data
 			ordering
 """
 class ManufacturerUserList(ListAPIView):
+
 	permission_classes = (IsAuthenticated,)  
 	queryset = models.ManufacturerUser.objects.all()
 	serializer_class = serializers.ManufacturerUserSerializer
@@ -591,6 +590,34 @@ class NewCarList(ListAPIView):
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('numChassis', 'color','version', 'options')
 	ordering_fields = '__all__'
+
+"""
+Composer Véhicule
+"""
+class ManufacturerModelVersioAssociationView(APIView):
+
+	def get_object(self, manufacturer, model, version):
+		
+		if(models.MyModel.objects.filter(manufacturer=manufacturer, code=model).exists()):
+
+			if(models.Version.objects.filter(model=model, code=version).exists()):
+				return True	
+
+			else: 
+				return False
+
+		else:
+			return False
+
+	def get(self, request, manufacturer, model, version, format=None):
+
+		exists = self.get_object(manufacturer, model, version)
+		data={
+			'exists': exists
+		}
+		return Response(data)
+		
+
 
 
 
