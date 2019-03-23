@@ -100,4 +100,6 @@ urlpatterns = [
 
     path('api/automobilist/association-exists/<manufacturer>/<model>/<version>', views.ManufacturerModelVersioAssociationView.as_view(), name='associations_exists'),
 
+    path('api/automobilist/ads-filter', views.AdList.as_view(), name='ad_filter'),
+
 ]

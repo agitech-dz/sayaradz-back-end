@@ -316,3 +316,19 @@ class NewCarSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.NewCar
 		fields = ('numChassis', 'color','version', 'options', 'seller')
+
+"""
+AdSerializer : defines Ad (Annonce) model representation
+fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_firstName', 'automobilist_familyName')
+"""
+class AdSerializer(serializers.ModelSerializer):
+
+	model_name = serializers.ReadOnlyField(source='mymodel.name') 
+	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
+	version_name = serializers.ReadOnlyField(source='version.name') 
+	automobilist_firstName = serializers.ReadOnlyField(source='automobilist.firstName') 
+	automobilist_lastName = serializers.ReadOnlyField(source='automobilist.familyName') 
+
+	class Meta:
+		model = models.Version
+		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_firstName', 'automobilist_familyName')

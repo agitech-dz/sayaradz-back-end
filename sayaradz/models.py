@@ -179,13 +179,16 @@ class Command(models.Model):
 
 #Ad Model [Annonce]
 class Ad(models.Model):
-    minPrice = models.FloatField()
-    date = models.DateTimeField(auto_now=True)
-    automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE, db_column='owner_id')
-    car = models.OneToOneField(OccCar, on_delete=models.CASCADE, db_column='car_numChassis')
+    
+    model = models.ForeignKey(MyModel, on_delete=models.SET_NULL, null=True)
+    version = models.ForeignKey(Version, on_delete=models.SET_NULL, null=True)
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.SET_NULL, null=True)
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path3)
     photo2 = models.ImageField(blank=True, upload_to=get_upload_path3)
     photo3 = models.ImageField(blank=True, upload_to=get_upload_path3)
+    minPrice = models.FloatField()
+    date = models.DateTimeField(auto_now=True)
+    automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
 
 #Offer Model [Offre]
 class Offer(models.Model):

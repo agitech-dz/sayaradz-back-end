@@ -616,8 +616,31 @@ class ManufacturerModelVersioAssociationView(APIView):
 			'exists': exists
 		}
 		return Response(data)
-		
 
+"""
+AdFilter : filter Ads (Annonces) output data by ['id','model', 'model__name', 'version', 'version__name', 'manufacturer', 'manufacturer__name', 'minPrice', 'date', 'automobilist', 'automobilist__firstName', 'automobilist__familyName']
+"""
+class AdFilter(django_filters.FilterSet):
+	class Meta:
+		model = models.Ad
+		fields = ['id','model', 'model__name', 'version', 'version__name', 'manufacturer', 'manufacturer__name', 'minPrice', 'date', 'automobilist', 'automobilist__firstName', 'automobilist__familyName']
+
+"""
+AdList : Get only, allows to get Ad output data 
+ : using  	filtering by ['id','model', 'model__name', 'version', 'version__name', 'manufacturer', 'manufacturer__name', 'minPrice', 'date', 'automobilist', 'automobilist__firstName', 'automobilist__familyName'],
+			Search
+			ordering
+"""
+class 	AdList(ListAPIView):
+
+	#permission_classes = (IsAuthenticated,)  
+	queryset = models.Ad.objects.all()
+	serializer_class = serializers.AdSerializer
+	filter_class = AdFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ('model', 'model__name', 'version', 'version__name', 'manufacturer__name', 'minPrice', 'date', 'automobilist__firstName', 'automobilist__familyName')
+	ordering_fields = '__all__'
+	
 
 
 
