@@ -7,10 +7,8 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('authtoken', '0004_auto_20190227_2159'),
-        ('auth', '0009_alter_user_last_name_max_length'),
+       
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('admin', '0005_auto_20190227_2159'),
         ('sayaradz', '0002_auto_20190301_1629'),
     ]
 
