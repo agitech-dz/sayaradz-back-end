@@ -327,8 +327,21 @@ class AdSerializer(serializers.ModelSerializer):
 	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
 	version_name = serializers.ReadOnlyField(source='version.name') 
 	automobilist_firstName = serializers.ReadOnlyField(source='automobilist.firstName') 
-	automobilist_lastName = serializers.ReadOnlyField(source='automobilist.familyName') 
+	automobilist_familyName = serializers.ReadOnlyField(source='automobilist.familyName') 
 
 	class Meta:
 		model = models.Version
 		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'description' 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_firstName', 'automobilist_familyName')
+
+"""
+OfferSerializer : defines Ad (Annonce) model representation
+fields = ('id', 'ad', 'offredAmount', 'automobilist', 'automobilist_firstName', 'automobilist_familyName', 'date', 'isAccepted')
+"""
+class OfferSerializer(serializers.ModelSerializer):
+ 
+	automobilist_firstName = serializers.ReadOnlyField(source='automobilist.firstName') 
+	automobilist_familyName = serializers.ReadOnlyField(source='automobilist.familyName') 
+
+	class Meta:
+		model = models.Offer
+		fields = ('id','ad', 'offredAmount', 'automobilist', 'automobilist_firstName', 'automobilist_familyName', 'date', 'isAccepted')

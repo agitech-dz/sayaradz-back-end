@@ -661,10 +661,20 @@ class AdViewSet(viewsets.ModelViewSet):
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response(data)
+
+"""
+OfferPostView : Poster une annonce
+"""
+class OfferPostView(CreateAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.OfferSerializer
+
+
+
+
 	
-
-
-
 
 
 
