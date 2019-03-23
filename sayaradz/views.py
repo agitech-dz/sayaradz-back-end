@@ -671,6 +671,10 @@ class OfferPostView(CreateAPIView):
 	permission_classes = ()
 	serializer_class = serializers.OfferSerializer
 
+
+"""
+AdOfferGetView : Get ad offers
+"""
 class AdOfferGetView(APIView):
 
 	def get_object(self, ad):
@@ -686,6 +690,26 @@ class AdOfferGetView(APIView):
 	def get(self, request, ad, format=None):
 
 		data = self.get_object(ad)
+		return Response(data)
+
+"""
+AutomobilistOfferGetView : Get automobilist offers
+"""
+class AutomobilistOfferGetView(APIView):
+
+	def get_object(self, automobilist):
+		
+		try:
+			
+			return models.Offer.objects.filter(automobilist=automobilist)
+
+		except models.Offer.DoesNotExist:
+
+			raise Http404
+
+	def get(self, request, automobilist, format=None):
+
+		data = self.get_object(automobilist)
 		return Response(data)
 
 
