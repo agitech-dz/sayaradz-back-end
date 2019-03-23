@@ -46,7 +46,7 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 	#filter_backends = (DjangoFilterBackend,)
 	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
-		queryset = Manufacturer.objects.all()
+		queryset = models.Manufacturer.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
