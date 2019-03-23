@@ -16,22 +16,41 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.models import User
-from sayaradz.models import Manufacturer, ManufacturerUser
 from rest_framework import routers
-from sayaradz.views import ManufacturerUserList, ManufacturerList, AdminRegistrationAPIView,LogoutView, ManufacturerUserRegistrationAPIView, UserViewSet, ManufacturerViewSet, ManufacturerUserViewSet, AdminLoginAPIView, ManufacturerUserLoginAPIView, TokenAPIView
-
+from sayaradz import views 
 from rest_framework.authtoken import views as rest_framework_views
-
 from rest_framework.documentation import include_docs_urls 
+
 # Routers provide an easy way of automatically determining the URL conf.
 
 router = routers.DefaultRouter()
 
-#router.register(r'api/users/', UserViewSet)
+router.register(r'api/admins/', views.UserViewSet)
 
-router.register(r'api/manufacturers', ManufacturerViewSet, base_name='manufacturers')
+router.register(r'api/manufacturers', views.ManufacturerViewSet, base_name='manufacturers')
 
-router.register(r'api/manufacturers-users', ManufacturerUserViewSet)
+router.register(r'api/manufacturers-users', views.ManufacturerUserViewSet)
+
+router.register(r'api/models', views.MyModelViewSet)
+
+router.register(r'api/options', views.OptionViewSet)
+
+router.register(r'api/versions', views.VersionViewSet)
+
+router.register(r'api/colors', views.ColorViewSet)
+
+router.register(r'api/tarifs-versions', views.LigneTarifVersionViewSet)
+
+router.register(r'api/tarifs-options', views.LigneTarifOptionViewSet)
+
+router.register(r'api/tarifs-colors', views.LigneTarifColorViewSet)
+
+router.register(r'api/newcars', views.NewCarViewSet)
+
+router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistViewSet1)
+
+router.register(r'api/automobilist/unfollow-model-or-version', views.AutomobilistViewSet2)
+
 
 # Wire up our API using automatic URL routing.
 
@@ -47,25 +66,36 @@ urlpatterns = [
 
     path(r'api/docs', include_docs_urls(title='Sayara DZ API')),
 
-    path(r'api/manufacturers-user-filter', ManufacturerUserList.as_view(), name="filter"),
+    path(r'api/manufacturers-user-filter', views.ManufacturerUserList.as_view(), name="manufactureruser_filter"),
 
-    path(r'api/manufacturers-filter', ManufacturerList.as_view(), name="filter"),
+    path(r'api/manufacturers-filter', views.ManufacturerList.as_view(), name="manufacturer_filter"),
 
-    path('api/admin/login/', AdminLoginAPIView.as_view(), name="login_admin"),
+    path('api/admin/login/', views.AdminLoginAPIView.as_view(), name="login_admin"),
 
-    path('api/manufacturer-user/login', ManufacturerUserLoginAPIView.as_view(), name="login_manufactureruser"),
+    path('api/manufacturer-user/login', views.ManufacturerUserLoginAPIView.as_view(), name="login_manufactureruser"),
 
-    path('api/admin/logout', LogoutView.as_view(), name="logout_admin"),
+    path('api/admin/logout', views.LogoutView.as_view(), name="logout_admin"),
 
-    path('api/manufacturer-user/logout', LogoutView.as_view(), name="logout_manufactureruser"),
+    path('api/manufacturer-user/logout', views.LogoutView.as_view(), name="logout_manufactureruser"),
 
     #path('tokens/<key>/', TokenAPIView.as_view(), name="token"),
 
-	path('api/admin/register/', AdminRegistrationAPIView.as_view(), name="register_admin"),
+	path('api/admin/register/', views.AdminRegistrationAPIView.as_view(), name="register_admin"),
 
-    path('api/manufacturer-user/register/', ManufacturerUserRegistrationAPIView.as_view(), name="register_manufactureruser"),
+    path('api/manufacturer-user/register/', views.ManufacturerUserRegistrationAPIView.as_view(), name="register_manufactureruser"),
 
-    path('api/manufacturer/{id}/manufacturer-users', ManufacturerViewSet),
+    path('api/models-filter', views.MyModelList.as_view(), name="model_filter"),
 
+    path('api/automobilist/manufacturers', views.AutomobilistManufacturerViewSet.as_view(), name='automobilist_manufacturers'),
+
+    path('api/automobilist/models', views.AutomobilistMyModelViewSet.as_view(), name='automobilist_models'),
+
+    path('api/automobilist/versions', views.AutomobilistVersionViewSet.as_view(), name='automobilist_versions'),
+
+    path('api/automobilist/option-price/<code>', views.ComposeCarView.as_view(), name='option_price'),
+
+    path('api/automobilist/version-price/<code>', views.ComposeCarView.as_view(), name='version_price'),
+
+    path('api/automobilist/newcars-filter', views.NewCarList.as_view(), name='newcar_filter'),
 
 ]

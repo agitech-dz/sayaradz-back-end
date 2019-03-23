@@ -5,13 +5,15 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.permissions import IsAuthenticated
-from sayaradz_api.serializers import AdminRegistrationSerializer, ManufacturerUserRegistrationSerializer, AdminSerializer, ManufacturerSerializer, ManufacturerUserSerializer, AdminLoginSerializer, ManufacturerUserLoginSerializer, TokenSerializer
-from sayaradz.models import Manufacturer, ManufacturerUser
+from sayaradz_api import serializers 
+from sayaradz import models
 from rest_framework import status
+from rest_framework import mixins
 from rest_framework.authtoken.models import Token
-from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, GenericAPIView, UpdateAPIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
+from rest_framework.views import APIView
 
 
 """
@@ -21,7 +23,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
 
-    serializer_class = AdminSerializer
+    serializer_class = serializers.AdminSerializer
 
 """
 Define the pagination logic
@@ -39,18 +41,18 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
 
-	queryset = Manufacturer.objects.all()
-	serializer_class = ManufacturerSerializer
+	queryset = models.Manufacturer.objects.all()
+	serializer_class = serializers.ManufacturerSerializer
 	#filter_backends = (DjangoFilterBackend,)
 	#filter_fields = ('name', 'nationality')
 	def list(self, request,*kwargs):
-		queryset = Manufacturer.objects.all()
+		queryset = models.Manufacturer.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
 			return self.get_paginated_response(serializer.data)
 
-		count = Manufacturer.objects.all().count()
+		count = models.Manufacturer.objects.all().count()
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response({
@@ -71,21 +73,20 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
 """
 ManufacturerUserViewSet : get, delete, patch, partial_update, put, paginated output
 """
-
 class ManufacturerUserViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = ManufacturerUser.objects.select_related('manufacturer').all()
-	serializer_class = ManufacturerUserSerializer
+	queryset = models.ManufacturerUser.objects.all()
+	serializer_class = serializers.ManufacturerUserSerializer
 
 	def list(self, request,*kwargs):
-		queryset = ManufacturerUser.objects.select_related('manufacturer').all()
+		queryset = models.ManufacturerUser.objects.all()
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
 			return self.get_paginated_response(serializer.data)
 
-		count1 = ManufacturerUser.objects.all().count()
+		count1 = models.ManufacturerUser.objects.all().count()
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 
@@ -102,7 +103,7 @@ AdminRegistrationAPIView : post only, allows to create new admin account
 class AdminRegistrationAPIView(CreateAPIView):
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = AdminRegistrationSerializer
+	serializer_class = serializers.AdminRegistrationSerializer
 
 	def post(self, request, *args, **kwargs):
 		serializer = self.get_serializer(data=request.data)
@@ -125,7 +126,7 @@ ManufacturerUserRegistrationAPIView : post only, allows to create new manufactur
 class ManufacturerUserRegistrationAPIView(CreateAPIView):
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = ManufacturerUserRegistrationSerializer
+	serializer_class = serializers.ManufacturerUserRegistrationSerializer
 
 	def post(self, request, *args, **kwargs):
 		serializer = self.get_serializer(data=request.data)
@@ -147,7 +148,7 @@ class AdminLoginAPIView(GenericAPIView):
 
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = AdminLoginSerializer
+	serializer_class = serializers.AdminLoginSerializer
 	
 	def post(self, request, *args, **kwargs):
 
@@ -160,7 +161,7 @@ class AdminLoginAPIView(GenericAPIView):
 				token, _ = Token.objects.get_or_create(user=user)
 
 				return Response(
-					data=TokenSerializer(token).data,
+					data=serializers.TokenSerializer(token).data,
 					status=status.HTTP_200_OK,
 				)
 			else:
@@ -189,7 +190,7 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = ManufacturerUserLoginSerializer
+	serializer_class = serializers.ManufacturerUserLoginSerializer
 	
 	def post(self, request, *args, **kwargs):
 
@@ -199,17 +200,24 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 
 			user = serializer.user
 			if not user.is_superuser:
-				token, _ = Token.objects.get_or_create(user=user)
+				if not user.is_blocked:
+					token, _ = Token.objects.get_or_create(user=user)
 
-				return Response(
-					data=TokenSerializer(token).data,
-					status=status.HTTP_200_OK,
-				)
+					return Response(
+						data=serializers.TokenSerializer(token).data,
+						status=status.HTTP_200_OK,
+					)
+				else:
+					return Response(
+						data="Blocked",
+						status=status.HTTP_400_BAD_REQUEST,
+					)
+
 			else:
 				return Response(
 				data="Login Failed",
 				status=status.HTTP_400_BAD_REQUEST,
-			)
+				)
 
 		else:
 			return Response(
@@ -220,7 +228,7 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 class TokenAPIView(RetrieveDestroyAPIView):
 
 	lookup_field = "key"
-	serializer_class = TokenSerializer
+	serializer_class = serializers.TokenSerializer
 	queryset = Token.objects.all()
 
 	def filter_queryset(self, queryset):
@@ -248,7 +256,7 @@ LogoutView : post only, allows users logout
 """
 class LogoutView(GenericAPIView):
 
-	serializer_class = ManufacturerUserLoginSerializer
+	serializer_class = serializers.ManufacturerUserLoginSerializer
 	def post(self, request):
 
 		django_logout(request)
@@ -259,7 +267,7 @@ ManufacturerUserFilter : filter ManufacturerUser output data by ['address', 'fir
 """
 class ManufacturerUserFilter(django_filters.FilterSet):
 	class Meta:
-		model = ManufacturerUser
+		model = models.ManufacturerUser
 		fields = ['address', 'first_name','manufacturer', 'manufacturer__name']
 
 """
@@ -270,8 +278,8 @@ ManufacturerUserList : Get only, allows to get ManufacturerUser output data
 """
 class ManufacturerUserList(ListAPIView):
 	permission_classes = (IsAuthenticated,)  
-	queryset = ManufacturerUser.objects.all()
-	serializer_class = ManufacturerUserSerializer
+	queryset = models.ManufacturerUser.objects.all()
+	serializer_class = serializers.ManufacturerUserSerializer
 	filter_class = ManufacturerUserFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('username', 'email', 'address', 'manufacturer__name')
@@ -283,7 +291,7 @@ ManufacturerUserFilter : filter ManufacturerUser output data by ['id', 'name', '
 """
 class ManufacturerFilter(django_filters.FilterSet):
 	class Meta:
-		model = Manufacturer
+		model = models.Manufacturer
 		fields = ['id', 'name', 'nationality']
 
 """
@@ -295,13 +303,303 @@ ManufacturerList : Get only, allows to get Manufacturer output data
 class ManufacturerList(ListAPIView):
 	
 	permission_classes = (IsAuthenticated,)  
-	queryset = Manufacturer.objects.all()
+	queryset = models.Manufacturer.objects.all()
 
-	serializer_class = ManufacturerSerializer
+	serializer_class = serializers.ManufacturerSerializer
 	filter_class = ManufacturerFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('name', 'nationality')	
 	ordering_fields = '__all__'
-	pagination_class = StandardResultsSetPagination
 
+	
+"""
+ModelViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class MyModelViewSet(viewsets.ModelViewSet):
+
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.MyModel.objects.all()
+	serializer_class = serializers.MyModelSerializer
+
+	def list(self, request,*kwargs):
+		queryset = models.MyModel.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
+"""
+MyModelFilter : filter Model output data by ['code', 'name','manufacturer', 'manufacturer__name']
+"""
+class MyModelFilter(django_filters.FilterSet):
+	class Meta:
+		model = models.MyModel
+		fields = ['code', 'name', 'manufacturer', 'manufacturer__name']
+
+"""
+MyModelList : Get only, allows to get ManufacturerUser output data 
+ : using  	filtering by ['code', 'name', 'manufacturer__name'],
+			Search
+			ordering
+"""
+class MyModelList(ListAPIView):
+
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.MyModel.objects.all()
+	serializer_class = serializers.MyModelSerializer
+	filter_class = MyModelFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ( 'code', 'name', 'manufacturer__name')
+	ordering_fields = '__all__'
+
+"""
+OptionViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class OptionViewSet(viewsets.ModelViewSet):
+
+	#pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.Option.objects.all()
+	serializer_class = serializers.OptionSerializer
+
+"""
+VersionViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class VersionViewSet(viewsets.ModelViewSet):
+
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.Version.objects.all().prefetch_related('options')
+	serializer_class = serializers.VersionSerializer
+
+	def list(self, request,*kwargs):
+		queryset = models.Version.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
+"""
+ColorViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class ColorViewSet(viewsets.ModelViewSet):
+
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.Color.objects.all().prefetch_related('options')
+	serializer_class = serializers.ColorSerializer
+
+	def list(self, request,*kwargs):
+		queryset = models.Color.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
+
+"""
+AutomobilistManufacturerViewSet : get (read only endpoint)
+"""
+class AutomobilistManufacturerViewSet(ListAPIView):
+	pagination_class = StandardResultsSetPagination
+	
+
+	queryset = models.Manufacturer.objects.all()
+	serializer_class = serializers.ManufacturerSerializer
+	#filter_backends = (DjangoFilterBackend,)
+	#filter_fields = ('name', 'nationality')
+	def list(self, request,*kwargs):
+		queryset = models.Manufacturer.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		count = models.Manufacturer.objects.all().count()
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({
+			'results':data,
+			'meta':{
+				'count':count
+				},
+			})
+
+"""
+AutomobilistMyModelViewSet : get (read only endpoint) paginated output
+"""
+class AutomobilistMyModelViewSet(ListAPIView):
+
+	pagination_class = StandardResultsSetPagination
+	
+	queryset = models.MyModel.objects.all()
+	serializer_class = serializers.MyModelSerializer
+
+	def list(self, request,*kwargs):
+		queryset = models.MyModel.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
+"""
+AutomobilistVersionViewSet : get (Read only endpoint) paginated output
+"""
+class AutomobilistVersionViewSet(ListAPIView):
+
+	pagination_class = StandardResultsSetPagination
+	
+	queryset = models.Version.objects.all().prefetch_related('options')
+	serializer_class = serializers.VersionSerializer
+
+	def list(self, request,*kwargs):
+		queryset = models.Version.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
+
+
+"""
+AutomobilistViewSet1
+"""
+class AutomobilistViewSet1(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+
+	queryset = models.Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
+	http_method_names = ('put', 'patch')
+	serializer_class = serializers.AutomobilistSerializer1
+	
+
+"""
+AutomobilistViewSet2 #delete 
+"""
+class AutomobilistViewSet2(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+
+    queryset = models.Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
+    http_method_names = ('put', 'patch')
+    serializer_class = serializers.AutomobilistSerializer2
+
+"""
+LigneTarifVersionViewSet
+"""
+class LigneTarifVersionViewSet(viewsets.ModelViewSet):
+
+    queryset = models.LigneTarifVersion.objects.all()
+
+    serializer_class = serializers.LigneTarifVersionSerializer
+
+"""
+LigneTarifOptionViewSet
+"""
+class LigneTarifOptionViewSet(viewsets.ModelViewSet):
+
+    queryset = models.LigneTarifOption.objects.all()
+
+    serializer_class = serializers.LigneTarifOptionSerializer
+
+"""
+LigneTarifColorViewSet
+"""
+class LigneTarifColorViewSet(viewsets.ModelViewSet):
+
+    queryset = models.LigneTarifColor.objects.all()
+
+    serializer_class = serializers.LigneTarifColorSerializer
+
+"""
+NewCarViewSet
+"""
+class NewCarViewSet(viewsets.ModelViewSet):
+
+    queryset = models.NewCar.objects.all()
+    serializer_class = serializers.NewCarSerializer
+
+"""
+Composer Véhicule
+"""
+class ComposeCarView(APIView):
+
+	def get_object(self, code):
+		versionPrice = False
+		optionPrice = False
+
+		try:
+			price =  models.LigneTarifVersion.objects.get(code=code).price
+			versionPrice = True
+
+		except models.LigneTarifVersion.DoesNotExist:
+			try:
+				price =  models.LigneTarifOption.objects.get(code=code).price
+				optionPrice = True
+
+			except models.LigneTarifOption.DoesNotExist:
+				raise Http404
+
+		return price
+
+	def get(self, request, code, format=None):
+		print(code)
+		price = self.get_object(code)
+		data={
+			'price': price
+		}
+		return Response(data)
+
+
+"""
+NewCarFilter : filter New Cars output data by ['code', 'name','manufacturer', 'manufacturer__name']
+"""
+class NewCarFilter(django_filters.FilterSet):
+	class Meta:
+		model = models.NewCar
+		fields = ['numChassis', 'color','version', 'options', 'color__name']
+
+"""
+NewCarList : Get only, allows to get New Car output data 
+ : using  	filtering by ['numChassis', 'color','version', 'options'],
+			Search
+			ordering
+"""
+class NewCarList(ListAPIView):
+
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.NewCar.objects.all()
+	serializer_class = serializers.NewCarSerializer
+	filter_class = NewCarFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ('numChassis', 'color','version', 'options')
+	ordering_fields = '__all__'
+
+
+
+
+
+
+
+
+
+
+	
 	

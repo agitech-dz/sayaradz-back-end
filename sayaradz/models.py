@@ -31,7 +31,11 @@ class ManufacturerUser(User):
     telephone =  models.CharField(max_length=15)
     manufacturer = models.ForeignKey( 'manufacturer', on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, upload_to=get_upload_path1)
+    is_blocked = models.BooleanField(default=False)
     
+    class Meta:
+        ordering = ['id']
+
     def save(self, *args, **kwargs):
         super(ManufacturerUser, self).save(*args, **kwargs) # Call the real   save() method
 
@@ -40,25 +44,48 @@ class Manufacturer(models.Model):
     name = models.CharField(max_length=75, unique=True)
     nationality = models.CharField(max_length=45, blank=True)
 
+    class Meta:
+        ordering = ['id']
+        
     def __str__(self):
        return self.name
 
 #Model Model [Modèle]
-class Model(models.Model):
+class MyModel(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['code']
+        unique_together = ("code", "manufacturer")
+
     def __str__(self):
        return self.name
 
+#Option Model [Option]
+class Option(models.Model):
+    code = models.CharField(max_length=10, primary_key=True)
+    name = models.CharField(max_length=50)
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
+    
+    class Meta:
+        ordering = ['code']
+        unique_together = ("code", "model")
+
+    def __str__(self):
+       return self.name
+       
 #Version Model [Version]
 class Version(models.Model):
     code = models.CharField(max_length=20, primary_key=True)
     name = models.CharField(max_length=50)
+    options = models.ManyToManyField(Option)
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
 
     def __str__(self):
        return self.name
+
 
 #CarSeller Model [Concessionnaire]
 class CarSeller(models.Model):
@@ -68,30 +95,21 @@ class CarSeller(models.Model):
     def __str__(self):
        return self.name
 
-#Option Model [Option]
-class Option(models.Model):
-    code = models.CharField(max_length=10, primary_key=True)
-    name = models.CharField(max_length=50)
-    model = models.ForeignKey(Model, on_delete=models.CASCADE)
-    versions = models.ManyToManyField(Version)
-
-    def __str__(self):
-       return self.name
-
 #Color Model [Couleur]
 class Color(models.Model):
     code =  models.CharField(max_length=3, primary_key=True)
     name = models.CharField(max_length=50)
-    model = models.ForeignKey(Model, on_delete=models.CASCADE)
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
 
     def __str__(self):
        return self.name
 
 #Car Model [Voiture]
 class Car(models.Model):
+
     numChassis = models.CharField(max_length=50, primary_key=True)
-    color = models.ForeignKey(Model, on_delete=models.SET_NULL, db_column='color', null=True)
-    version = models.ForeignKey(Manufacturer, on_delete=models.SET_NULL, db_column='version', null=True)
+    color = models.ForeignKey(Color, on_delete=models.SET_NULL, db_column='color', null=True)
+    version = models.ForeignKey(Version, on_delete=models.SET_NULL, db_column='version', null=True)
     options = models.ManyToManyField(Option)
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path2)
     photo2 = models.ImageField(blank=True, upload_to=get_upload_path2)
@@ -113,8 +131,8 @@ class NewCar(Car):
 #LigneTarif Model [Ligne Tarif] 
 class LigneTarif(models.Model):
     
-    dataBegin = models.DateField(auto_now=True)
-    dataEnd = models.DateField(auto_now=True)
+    dateBegin = models.DateField()
+    dateEnd = models.DateField()
     price = models.FloatField()
 
     def __str__(self):
@@ -141,7 +159,7 @@ class Automobilist(models.Model):
     address = models.TextField()
     telephone =  models.CharField(max_length=15)
     avatar = models.ImageField(blank=True, upload_to=get_upload_path4)
-    followedModels = models.ManyToManyField(Model)
+    followedModels = models.ManyToManyField(MyModel)
     followedVersions = models.ManyToManyField(Version)
 
     def __str__(self):
@@ -150,7 +168,7 @@ class Automobilist(models.Model):
 #Command Model [Commande]
 class Command(models.Model):
     date = models.DateTimeField(auto_now=True)
-    price = models.FloatField()
+    total = models.FloatField()
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     isVlidated = models.BooleanField(default=False)
@@ -181,3 +199,11 @@ class Offer(models.Model):
 
 
 
+
+#Country Model [Nationalité]
+class Country(models.Model):
+    
+    country = models.CharField(max_length=100)
+
+    def __str__(self):
+       return self.country

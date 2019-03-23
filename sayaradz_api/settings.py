@@ -25,11 +25,13 @@ SECRET_KEY = 'tbgeak6_)g-+lknmhw!77)s-5_xk#zedysyerz!=9&mqehnc)r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = [
     '53f409a2.ngrok.io',
     'localhost',
     'sayaradz-back-end.herokuapp.com'
 ]
+
 
 
 # Application definition
@@ -44,7 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
-    'corsheaders',
+    'corsheaders', 
     'sayaradz',
      
 ]
@@ -156,6 +158,7 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK = {
+
     
 
     'DEFAULT_RENDERER_CLASSES': (
@@ -187,7 +190,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-
+"""
 
 LOG_PATH = os.path.join(BASE_DIR, "log/")
 LOGGING = {
@@ -227,3 +230,4 @@ LOGGING = {
         
     },
 }
+"""
