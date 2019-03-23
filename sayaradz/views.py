@@ -526,7 +526,7 @@ class LigneTarifColorViewSet(viewsets.ModelViewSet):
 
     queryset = models.LigneTarifColor.objects.all()
 
-    serializer_class = serializers.LigneTarifOptionSerializer
+    serializer_class = serializers.LigneTarifColorSerializer
 
 """
 NewCarViewSet
