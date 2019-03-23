@@ -456,7 +456,7 @@ class AutomobilistMyModelViewSet(ListAPIView):
 
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
-		return Response({'results':data})
+		return Response(data)
 
 """
 AutomobilistVersionViewSet : get (Read only endpoint) paginated output
@@ -477,7 +477,7 @@ class AutomobilistVersionViewSet(ListAPIView):
 
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
-		return Response({'results':data})
+		return Response(data)
 
 
 
@@ -640,6 +640,27 @@ class 	AdList(ListAPIView):
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('model', 'model__name', 'version', 'version__name', 'manufacturer__name', 'minPrice', 'date', 'automobilist__firstName', 'automobilist__familyName')
 	ordering_fields = '__all__'
+
+"""
+AutomobilistMyModelViewSet : get (read only endpoint) paginated output
+"""
+class AdViewSet(viewsets.ModelViewSet):
+
+	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)  
+	queryset = models.Ad.objects.all()
+	serializer_class = serializers.MyModelSerializer
+
+	def list(self, request,*kwargs):
+		queryset = models.Ad.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
 	
 
 

@@ -188,6 +188,7 @@ class Ad(models.Model):
     photo3 = models.ImageField(blank=True, upload_to=get_upload_path3)
     minPrice = models.FloatField()
     date = models.DateTimeField(auto_now=True)
+    description = models.TextField()
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
 
 #Offer Model [Offre]

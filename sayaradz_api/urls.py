@@ -47,6 +47,8 @@ router.register(r'api/tarifs-colors', views.LigneTarifColorViewSet)
 
 router.register(r'api/newcars', views.NewCarViewSet)
 
+router.register(r'api/automobilist/ads', views.AdViewSet)
+
 router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistViewSet1)
 
 router.register(r'api/automobilist/unfollow-model-or-version', views.AutomobilistViewSet2)
