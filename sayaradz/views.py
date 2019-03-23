@@ -161,7 +161,7 @@ class AdminLoginAPIView(GenericAPIView):
 				token, _ = Token.objects.get_or_create(user=user)
 
 				return Response(
-					data=TokenSerializer(token).data,
+					data=serializers.TokenSerializer(token).data,
 					status=status.HTTP_200_OK,
 				)
 			else:
@@ -204,7 +204,7 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 					token, _ = Token.objects.get_or_create(user=user)
 
 					return Response(
-						data=TokenSerializer(token).data,
+						data=serializers.TokenSerializer(token).data,
 						status=status.HTTP_200_OK,
 					)
 				else:
