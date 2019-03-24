@@ -345,3 +345,5 @@ class OfferSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.Offer
 		fields = ('id','ad', 'offredAmount', 'automobilist', 'automobilist_firstName', 'automobilist_familyName', 'date', 'isAccepted')
+
+	

@@ -110,4 +110,6 @@ urlpatterns = [
     
     path('api/automobilist/get-automobilist-offers/<automobilist>', views.AutomobilistOfferGetView.as_view(), name='get_automobilist_offer'),
 
+    path('api/automobilist/update-offers', views.OfferUpdateView.as_view(), name='update_offer'),
+
 ]

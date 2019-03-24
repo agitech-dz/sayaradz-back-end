@@ -712,6 +712,18 @@ class AutomobilistOfferGetView(APIView):
 		data = self.get_object(automobilist)
 		return Response(data)
 
+"""
+OfferUpdateView : Poster une annonce
+"""
+class OfferUpdateView(UpdateAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.OfferSerializer
+
+	
+
+
 
 
 	
