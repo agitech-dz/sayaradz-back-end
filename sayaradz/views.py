@@ -14,6 +14,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIVie
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
+from notifications.signals import notify
 
 
 """
@@ -536,6 +537,14 @@ class NewCarViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.NewCarSerializer
 
 """
+AutomobilistViewSet
+"""
+class AutomobilistViewSet(viewsets.ModelViewSet):
+
+    queryset = models.Automobilist.objects.all()
+    serializer_class = serializers.AutomobilistSerializer
+
+"""
 Composer Véhicule
 """
 class ComposeCarView(APIView):
@@ -623,7 +632,7 @@ AdFilter : filter Ads (Annonces) output data by ['id','model', 'model__name', 'v
 class AdFilter(django_filters.FilterSet):
 	class Meta:
 		model = models.Ad
-		fields = ['id','model', 'model__name', 'version', 'version__name', 'manufacturer', 'manufacturer__name', 'minPrice', 'date', 'automobilist', 'automobilist__firstName', 'automobilist__familyName']
+		fields = ['id','model', 'model__name', 'version', 'version__name', 'manufacturer', 'manufacturer__name', 'minPrice', 'date', 'automobilist', 'automobilist__first_name', 'automobilist__last_name', 'automobilist__username']
 
 """
 AdList : Get only, allows to get Ad output data 
@@ -638,7 +647,7 @@ class 	AdList(ListAPIView):
 	serializer_class = serializers.AdSerializer
 	filter_class = AdFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
-	search_fields = ('model', 'model__name', 'version', 'version__name', 'manufacturer__name', 'minPrice', 'date', 'automobilist__firstName', 'automobilist__familyName')
+	search_fields = ('model__name', 'version__name', 'manufacturer__name', 'minPrice', 'date', 'automobilist__first_name', 'automobilist__last_name', 'automobilist__username' )
 	ordering_fields = '__all__'
 
 """
@@ -647,9 +656,9 @@ AutomobilistMyModelViewSet : get (read only endpoint) paginated output
 class AdViewSet(viewsets.ModelViewSet):
 
 	pagination_class = StandardResultsSetPagination
-	permission_classes = (IsAuthenticated,)  
+	#permission_classes = (IsAuthenticated,)  
 	queryset = models.Ad.objects.all()
-	serializer_class = serializers.MyModelSerializer
+	serializer_class = serializers.AdSerializer
 
 	def list(self, request,*kwargs):
 		queryset = models.Ad.objects.all()
@@ -721,12 +730,44 @@ class OfferUpdateView(UpdateAPIView):
 	permission_classes = ()
 	serializer_class = serializers.OfferSerializer
 
-	
+	def patch(self, request, pk):
+		# if no model exists by this PK, raise a 404 error
+		offer = models.Offer.objects.get(pk=pk)
+		#ad = offer.ad
+		# this is the only field we want to update
+		data = {"isAccepted": True}
+
+		serializer = serializers.OfferSerializer(offer, data=data, partial=True)
+
+		if serializer.is_valid():
+
+			serializer.save()
+			#add notification
+			ad_ = models.Ad.objects.get(pk= offer.ad_id)
+			recipient =  offer.automobilist
+			actor = models.Automobilist.objects.get(pk= ad_.automobilist_id)
+			description = actor.telephone
+			verb = offer.offredPrice
+			target_object_id = offer.id
+			target = offer.ad
+
+			notification = models.AutomobilistOfferAcceptNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, description= description)
+			notification.save()
+
+			return Response(serializer.data)
+		# return a meaningful error response
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+"""
+AutomobilistOfferAcceptNotificationView : A
+"""
+class AutomobilistOfferAcceptNotificationView(viewsets.ModelViewSet):
 
-
-	
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.AutomobilistOfferAcceptNotificationSerializer
+	queryset = models.AutomobilistOfferAcceptNotification.objects.all()
 
 
 

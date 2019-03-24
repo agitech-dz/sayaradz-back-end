@@ -206,6 +206,19 @@ class ColorSerializer(serializers.ModelSerializer):
 		fields = ('code','name', 'model')
 
 """
+AutomobilistSerializer : defines Automobilist model representation follow
+fields = ('firstName', 'familyName', 'password', 'address', 'telephone', 'avatar')
+"""
+class AutomobilistSerializer(serializers.ModelSerializer):
+
+	followedModels = serializers.PrimaryKeyRelatedField( many=True, read_only=True) 
+	followedVersions = serializers.PrimaryKeyRelatedField( many=True, read_only=True) 
+
+	class Meta:
+		model = models.Automobilist
+		fields = ('id', 'first_name', 'last_name', "username", "password", 'address', 'telephone', 'avatar', 'followedModels', 'followedVersions')
+
+"""
 AutomobilistSerializer1 : defines Automobilist model representation follow
 fields = ('id', 'followedModels', 'followedVersions')
 """
@@ -326,12 +339,12 @@ class AdSerializer(serializers.ModelSerializer):
 	model_name = serializers.ReadOnlyField(source='mymodel.name') 
 	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
 	version_name = serializers.ReadOnlyField(source='version.name') 
-	automobilist_firstName = serializers.ReadOnlyField(source='automobilist.firstName') 
-	automobilist_familyName = serializers.ReadOnlyField(source='automobilist.familyName') 
+	automobilist_userName = serializers.ReadOnlyField(source='automobilist.userName') 
+	#version = serializers.ReadOnlyField(source='version.code') 
 
 	class Meta:
-		model = models.Version
-		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'description' 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_firstName', 'automobilist_familyName')
+		model = models.Ad
+		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'description', 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_userName')
 
 """
 OfferSerializer : defines Ad (Annonce) model representation
@@ -339,11 +352,30 @@ fields = ('id', 'ad', 'offredAmount', 'automobilist', 'automobilist_firstName', 
 """
 class OfferSerializer(serializers.ModelSerializer):
  
-	automobilist_firstName = serializers.ReadOnlyField(source='automobilist.firstName') 
-	automobilist_familyName = serializers.ReadOnlyField(source='automobilist.familyName') 
+	automobilist_userName = serializers.ReadOnlyField(source='automobilist.username') 
 
 	class Meta:
 		model = models.Offer
-		fields = ('id','ad', 'offredAmount', 'automobilist', 'automobilist_firstName', 'automobilist_familyName', 'date', 'isAccepted')
+		fields = ('id','ad', 'offredPrice', 'automobilist', 'automobilist_userName', 'date', 'isAccepted')
 
-	
+"""
+AutomobilistOfferAcceptNotificationSerializer : defines AutomobilistOfferAcceptNotification model representation
+feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
+	actor: sender(Automobilist_id offer owner)
+	action_objet: offerId
+	recepient: ad owner
+	verb: offeredPrice
+	target: ad id
+
+"""
+class AutomobilistOfferAcceptNotificationSerializer(serializers.ModelSerializer):
+
+	offerowner_userName = serializers.ReadOnlyField(source='actor.username') 
+
+	offerowner_email = serializers.ReadOnlyField(source='actor.email')
+	offerowner_telephone = serializers.ReadOnlyField(source='actor.telephone') 
+ 
+
+	class Meta:
+		model = models.AutomobilistOfferAcceptNotification
+		fields = ('id', 'actor', 'offerowner_userName','offerowner_email', 'offerowner_telephone', 'target_object_id', 'recipient', 'verb', 'target', 'timestamp', 'unread', 'description')

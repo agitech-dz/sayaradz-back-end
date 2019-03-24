@@ -5,6 +5,8 @@ import uuid
 from django.contrib.auth.models import User 
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
+from notifications.models import Notification
+
 
 
 #upload ManufacturerUser Avatars from web client to "manufacturerusers_account/avatars/" folder
@@ -83,6 +85,10 @@ class Version(models.Model):
     options = models.ManyToManyField(Option)
     model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['code']
+        unique_together = ("code", "model")
+
     def __str__(self):
        return self.name
 
@@ -91,6 +97,9 @@ class Version(models.Model):
 class CarSeller(models.Model):
     name = models.CharField(max_length=50)
     telephone = models.CharField(max_length=15)
+
+    class Meta:
+        ordering = ['id']
 
     def __str__(self):
        return self.name
@@ -101,6 +110,10 @@ class Color(models.Model):
     name = models.CharField(max_length=50)
     model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['code']
+        unique_together = ("code", "model")
+        
     def __str__(self):
        return self.name
 
@@ -116,6 +129,9 @@ class Car(models.Model):
     photo3 = models.ImageField(blank=True, upload_to=get_upload_path2)
     seller = models.ForeignKey(CarSeller, on_delete=models.SET_NULL, null=True)
 
+    class Meta:
+        ordering = ['numChassis']
+        
 #OccCar Model [Voiture Occasion] 
 class OccCar(Car):
 
@@ -135,6 +151,9 @@ class LigneTarif(models.Model):
     dateEnd = models.DateField()
     price = models.FloatField()
 
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
        return self.name
 
@@ -142,40 +161,50 @@ class LigneTarif(models.Model):
 class LigneTarifVersion(LigneTarif):
     code = models.OneToOneField(Version, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['code']
+
 #LigneTarifOption Model [Ligne Tarif Option]  
 class LigneTarifOption(LigneTarif):
     code = models.OneToOneField(Option, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['code']
 
 #LigneTarifColor Model [Ligne Tarif Couleur]
 class LigneTarifColor(LigneTarif):
     code = models.OneToOneField(Color, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['code']
+
 #Automobilist Model [Automobiliste]
-class Automobilist(models.Model):
-    #email = models.EmailField(max_length=255, unique=True, db_index=True)
-    firstName = models.CharField(max_length=50)
-    familyName = models.CharField(max_length=50)
-    password = models.CharField(max_length=100, default='')
+class Automobilist(User):
+    
     address = models.TextField()
     telephone =  models.CharField(max_length=15)
     avatar = models.ImageField(blank=True, upload_to=get_upload_path4)
     followedModels = models.ManyToManyField(MyModel)
     followedVersions = models.ManyToManyField(Version)
 
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
-       return self.name
+       return self.firstName
 
 #Command Model [Commande]
 class Command(models.Model):
+
     date = models.DateTimeField(auto_now=True)
     total = models.FloatField()
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     isVlidated = models.BooleanField(default=False)
 
-
-    def __str__(self):
-       return self.name
+    class Meta:
+        ordering = ['id']
+        unique_together = ("id", "automobilist")
 
 #Ad Model [Annonce]
 class Ad(models.Model):
@@ -191,23 +220,36 @@ class Ad(models.Model):
     description = models.TextField()
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['id']
+        unique_together = ("id", "automobilist")
+
 #Offer Model [Offre]
 class Offer(models.Model):
+
     date = models.DateTimeField(auto_now=True)
-    offredAmount = models.FloatField()
+    offredPrice = models.FloatField()
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE,db_column='automobilist_id')
     ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
     isAccepted = models.BooleanField(default=False)
-    
 
+    class Meta:
+        ordering = ['id']
 
+#Notify  Manufacturer User about new commands 
+class ManufacturerUserCommandNotification(Notification):
 
-
-
-#Country Model [Nationalité]
-class Country(models.Model):
-    
-    country = models.CharField(max_length=100)
+    class Meta:
+        ordering = ['id']
 
     def __str__(self):
-       return self.country
+       return self.verb
+
+#Notify the Automobilist if its offer has been accepted by the Ad owner Notifocation contains  
+class AutomobilistOfferAcceptNotification(Notification):
+
+    class Meta:
+        ordering = ['id']
+    
+    def __str__(self):
+       return self.verb

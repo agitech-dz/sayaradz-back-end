@@ -20,6 +20,7 @@ from rest_framework import routers
 from sayaradz import views 
 from rest_framework.authtoken import views as rest_framework_views
 from rest_framework.documentation import include_docs_urls 
+import notifications.urls
 
 # Routers provide an easy way of automatically determining the URL conf.
 
@@ -46,6 +47,10 @@ router.register(r'api/tarifs-options', views.LigneTarifOptionViewSet)
 router.register(r'api/tarifs-colors', views.LigneTarifColorViewSet)
 
 router.register(r'api/newcars', views.NewCarViewSet)
+
+router.register(r'api/automobilists', views.AutomobilistViewSet)
+
+router.register(r'api/automobilist/offers-notifications', views.AutomobilistOfferAcceptNotificationView)
 
 router.register(r'api/automobilist/ads', views.AdViewSet)
 
@@ -110,6 +115,8 @@ urlpatterns = [
     
     path('api/automobilist/get-automobilist-offers/<automobilist>', views.AutomobilistOfferGetView.as_view(), name='get_automobilist_offer'),
 
-    path('api/automobilist/update-offers', views.OfferUpdateView.as_view(), name='update_offer'),
+    path('api/automobilist/accept-offer/<pk>', views.OfferUpdateView.as_view(), name='update_offer'),
+
+    path('api/inbox/notifications/', include(notifications.urls, namespace='notifications')),
 
 ]
