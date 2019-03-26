@@ -36,7 +36,7 @@ class ManufacturerUserSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = models.ManufacturerUser
-		fields = ('id','username','first_name', 'last_name',  'address', 'telephone', 'email', 'is_blocked', 'manufacturer', 'manufacturer_name')
+		fields = ('id','username','first_name', 'last_name','password', 'address', 'telephone', 'email', 'is_blocked', 'manufacturer', 'manufacturer_name')
 
 """
 AdminRegistrationSerializer : defines required Admin registration feilds  
@@ -366,16 +366,16 @@ feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
 	recepient: ad owner
 	verb: offeredPrice
 	target: ad id
-
 """
-class AutomobilistOfferAcceptNotificationSerializer(serializers.ModelSerializer):
+class AutomobilistAcceptOfferNotificationSerializer(serializers.ModelSerializer):
 
-	offerowner_userName = serializers.ReadOnlyField(source='actor.username') 
+    offerowner_userName = serializers.ReadOnlyField(source='actor.username') 
 
-	offerowner_email = serializers.ReadOnlyField(source='actor.email')
-	offerowner_telephone = serializers.ReadOnlyField(source='actor.telephone') 
+    offerowner_email = serializers.ReadOnlyField(source='actor.email')
+    offerowner_telephone = serializers.ReadOnlyField(source='actor.telephone') 
  
 
-	class Meta:
-		model = models.AutomobilistOfferAcceptNotification
-		fields = ('id', 'actor', 'offerowner_userName','offerowner_email', 'offerowner_telephone', 'target_object_id', 'recipient', 'verb', 'target', 'timestamp', 'unread', 'description')
+    class Meta:
+        model = models.AutomobilistAcceptOfferNotification
+        fields = ('id', 'actor', 'offerowner_userName','offerowner_email', 'offerowner_telephone', 'target_object_id', 'recipient', 'verb', 'target', 'timestamp', 'unread', 'description')
+

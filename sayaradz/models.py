@@ -6,8 +6,7 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
 from notifications.models import Notification
-
-
+from model_utils import Choices
 
 #upload ManufacturerUser Avatars from web client to "manufacturerusers_account/avatars/" folder
 def get_upload_path1(instance, filename):
@@ -236,17 +235,53 @@ class Offer(models.Model):
     class Meta:
         ordering = ['id']
 
-#Notify  Manufacturer User about new commands 
-class ManufacturerUserCommandNotification(Notification):
+#Notify the Automobilist if its offer has been accepted by the Ad owner Notifocation contains  
+class AutomobilistNotification(Notification):
+
+    notification_type_choices = Choices(
+        ('OA', 'offer_accepted'),#accepter offer
+        ('MC', 'model_changed'),
+        ('VC', 'version_changed'),
+        ('CV', 'command_valitaded'),
+    )
+
+    notification_type = models.CharField(max_length=1, choices=notification_type_choices, default=notification_type_choices.OA)
 
     class Meta:
         ordering = ['id']
-
+    
     def __str__(self):
        return self.verb
 
 #Notify the Automobilist if its offer has been accepted by the Ad owner Notifocation contains  
-class AutomobilistOfferAcceptNotification(Notification):
+class AutomobilistAcceptOfferNotification(AutomobilistNotification):
+
+    class Meta:
+        ordering = ['id']
+    
+    def __str__(self):
+       return self.verb
+
+#Notify the Automobilist if a followed model has been modified  
+class AutomobilistFollowedModelChangeNotification(AutomobilistNotification):
+
+    class Meta:
+        ordering = ['id']
+    
+    def __str__(self):
+       return self.verb
+
+#Notify the Automobilist if a followed version has been modified  
+class AutomobilistFollowedVersionChangeNotification(AutomobilistNotification):
+
+    class Meta:
+        ordering = ['id']
+    
+    def __str__(self):
+       return self.verb
+
+#Notify the Automobilist if a his command has been modified  
+class AutomobilistCommandValidatedNotification(AutomobilistNotification):
 
     class Meta:
         ordering = ['id']

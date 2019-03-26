@@ -50,8 +50,6 @@ router.register(r'api/newcars', views.NewCarViewSet)
 
 router.register(r'api/automobilists', views.AutomobilistViewSet)
 
-router.register(r'api/automobilist/offers-notifications', views.AutomobilistOfferAcceptNotificationView)
-
 router.register(r'api/automobilist/ads', views.AdViewSet)
 
 router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistViewSet1)
@@ -118,5 +116,7 @@ urlpatterns = [
     path('api/automobilist/accept-offer/<pk>', views.OfferUpdateView.as_view(), name='update_offer'),
 
     path('api/inbox/notifications/', include(notifications.urls, namespace='notifications')),
+
+    path('api/automobilist/offers-notifications/<recipient>', views.AutomobilistOfferAcceptNotificationView.as_view(), name='accept_offers_notifications')
 
 ]

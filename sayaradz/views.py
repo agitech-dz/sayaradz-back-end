@@ -201,7 +201,8 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 
 			user = serializer.user
 			if not user.is_superuser:
-				if not user.is_blocked:
+				manufactureruser = models.ManufacturerUser.objects.get(user_ptr_id = user)
+				if not manufactureruser.is_blocked:
 					token, _ = Token.objects.get_or_create(user=user)
 
 					return Response(
@@ -210,8 +211,10 @@ class ManufacturerUserLoginAPIView(GenericAPIView):
 					)
 				else:
 					return Response(
-						data="Blocked",
-						status=status.HTTP_400_BAD_REQUEST,
+						data={
+							"is_blocked": True
+							},
+						status=status.HTTP_200_OK,
 					)
 
 			else:
@@ -744,14 +747,14 @@ class OfferUpdateView(UpdateAPIView):
 			serializer.save()
 			#add notification
 			ad_ = models.Ad.objects.get(pk= offer.ad_id)
-			recipient =  offer.automobilist
+			recipient =  offer.automobilist#receive notification
 			actor = models.Automobilist.objects.get(pk= ad_.automobilist_id)
 			description = actor.telephone
 			verb = offer.offredPrice
 			target_object_id = offer.id
 			target = offer.ad
 
-			notification = models.AutomobilistOfferAcceptNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, description= description)
+			notification = models.AutomobilistAcceptOfferNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, description= description)
 			notification.save()
 
 			return Response(serializer.data)
@@ -762,16 +765,24 @@ class OfferUpdateView(UpdateAPIView):
 """
 AutomobilistOfferAcceptNotificationView : A
 """
-class AutomobilistOfferAcceptNotificationView(viewsets.ModelViewSet):
+class AutomobilistOfferAcceptNotificationView(ListAPIView):
 
 	authentication_classes = ()
 	permission_classes = ()
-	serializer_class = serializers.AutomobilistOfferAcceptNotificationSerializer
-	queryset = models.AutomobilistOfferAcceptNotification.objects.all()
+	serializer_class = serializers.AutomobilistAcceptOfferNotificationSerializer
+	queryset = models.AutomobilistAcceptOfferNotification.objects.all()
 
+	def list(self, request,*kwargs, recipient):
+		queryset = models.AutomobilistAcceptOfferNotification.objects.filter(recipient = recipient)
+		page = self.paginate_queryset(queryset) 
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
 
-
-
+		
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
 
 
 
