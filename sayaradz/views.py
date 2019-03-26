@@ -418,7 +418,7 @@ AutomobilistManufacturerViewSet : get (read only endpoint)
 """
 class AutomobilistManufacturerViewSet(ListAPIView):
 	pagination_class = StandardResultsSetPagination
-	permission_classes = (IsAuthenticated,)  
+	
 
 	queryset = models.Manufacturer.objects.all()
 	serializer_class = serializers.ManufacturerSerializer
@@ -447,7 +447,7 @@ AutomobilistMyModelViewSet : get (read only endpoint) paginated output
 class AutomobilistMyModelViewSet(ListAPIView):
 
 	pagination_class = StandardResultsSetPagination
-	permission_classes = (IsAuthenticated,)  
+	
 	queryset = models.MyModel.objects.all()
 	serializer_class = serializers.MyModelSerializer
 
@@ -468,7 +468,7 @@ AutomobilistVersionViewSet : get (Read only endpoint) paginated output
 class AutomobilistVersionViewSet(ListAPIView):
 
 	pagination_class = StandardResultsSetPagination
-	permission_classes = (IsAuthenticated,)  
+	
 	queryset = models.Version.objects.all().prefetch_related('options')
 	serializer_class = serializers.VersionSerializer
 
@@ -529,7 +529,7 @@ class LigneTarifColorViewSet(viewsets.ModelViewSet):
 
     queryset = models.LigneTarifColor.objects.all()
 
-    serializer_class = serializers.LigneTarifOptionSerializer
+    serializer_class = serializers.LigneTarifColorSerializer
 
 """
 NewCarViewSet

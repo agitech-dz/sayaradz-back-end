@@ -1,22 +1,23 @@
+dist: xenial
 language: python
+python: 3.7
 services:
-- postgresql
-python:
-- "3.6"
-env:
-- DJANGO
-before_script:
-- psql -c 'create database ledenbestand;' -U postgres
+- docker
+before_install:
+- wget -qO- https://toolbelt.heroku.com/install.sh | sh
+- docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
+before_script: pip install docker-compose
 script:
-- pip install -r requirements.txt
+- docker-compose run web python manage.py test -v 2
+- docker build -t web .
+- docker tag web registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:
-  provider: heroku
-  api_key:
-    app: sayaradz-back-end
-    secure: CJ6ib5lZnGk6YJ5jkzuLJY1x6UcBUktFylCjQH+i5/mBx21VLM5KsbfA/x/h8Oj+/prLOvHFFG4CkiTSGaWHfvic+t2GEgORbRiYWkz0ObzNys4vEzg2q10+slXm4EiqPApddzwvdABTjII/z7qafAjtXCU6iATHHuloWk6Er8Pxja2HF0ZbrXgpfAnHXOqvuZYaJoneed/oELifwpLcdSS6WhAcNfcmpdsgSsilKE++cP/WACgBtl7mf/btOOQgdrqaJfGTQwf4l/ScmX7PtOqTePo5WGV0g1Pqw0Y20pqrHU4aD278jyPh8A+EXAAWdUNpnv1shiU3s7FYQwzqyF1msM4P5PF4OoZOSZai8ueJiE6w+RtahzprAtyb3cknRxo7JpSiepZQ4gml91OKtsIiuBWN8nsIk7CdM61hniCsOXm+GftwBHJl/GHon5B+JovQSu30Y0qorJJZ9x3e2jd0AZq2UTVyPrr4hvJxjFgEA/cAIyYMyaF7xrgGR6mY8yDMe0ubooycRiNO8gukhEBHfKi7je6PBHHVzD43IccVkzbCEquHzrpCtK2kte2Lqn+g4WpJX4PfeHn/Wn55Xtv2GlD8DsCNqX0GTOR8/s4s8aQuP/bOsA6RyojOrE2/dwWlI+tlYX9oAKWIMstSx5eMc7LwwMmgYfahskNIxGQ=
-  run:
-      - "pip install -r requirements.txt"
-      - "python manage.py makemigrations"
-      - "python manage.py migrate"
-      - "python manage.py runserver 0.0.0.0:8000"
-      
+  provider: script
+  script: docker push registry.heroku.com/$HEROKU_APP_NAME/web; heroku container:release
+    web --app $HEROKU_APP_NAME
+  on:
+    all_branches: true
+notifications:
+  email: false
+  slack:
+    secure: CYElBC3hDIms/bxcJybQoz6Q2uFmEvekaBnnWHYEVg1uEAs3O4XtkQKKfZPrLtbqPQSN1mqADqOzK+VL5hoMJ6UdHW1dz5Hg9rynMEiKZEu2h/VplpZ/PWEl1qhsSxXKgmS/t5bDbtGFBRtxy7hM7DrJ7apV2tKWIaqkNPRWVJS4jZK6cQtPGo7ahvJ3Kr8ESUQmvKyhU30hS5hMxRUWH9oxnRiAIdmN8/onNcUMjDUS9P8LV46Iebwe44ABsIN/NX4RSuTBZCdmicd/X9iBo+E5Rbv4h9b3oBnm1K/XmKfAklyuCO001DJ3eQOAB4p7YFcqNTvaUlbAJrsjy/tkB/V9A75KyJ9+dWg7XCqlHIRg8rSamOIc5EvCKFR+9uC9SA6Zpj38rfsT7vFPJ4bnm/XD7I1keoTWtwD9mTaXSDFsBAIr2FqqGYIvIY3npMS3Y+bp/O3+jDCjgWXKzyGlZhJ5pMZBaKwv7WuuYIikkI3YHsldOLN4MSo28eezFjyh8ibhB9V0NoCFAsgrNr6P01P2GyRiz1a5Gniv3lMkFraJ+a3M0lZsq3ZG6w/J57g3ftw8FG349cgrb867jISdE/D8egaNhC+uOoHbxVZFSq09AP+acGRkj+g2zm3o5jih4oP0RObjW++TdUVmrAC4EnulyMCHucBdloN90/aB5cY=
