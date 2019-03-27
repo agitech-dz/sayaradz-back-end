@@ -689,8 +689,10 @@ AdOfferGetView : Get ad offers
 """
 class AdOfferGetView(APIView):
 
-	def get_object(self, ad):
-		
+	serializer_class = serializers.OfferSerializer
+
+	def get_queryset(self, ad):
+
 		try:
 			
 			return models.Offer.objects.filter(ad=ad)
@@ -699,18 +701,30 @@ class AdOfferGetView(APIView):
 
 			raise Http404
 
+	def get_object(self, ad):
+		
+		try:
+			
+			serializer = serializers.OfferSerializer(self.get_queryset(ad), many=True)
+			return Response(serializer.data)
+
+		except models.Offer.DoesNotExist:
+
+			raise Http404
+
 	def get(self, request, ad, format=None):
 
-		data = self.get_object(ad)
-		return Response(data)
+		return self.get_object(ad)
 
 """
 AutomobilistOfferGetView : Get automobilist offers
 """
 class AutomobilistOfferGetView(APIView):
+	
+	serializer_class = serializers.OfferSerializer
 
-	def get_object(self, automobilist):
-		
+	def get_queryset(self, automobilist):
+
 		try:
 			
 			return models.Offer.objects.filter(automobilist=automobilist)
@@ -719,10 +733,22 @@ class AutomobilistOfferGetView(APIView):
 
 			raise Http404
 
-	def get(self, request, automobilist, format=None):
+	def get_object(self, automobilist):
+		
+		try:
+			
+			serializer = serializers.OfferSerializer(self.get_queryset(automobilist), many=True)
+			return Response(serializer.data)
 
-		data = self.get_object(automobilist)
-		return Response(data)
+		except models.Offer.DoesNotExist:
+
+			raise Http404
+
+	def get(self, request, automobilist, format=None):
+	 
+		return self.get_object(automobilist)
+
+
 
 """
 OfferUpdateView : Poster une annonce
@@ -734,8 +760,14 @@ class OfferUpdateView(UpdateAPIView):
 	serializer_class = serializers.OfferSerializer
 
 	def patch(self, request, pk):
-		# if no model exists by this PK, raise a 404 error
-		offer = models.Offer.objects.get(pk=pk)
+		try:
+			# if no model exists by this PK, raise a 404 error
+			offer = models.Offer.objects.get(pk=pk)
+
+		except models.Offer.DoesNotExist:
+
+			raise Http404
+		
 		#ad = offer.ad
 		# this is the only field we want to update
 		data = {"isAccepted": True}

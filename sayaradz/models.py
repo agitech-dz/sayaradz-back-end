@@ -36,6 +36,7 @@ class ManufacturerUser(User):
     
     class Meta:
         ordering = ['id']
+        
 
     def save(self, *args, **kwargs):
         super(ManufacturerUser, self).save(*args, **kwargs) # Call the real   save() method
@@ -249,6 +250,7 @@ class AutomobilistNotification(Notification):
 
     class Meta:
         ordering = ['id']
+        
     
     def __str__(self):
        return self.verb
@@ -258,7 +260,7 @@ class AutomobilistAcceptOfferNotification(AutomobilistNotification):
 
     class Meta:
         ordering = ['id']
-    
+        
     def __str__(self):
        return self.verb
 
@@ -267,6 +269,7 @@ class AutomobilistFollowedModelChangeNotification(AutomobilistNotification):
 
     class Meta:
         ordering = ['id']
+       
     
     def __str__(self):
        return self.verb
@@ -276,6 +279,7 @@ class AutomobilistFollowedVersionChangeNotification(AutomobilistNotification):
 
     class Meta:
         ordering = ['id']
+        
     
     def __str__(self):
        return self.verb
@@ -285,6 +289,7 @@ class AutomobilistCommandValidatedNotification(AutomobilistNotification):
 
     class Meta:
         ordering = ['id']
+       
     
     def __str__(self):
        return self.verb
