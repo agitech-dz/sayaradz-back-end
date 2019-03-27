@@ -179,9 +179,14 @@ class OptionSerializer(serializers.ModelSerializer):
 
 	model_name = serializers.ReadOnlyField(source='model.name') 
 	manufacturer = serializers.ReadOnlyField(source='model.manufacturer_id') 
+	tarif_id = serializers.ReadOnlyField(source='lignetarifoption.id')
+	tarif_price = serializers.ReadOnlyField(source='lignetarifoption.price')
+	tarif_date_begin = serializers.ReadOnlyField(source='lignetarifoption.datebegin')
+	tarif_date_end = serializers.ReadOnlyField(source='lignetarifoption.dateend') 
+	
 	class Meta:
 		model = models.Option
-		fields = ('code','name', 'model', 'model_name', 'manufacturer')
+		fields = ('code','name', 'model', 'model_name', 'manufacturer', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
 
 """
 VersionSerializer : defines Version model representation
