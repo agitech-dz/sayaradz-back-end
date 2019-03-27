@@ -56,6 +56,8 @@ router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistV
 
 router.register(r'api/automobilist/unfollow-model-or-version', views.AutomobilistViewSet2)
 
+router.register(r'api/commands', views.CommandViewSet)
+
 
 # Wire up our API using automatic URL routing.
 

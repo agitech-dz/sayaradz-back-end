@@ -379,3 +379,40 @@ class AutomobilistAcceptOfferNotificationSerializer(serializers.ModelSerializer)
 		model = models.AutomobilistAcceptOfferNotification
 		fields = ('id', 'offer', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type')
 
+"""
+CommandSerializer : defines Command model representation
+feilds : ('id', 'date', 'total', 'automobilist','car', 'isVlidated', 'reservation', 'reservationDate', 'reservationAmount')
+"""
+class CommandSerializer(serializers.ModelSerializer):
+
+	reservationDate = serializers.ReadOnlyField(source='reservation.date') 
+	reservationAmount = serializers.ReadOnlyField(source='reservation.amount')
+	
+	class Meta:
+		model = models.Command
+		fields = ('id', 'date', 'total', 'automobilist','car', 'isValidated', 'reservation', 'reservationDate', 'reservationAmount')
+
+"""
+ReservationSerializer : defines Reservation model representation
+feilds : ('id', 'date', 'amount', 'automobilist','car', 'command', 'commandDate', 'commandTotal', 'commandIsValidated')
+"""
+class ReservationSerializer(serializers.ModelSerializer):
+
+	commandDate = serializers.ReadOnlyField(source='command.date') 
+	commandTotal = serializers.ReadOnlyField(source='command.total')
+	commandIsValidated = serializers.ReadOnlyField(source='command.isValidated')
+	car = serializers.ReadOnlyField(source='command.car')
+	
+	class Meta:
+		model = models.Reservation
+		fields = ('id', 'date', 'amount', 'automobilist','car', 'command', 'commandDate', 'commandTotal', 'commandIsValidated')
+
+"""
+CommandSerializer : defines Command model representation
+feilds : ('id', 'date', 'total', 'automobilist','car', 'isVlidated', 'reservation', 'reservationDate', 'reservationAmount')
+"""
+class MinCommandSerializer(serializers.ModelSerializer):
+	
+	class Meta:
+		model = models.Command
+		fields = ('id')

@@ -206,6 +206,18 @@ class Command(models.Model):
         ordering = ['id']
         unique_together = ("id", "automobilist")
 
+#Reservation Model [Reservation]
+class Reservation(models.Model):
+
+    date = models.DateTimeField(auto_now=True)
+    amount = models.FloatField()
+    automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
+    command = models.OneToOneField(Command, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['id']
+        unique_together = ("id", "automobilist")
+
 #Ad Model [Annonce]
 class Ad(models.Model):
     

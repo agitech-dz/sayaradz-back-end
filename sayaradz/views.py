@@ -827,6 +827,57 @@ class AutomobilistOfferAcceptNotificationView(ListAPIView):
 		return Response(data)
 
 
+"""
+CommandViewSet : list commands and delete command
+"""
+class CommandViewSet(mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
+
+	queryset = models.Command.objects.all()
+	http_method_names = ('get', 'delete')
+	serializer_class = serializers.CommandSerializer
+
+	def patch(self, request, pk):
+		serializer_class = serializers.MinCommandSerializer		
+		try:
+			# if no model exists by this PK, raise a 404 error
+			command = models.Command.objects.get(pk=pk)
+
+		except models.Command.DoesNotExist:
+
+			raise Http404
+		
+		#ad = offer.ad
+		# this is the only field we want to update
+		data = {"isValidated": True}
+
+		serializer = serializers.CommandSerializer(command, data=data, partial=True)
+
+		if serializer.is_valid():
+
+			serializer.save()
+			#add notification
+			"""
+			actor : ad owner
+			recipient: accepted offer owner
+			description: phone number
+			verb: offered price
+			target_object_id = ad id (target ad)
+			offer: offer id
+			"""
+			recipient =  command.automobilist#receive notification
+			actor = command
+			verb = command.total
+			target = command.car
+			notification = models.AutomobilistCommandValidatedNotification(actor= actor, recipient= recipient, verb= verb, target= target, notification_type='CV')
+			notification.save()
+			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
+			return Response(serializer.data)
+		# return a meaningful error response
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
 
 	
 	
