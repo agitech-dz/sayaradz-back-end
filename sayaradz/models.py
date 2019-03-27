@@ -246,7 +246,7 @@ class AutomobilistNotification(Notification):
         ('CV', 'command_valitaded'),
     )
 
-    notification_type = models.CharField(max_length=1, choices=notification_type_choices, default=notification_type_choices.OA)
+    notification_type = models.CharField(max_length=3, choices=notification_type_choices, default=notification_type_choices.OA)
 
     class Meta:
         ordering = ['id']
@@ -258,6 +258,8 @@ class AutomobilistNotification(Notification):
 #Notify the Automobilist if its offer has been accepted by the Ad owner Notifocation contains  
 class AutomobilistAcceptOfferNotification(AutomobilistNotification):
 
+    offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
+    
     class Meta:
         ordering = ['id']
         

@@ -778,17 +778,27 @@ class OfferUpdateView(UpdateAPIView):
 
 			serializer.save()
 			#add notification
+			"""
+			actor : ad owner
+			recipient: accepted offer owner
+			description: phone number
+			verb: offered price
+			target_object_id = ad id (target ad)
+			offer: offer id
+			adOwner:
+			
+
+			"""
 			ad_ = models.Ad.objects.get(pk= offer.ad_id)
 			recipient =  offer.automobilist#receive notification
 			actor = models.Automobilist.objects.get(pk= ad_.automobilist_id)
-			description = actor.telephone
+			adOwner = actor.id
 			verb = offer.offredPrice
-			target_object_id = offer.id
-			target = offer.ad
-
-			notification = models.AutomobilistAcceptOfferNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, description= description)
+			target_object_id = ad_.id
+			target = ad_
+			notification = models.AutomobilistAcceptOfferNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, offer= offer)
 			notification.save()
-
+			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
 			return Response(serializer.data)
 		# return a meaningful error response
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

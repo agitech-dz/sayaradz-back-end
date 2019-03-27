@@ -361,21 +361,21 @@ class OfferSerializer(serializers.ModelSerializer):
 """
 AutomobilistOfferAcceptNotificationSerializer : defines AutomobilistOfferAcceptNotification model representation
 feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
-	actor: sender(Automobilist_id offer owner)
+	actor: sender(Automobilist_id ad owner)
 	action_objet: offerId
-	recepient: ad owner
+	recepient: offer owner
 	verb: offeredPrice
 	target: ad id
 """
 class AutomobilistAcceptOfferNotificationSerializer(serializers.ModelSerializer):
 
-    offerowner_userName = serializers.ReadOnlyField(source='actor.username') 
+	actorUserName = serializers.ReadOnlyField(source='actor.username') 
+	actorEmail = serializers.ReadOnlyField(source='actor.email')
+	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
+	actor = serializers.CharField(source='actor_object_id')
+	actorTarget = serializers.CharField(source='target_object_id') #ad id
 
-    offerowner_email = serializers.ReadOnlyField(source='actor.email')
-    offerowner_telephone = serializers.ReadOnlyField(source='actor.telephone') 
- 
-
-    class Meta:
-        model = models.AutomobilistAcceptOfferNotification
-        fields = ('id', 'actor', 'offerowner_userName','offerowner_email', 'offerowner_telephone', 'target_object_id', 'recipient', 'verb', 'target', 'timestamp', 'unread', 'description')
+	class Meta:
+		model = models.AutomobilistAcceptOfferNotification
+		fields = ('id', 'offer', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type')
 
