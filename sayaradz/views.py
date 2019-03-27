@@ -830,17 +830,18 @@ class AutomobilistOfferAcceptNotificationView(ListAPIView):
 """
 CommandViewSet : list commands and delete command
 """
-class CommandViewSet(mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
+class CommandViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin,mixins.DestroyModelMixin, viewsets.GenericViewSet):
 
 	queryset = models.Command.objects.all()
-	http_method_names = ('get', 'delete')
+	http_method_names = ('get', 'delete', 'patch')
 	serializer_class = serializers.CommandSerializer
 
-	def patch(self, request, pk):
+	def patch(self, request, pk, manufacturer_user):
 		serializer_class = serializers.MinCommandSerializer		
 		try:
 			# if no model exists by this PK, raise a 404 error
 			command = models.Command.objects.get(pk=pk)
+			manufacturerUser = models.ManufacturerUser.get(pk=manufacturer_user)
 
 		except models.Command.DoesNotExist:
 
@@ -857,17 +858,15 @@ class CommandViewSet(mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.G
 			serializer.save()
 			#add notification
 			"""
-			actor : ad owner
-			recipient: accepted offer owner
-			description: phone number
-			verb: offered price
-			target_object_id = ad id (target ad)
-			offer: offer id
+			actor : manufacturer user
+			recipient: command owner
+			verb: Manufacturer Name (Marque)
+			target = command
 			"""
 			recipient =  command.automobilist#receive notification
-			actor = command
-			verb = command.total
-			target = command.car
+			actor = manufacturerUser
+			verb = models.Manufacturer.objects.get(pk= manufacturerUser.manufacturer_id).name
+			target = command
 			notification = models.AutomobilistCommandValidatedNotification(actor= actor, recipient= recipient, verb= verb, target= target, notification_type='CV')
 			notification.save()
 			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
@@ -876,8 +875,27 @@ class CommandViewSet(mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.G
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+"""
+AutomobilistCommandValidatedNotificationNotificationView : A
+"""
+class AutomobilistCommandValidatedNotificationView(ListAPIView):
 
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.AutomobilistCommandValidatedNotificationSerializer
+	queryset = models.AutomobilistCommandValidatedNotification.objects.all()
 
+	def list(self, request,*kwargs, recipient):
+		queryset = models.AutomobilistCommandValidatedNotification.objects.filter(recipient = recipient)
+		page = self.paginate_queryset(queryset) 
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
 
 	
 	

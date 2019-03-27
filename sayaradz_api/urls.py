@@ -119,6 +119,8 @@ urlpatterns = [
 
     path('api/inbox/notifications/', include(notifications.urls, namespace='notifications')),
 
-    path('api/automobilist/offers-notifications/<recipient>', views.AutomobilistOfferAcceptNotificationView.as_view(), name='accept_offers_notifications')
+    path('api/automobilist/offers-notifications/<recipient>', views.AutomobilistOfferAcceptNotificationView.as_view(), name='accept_offers_notifications'),
+
+    path('api/automobilist/commands-notifications/<recipient>', views.AutomobilistCommandValidatedNotificationView.as_view(), name='validate_commands_notifications')
 
 ]

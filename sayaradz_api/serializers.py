@@ -416,3 +416,23 @@ class MinCommandSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.Command
 		fields = ('id')
+
+"""
+AutomobilistCommandValidatedNotificationSerializer : defines AutomobilistOfferAcceptNotification model representation
+feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
+	actor : manufacturer user
+	recipient: command owner
+	verb: Manufacturer Name (Marque)
+	target = command
+"""
+class AutomobilistCommandValidatedNotificationSerializer(serializers.ModelSerializer):
+
+	command = serializers.CharField(source='target_object_id') #command id
+	commandDate = serializers.ReadOnlyField(source='target.date')
+	commandCar = serializers.ReadOnlyField(source='target.car')
+	commandTotal = serializers.ReadOnlyField(source='target.total')
+	manufacturer = serializers.CharField(source='verb')
+
+	class Meta:
+		model = models.AutomobilistCommandValidatedNotification
+		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type')
