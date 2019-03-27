@@ -26,6 +26,12 @@ SECRET_KEY = 'tbgeak6_)g-+lknmhw!77)s-5_xk#zedysyerz!=9&mqehnc)r'
 DEBUG = True
 
 
+ALLOWED_HOSTS = [
+    '53f409a2.ngrok.io',
+    'localhost',
+    'sayaradz-back-end.herokuapp.com'
+]
+
 
 
 # Application definition
@@ -90,11 +96,11 @@ WSGI_APPLICATION = 'sayaradz_api.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': "sayaradz_db1",
-            'USER': "sayaradz_user",
-            'PASSWORD': "sayaradz",
-            'HOST': "localhost",
-            'PORT': "5432",
+            'NAME': os.environ.get("DATABASE_NAME"),
+            'USER': os.environ.get("DATABASE_USER"),
+            'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
+            'HOST': os.environ.get("DATABASE_HOST"),
+            'PORT': os.environ.get("DATABASE_PORT"),
             'TEST': {
                 'NAME': 'sayaradz_test',
             },
@@ -156,12 +162,12 @@ REST_FRAMEWORK = {
 
     
 
-    #'DEFAULT_RENDERER_CLASSES': (
-     #   'rest_framework.renderers.JSONRenderer',
-      #  ),
-    #'DEFAULT_PARSER_CLASSES': (
-     #   'rest_framework.parsers.JSONParser',
-    #),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    ),
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
