@@ -483,7 +483,28 @@ class AutomobilistVersionViewSet(ListAPIView):
 		data = serializer.data
 		return Response(data)
 
+"""
+AutomobilistModelColorVersionViewSet : get (Read only endpoint) paginated output
+"""
+class AutomobilistModelColorViewSet(ListAPIView):
 
+	queryset = models.Color.objects.all()
+	serializer_class = serializers.ColorSerializer
+
+	def list(self, request,*kwargs, model):
+
+		queryset = models.Color.objects.filter(model_id= model)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
+
+"""
+AutomobilistColorVersionViewSet : get (Read only endpoint) paginated output
+"""
+class AutomobilistColorViewSet(ListAPIView):
+
+	queryset = models.Color.objects.all()
+	serializer_class = serializers.ColorSerializer
 
 """
 AutomobilistViewSet1
