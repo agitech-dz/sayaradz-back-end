@@ -830,10 +830,43 @@ class AutomobilistOfferAcceptNotificationView(ListAPIView):
 """
 CommandViewSet : list commands and delete command
 """
-class CommandViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin,mixins.DestroyModelMixin, viewsets.GenericViewSet):
+class CommandViewSet(mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
 
 	queryset = models.Command.objects.all()
 	http_method_names = ('get', 'delete', 'patch')
+	serializer_class = serializers.CommandSerializer
+
+
+
+"""
+AutomobilistCommandValidatedNotificationNotificationView : A
+"""
+class AutomobilistCommandValidatedNotificationView(ListAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.AutomobilistCommandValidatedNotificationSerializer
+	queryset = models.AutomobilistCommandValidatedNotification.objects.all()
+
+	def list(self, request,*kwargs, recipient):
+		queryset = models.AutomobilistCommandValidatedNotification.objects.filter(recipient = recipient)
+		page = self.paginate_queryset(queryset) 
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
+
+"""
+CommandUpdateView : Validate command
+"""
+class CommandUpdateView(UpdateAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
 	serializer_class = serializers.CommandSerializer
 
 	def patch(self, request, pk, manufacturer_user):
@@ -875,27 +908,6 @@ class CommandViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin,mixins.Destr
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-"""
-AutomobilistCommandValidatedNotificationNotificationView : A
-"""
-class AutomobilistCommandValidatedNotificationView(ListAPIView):
-
-	authentication_classes = ()
-	permission_classes = ()
-	serializer_class = serializers.AutomobilistCommandValidatedNotificationSerializer
-	queryset = models.AutomobilistCommandValidatedNotification.objects.all()
-
-	def list(self, request,*kwargs, recipient):
-		queryset = models.AutomobilistCommandValidatedNotification.objects.filter(recipient = recipient)
-		page = self.paginate_queryset(queryset) 
-		if page is not None:
-			serializer = self.get_serializer(page, many=True)
-			return self.get_paginated_response(serializer.data)
-
-		
-		serializer = self.get_serializer(queryset,many=True)
-		data = serializer.data
-		return Response(data)
 
 	
 	

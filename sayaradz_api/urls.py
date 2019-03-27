@@ -121,6 +121,8 @@ urlpatterns = [
 
     path('api/automobilist/offers-notifications/<recipient>', views.AutomobilistOfferAcceptNotificationView.as_view(), name='accept_offers_notifications'),
 
-    path('api/automobilist/commands-notifications/<recipient>', views.AutomobilistCommandValidatedNotificationView.as_view(), name='validate_commands_notifications')
+    path('api/automobilist/commands-notifications/<recipient>', views.AutomobilistCommandValidatedNotificationView.as_view(), name='validate_commands_notifications'),
+
+    path('api/commands/validate-command/<int:manufacturer_user>/<int:command_pk>', views.CommandUpdateView.as_view(), name='validate_command'),
 
 ]
