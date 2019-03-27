@@ -113,7 +113,7 @@ urlpatterns = [
     
     path('api/automobilist/get-automobilist-offers/<automobilist>', views.AutomobilistOfferGetView.as_view(), name='get_automobilist_offer'),
 
-    path('api/automobilist/accept-offer/<pk>', views.OfferUpdateView.as_view(), name='update_offer'),
+    path('api/automobilist/accept-offer/<int:pk>', views.OfferUpdateView.as_view(), name='update_offer'),
 
     path('api/inbox/notifications/', include(notifications.urls, namespace='notifications')),
 
