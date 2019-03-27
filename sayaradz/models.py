@@ -201,22 +201,12 @@ class Command(models.Model):
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     isValidated = models.BooleanField(default=False)
-
+    reservationAmount = models.FloatField(null=True)
+    
     class Meta:
         ordering = ['date']
-        unique_together = ("id", "automobilist")
+        
 
-#Reservation Model [Reservation]
-class Reservation(models.Model):
-
-    date = models.DateTimeField(auto_now=True)
-    amount = models.FloatField()
-    automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
-    command = models.OneToOneField(Command, on_delete=models.CASCADE)
-
-    class Meta:
-        ordering = ['date']
-        unique_together = ("id", "automobilist")
 
 #Ad Model [Annonce]
 class Ad(models.Model):

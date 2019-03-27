@@ -125,4 +125,6 @@ urlpatterns = [
 
     path('api/commands/validate-command/<int:manufacturer_user>/<int:command_pk>', views.CommandUpdateView.as_view(), name='validate_command'),
 
+    path('api/automobilist/post-command', views.CommandPostView.as_view(), name='post_command'),
+
 ]

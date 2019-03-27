@@ -384,28 +384,11 @@ CommandSerializer : defines Command model representation
 feilds : ('id', 'date', 'total', 'automobilist','car', 'isVlidated', 'reservation', 'reservationDate', 'reservationAmount')
 """
 class CommandSerializer(serializers.ModelSerializer):
-
-	reservationDate = serializers.ReadOnlyField(source='reservation.date') 
-	reservationAmount = serializers.ReadOnlyField(source='reservation.amount')
 	
 	class Meta:
 		model = models.Command
-		fields = ('id', 'date', 'total', 'automobilist','car', 'isValidated', 'reservation', 'reservationDate', 'reservationAmount')
+		fields = ('id', 'date', 'total', 'automobilist','car', 'isValidated', 'reservationAmount')
 
-"""
-ReservationSerializer : defines Reservation model representation
-feilds : ('id', 'date', 'amount', 'automobilist','car', 'command', 'commandDate', 'commandTotal', 'commandIsValidated')
-"""
-class ReservationSerializer(serializers.ModelSerializer):
-
-	commandDate = serializers.ReadOnlyField(source='command.date') 
-	commandTotal = serializers.ReadOnlyField(source='command.total')
-	commandIsValidated = serializers.ReadOnlyField(source='command.isValidated')
-	car = serializers.ReadOnlyField(source='command.car')
-	
-	class Meta:
-		model = models.Reservation
-		fields = ('id', 'date', 'amount', 'automobilist','car', 'command', 'commandDate', 'commandTotal', 'commandIsValidated')
 
 """
 CommandSerializer : defines Command model representation
@@ -429,7 +412,7 @@ class AutomobilistCommandValidatedNotificationSerializer(serializers.ModelSerial
 
 	command = serializers.CharField(source='target_object_id') #command id
 	commandDate = serializers.ReadOnlyField(source='target.date')
-	commandCar = serializers.ReadOnlyField(source='target.car')
+	commandCar = serializers.ReadOnlyField(source='target.car_id')
 	commandTotal = serializers.ReadOnlyField(source='target.total')
 	manufacturer = serializers.CharField(source='verb')
 

@@ -869,12 +869,12 @@ class CommandUpdateView(UpdateAPIView):
 	permission_classes = ()
 	serializer_class = serializers.CommandSerializer
 
-	def patch(self, request, pk, manufacturer_user):
-		serializer_class = serializers.MinCommandSerializer		
+	def patch(self, request, command_pk, manufacturer_user):
+		#serializer_class = serializers.MinCommandSerializer		
 		try:
 			# if no model exists by this PK, raise a 404 error
-			command = models.Command.objects.get(pk=pk)
-			manufacturerUser = models.ManufacturerUser.get(pk=manufacturer_user)
+			command = models.Command.objects.get(pk=command_pk)
+			manufacturerUser = models.ManufacturerUser.objects.get(pk=manufacturer_user)
 
 		except models.Command.DoesNotExist:
 
@@ -907,7 +907,12 @@ class CommandUpdateView(UpdateAPIView):
 		# return a meaningful error response
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-
+"""
+CommandPostView : post only, allows to create new command
+"""
+class CommandPostView(CreateAPIView):
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.CommandSerializer
 	
 	
