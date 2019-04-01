@@ -451,8 +451,8 @@ class AutomobilistMyModelViewSet(ListAPIView):
 	queryset = models.MyModel.objects.all()
 	serializer_class = serializers.MyModelSerializer
 
-	def list(self, request,*kwargs):
-		queryset = models.MyModel.objects.all()
+	def list(self, request,*kwargs, manufacturer):
+		queryset = models.MyModel.objects.filter(manufacturer= manufacturer)
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)
@@ -472,8 +472,8 @@ class AutomobilistVersionViewSet(ListAPIView):
 	queryset = models.Version.objects.all().prefetch_related('options')
 	serializer_class = serializers.VersionSerializer
 
-	def list(self, request,*kwargs):
-		queryset = models.Version.objects.all()
+	def list(self, request,*kwargs, model):
+		queryset = models.Version.objects.filter(model= model)
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)

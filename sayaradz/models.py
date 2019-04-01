@@ -7,23 +7,24 @@ from django.utils.translation import ugettext_lazy as _
 from rest_framework.authtoken.models import Token
 from notifications.models import Notification
 from model_utils import Choices
+from datetime import datetime
 
 #upload ManufacturerUser Avatars from web client to "manufacturerusers_account/avatars/" folder
 def get_upload_path1(instance, filename):
-        return os.path.join('manufacturerusers_account/avatars/', now().date().strftime("%Y/%m/%d"), filename)
+        return os.path.join(('images', 'manufacturerusers_avatars' , filename+datetime.now().strftime("%Y/%m/%d")))
 
 
 #upload Car Photo from mobile client to "cars/photos/" folder
-def get_upload_path2(instance, filename):
-        return os.path.join('cars/photos/', now().date().strftime("%Y/%m/%d"), filename)
+def get_upload_path4(instance, filename):
+        return os.path.join(('images', 'automobilists_avatars', filename+datetime.now().strftime("%Y/%m/%d")))
 
 #upload Ad Photo from mobile client to "ads/photos/" folder
 def get_upload_path3(instance, filename):
-        return os.path.join('ads/photos/', now().date().strftime("%Y/%m/%d"), filename)
+        return '/'.join(['images', 'ads_photos',datetime.now().strftime("%Y/%m/%d")+filename])
 
 #upload Automobilist Avatars from web client to "automobilists_account/avatars/" folder      
-def get_upload_path4(instance, filename):
-        return os.path.join('automobilists_account/avatars/', now().date().strftime("%Y/%m/%d"), filename)
+def get_upload_path2(instance, filename):
+        return os.path.join(['Images', 'cars_photos', filename+datetime.now().strftime("%Y/%m/%d")])
 
 #ManufacturerUser Model [Utilisateur Fabricant]
 class ManufacturerUser(User):
@@ -191,7 +192,7 @@ class Automobilist(User):
         ordering = ['id']
 
     def __str__(self):
-       return self.firstName
+       return self.username
 
 #Command Model [Commande]
 class Command(models.Model):

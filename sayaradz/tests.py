@@ -227,6 +227,7 @@ Test methods related to Manufacturer Management
 class ManufacturerAPIViewTestCase(APITestCase):
 
     url = reverse("manufacturers-list")
+
     print(url)
 
     @classmethod
@@ -297,7 +298,7 @@ class ManufacturerAPIViewTestCase(APITestCase):
     """
     Test Partial Update existing manifacturer name after login
     """  
-    def testUpdateManifacturer(self):
+    def testPartialUpdateManifacturer(self):
 
         self.client.login(username="testadmin", password="you_know_nothing")
         m = Manufacturer.objects.create(name="existing_manifactuerer2", nationality="testnationality1")
