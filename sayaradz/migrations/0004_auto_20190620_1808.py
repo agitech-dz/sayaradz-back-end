@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ad',
             name='year',
-            field=models.CharField(default=13000, max_length=4),
+            field=models.CharField(default=2009, max_length=4),
             preserve_default=False,
         ),
         migrations.AddField(
