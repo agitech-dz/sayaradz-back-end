@@ -221,6 +221,8 @@ class Ad(models.Model):
     minPrice = models.FloatField()
     date = models.DateTimeField(auto_now=True)
     description = models.TextField()
+    year = models.CharField(max_length=4)
+    distance = model.CharField(max_length=10)
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
 
     class Meta:

@@ -1,4 +1,4 @@
-from rest_framework import serializers
+rest_framework import serializers
 from drf_writable_nested import WritableNestedModelSerializer
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
@@ -353,12 +353,13 @@ class AdSerializer(serializers.ModelSerializer):
 	model_name = serializers.ReadOnlyField(source='mymodel.name') 
 	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
 	version_name = serializers.ReadOnlyField(source='version.name') 
-	automobilist_userName = serializers.ReadOnlyField(source='automobilist.userName') 
+	automobilist_username = serializers.ReadOnlyField(source='automobilist.username') 
+	automobilist_address = serializers.ReadOnlyField(source='automobilist.address') 
 	#version = serializers.ReadOnlyField(source='version.code') 
 
 	class Meta:
 		model = models.Ad
-		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'description', 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_userName')
+		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'year', 'distance', 'description', 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_username', 'automobilist_address')
 
 """
 OfferSerializer : defines Ad (Annonce) model representation

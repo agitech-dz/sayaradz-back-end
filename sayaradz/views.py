@@ -473,7 +473,10 @@ class AutomobilistVersionViewSet(ListAPIView):
 	serializer_class = serializers.VersionSerializer
 
 	def list(self, request,*kwargs, model):
-		queryset = models.Version.objects.filter(model= model)
+		if model=="all"
+			queryset = models.Version.all()
+		else
+			queryset = models.Version.objects.filter(model= model)
 		page = self.paginate_queryset(queryset)
 		if page is not None:
 			serializer = self.get_serializer(page, many=True)

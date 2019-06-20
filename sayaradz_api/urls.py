@@ -95,9 +95,9 @@ urlpatterns = [
 
     path('api/automobilist/manufacturers', views.AutomobilistManufacturerViewSet.as_view(), name='automobilist_manufacturers'),
 
-    path('api/automobilist/models', views.AutomobilistMyModelViewSet.as_view(), name='automobilist_models'),
+    path('api/automobilist/<manufacturer>/models', views.AutomobilistMyModelViewSet.as_view(), name='automobilist_models'),
 
-    path('api/automobilist/versions', views.AutomobilistVersionViewSet.as_view(), name='automobilist_versions'),
+    path('api/automobilist/<model>/versions', views.AutomobilistVersionViewSet.as_view(), name='automobilist_versions'),
 
     path('api/automobilist/option-price/<code>', views.ComposeCarView.as_view(), name='option_price'),
 
