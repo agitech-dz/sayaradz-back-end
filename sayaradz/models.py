@@ -185,14 +185,42 @@ class Automobilist(User):
     address = models.TextField()
     telephone =  models.CharField(max_length=15)
     avatar = models.ImageField(blank=True, upload_to=get_upload_path4)
-    followedModels = models.ManyToManyField(MyModel)
-    followedVersions = models.ManyToManyField(Version)
+    #followedModels = models.ManyToManyField(MyModel)
+    #followedVersions = models.ManyToManyField(Version)
 
     class Meta:
         ordering = ['id']
 
     def __str__(self):
        return self.username
+
+class FollowedModels(models.Model):
+
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
+    automobilist = models.ForeignKey(Automobilist, on_delete = models.CASCADE)
+    date = models.DateField(auto_now=True)
+    """docstring for FollowedModels"""
+   
+    class Meta:
+        ordering = ['date']
+
+    def __str__(self):
+       return self.model + ' ' + self.Automobilist
+
+class FollowedVersions(models.Model):
+
+    version = models.ForeignKey(Version, on_delete=models.CASCADE)
+    automobilist = models.ForeignKey(Automobilist, on_delete = models.CASCADE)
+    date = models.DateField(auto_now=True)
+    """docstring for FollowedModels"""
+   
+    class Meta:
+        ordering = ['date']
+
+    def __str__(self):
+       return self.version + ' ' + self.Automobilist
+
+        
 
 #Command Model [Commande]
 class Command(models.Model):
@@ -222,7 +250,7 @@ class Ad(models.Model):
     date = models.DateTimeField(auto_now=True)
     description = models.TextField()
     year = models.CharField(max_length=4)
-    distance = model.CharField(max_length=10)
+    distance = models.CharField(max_length=10)
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
 
     class Meta:

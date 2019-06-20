@@ -15,6 +15,8 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from notifications.signals import notify
+from django.http import Http404
+
 
 
 """
@@ -473,9 +475,9 @@ class AutomobilistVersionViewSet(ListAPIView):
 	serializer_class = serializers.VersionSerializer
 
 	def list(self, request,*kwargs, model):
-		if model=="all"
+		if model == "all":
 			queryset = models.Version.all()
-		else
+		else:
 			queryset = models.Version.objects.filter(model= model)
 		page = self.paginate_queryset(queryset)
 		if page is not None:
@@ -512,10 +514,10 @@ class AutomobilistColorViewSet(ListAPIView):
 """
 AutomobilistViewSet1
 """
-class AutomobilistViewSet1(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+class AutomobilistViewSet1(mixins.UpdateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
 
 	queryset = models.Automobilist.objects.all().prefetch_related('followedModels').prefetch_related('followedVersions')
-	http_method_names = ('put', 'patch')
+	http_method_names = ('put', 'patch', 'get')
 	serializer_class = serializers.AutomobilistSerializer1
 	
 
@@ -939,4 +941,68 @@ class CommandPostView(CreateAPIView):
 	permission_classes = ()
 	serializer_class = serializers.CommandSerializer
 	
-	
+
+"""
+FollowedModelsViewSet : get (read only endpoint) paginated output
+"""
+class FollowedVersionsViewSet(viewsets.ModelViewSet):
+
+	pagination_class = StandardResultsSetPagination
+	#permission_classes = (IsAuthenticated,)  
+	queryset = models.FollowedVersions.objects.all()
+	serializer_class = serializers.FollowedVersionsSerializer
+
+"""
+FollowedModelsViewSet : get (read only endpoint) paginated output
+"""
+class FollowedModelsViewSet(viewsets.ModelViewSet):
+
+	pagination_class = StandardResultsSetPagination
+	#permission_classes = (IsAuthenticated,)  
+	queryset = models.FollowedModels.objects.all()
+	serializer_class = serializers.FollowedModelsSerializer
+
+
+"""
+ManufacturerUserFilter : filter ManufacturerUser output data by ['address', 'first_name','manufacturer', 'manufacturer__name']
+"""
+class FollowedModelsFilter(django_filters.FilterSet):
+	class Meta:
+		model = models.FollowedModels
+		fields = ['model', 'automobilist', 'date', "model__name"]
+
+"""
+FollowedModelsList : Get only, allows to 
+"""
+class FollowedModelsList(ListAPIView):
+
+	queryset = models.FollowedModels.objects.all()
+	serializer_class = serializers.FollowedModelsSerializer
+	filter_class = FollowedModelsFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ('model', 'automobilist', 'date', 'automobilst__username', "model__name")
+	ordering_fields = '__all__'
+
+
+
+"""
+ManufacturerUserFilter : filter ManufacturerUser output data by ['address', 'first_name','manufacturer', 'manufacturer__name']
+"""
+class FollowedVersionsFilter(django_filters.FilterSet):
+	class Meta:
+		model = models.FollowedVersions
+		fields = ['version', 'automobilist', 'date', "version__name"]
+
+"""
+FollowedModelsList : Get only, allows to 
+"""
+class FollowedVersionsList(ListAPIView):
+
+	queryset = models.FollowedVersions.objects.all()
+	serializer_class = serializers.FollowedVersionsSerializer
+	filter_class = FollowedVersionsFilter
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
+	search_fields = ('version', 'automobilist', 'date', 'automobilst__username', "model__name")
+	ordering_fields = '__all__'
+
+

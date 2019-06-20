@@ -1,4 +1,4 @@
-rest_framework import serializers
+from rest_framework import serializers
 from drf_writable_nested import WritableNestedModelSerializer
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
@@ -204,6 +204,7 @@ class VersionSerializer(serializers.ModelSerializer):
 		model = models.Version
 		fields = ('code','name', 'options', 'model', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
 
+
 """
 ColorSerializer : defines Color model representation
 fields = ('code','name', 'manufacturer')
@@ -225,12 +226,9 @@ fields = ('firstName', 'familyName', 'password', 'address', 'telephone', 'avatar
 """
 class AutomobilistSerializer(serializers.ModelSerializer):
 
-	followedModels = serializers.PrimaryKeyRelatedField( many=True, read_only=True) 
-	followedVersions = serializers.PrimaryKeyRelatedField( many=True, read_only=True) 
-
 	class Meta:
 		model = models.Automobilist
-		fields = ('id', 'first_name', 'last_name', "username", "password", 'address', 'telephone', 'avatar', 'followedModels', 'followedVersions')
+		fields = ('id', 'first_name', 'last_name', "username", "password", 'address', 'telephone', 'avatar')
 
 """
 AutomobilistSerializer1 : defines Automobilist model representation follow
@@ -238,8 +236,8 @@ fields = ('id', 'followedModels', 'followedVersions')
 """
 class AutomobilistSerializer1(serializers.ModelSerializer):
 
-	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.MyModel.objects.all()) 
-	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Version.objects.all()) 
+	#followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.MyModel.objects.all()) 
+	#followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Version.objects.all()) 
 
 	class Meta:
 		model = models.Automobilist
@@ -434,3 +432,22 @@ class AutomobilistCommandValidatedNotificationSerializer(serializers.ModelSerial
 	class Meta:
 		model = models.AutomobilistCommandValidatedNotification
 		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type')
+
+"""
+FollowedVersionSerializer : defines Followed Models  model representation
+"""
+class FollowedVersionsSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = models.FollowedVersions
+		fields = ('id','version', 'automobilist', 'date')	
+
+"""
+FollowedModelsSerializer : defines Followed Models  model representation
+"""
+class FollowedModelsSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = models.FollowedModels
+		fields = ('id','model', 'automobilist', 'date')	
+		

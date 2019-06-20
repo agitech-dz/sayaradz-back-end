@@ -52,12 +52,15 @@ router.register(r'api/automobilists', views.AutomobilistViewSet)
 
 router.register(r'api/automobilist/ads', views.AdViewSet)
 
-router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistViewSet1)
+#router.register(r'api/automobilist/follow-model-or-version', views.AutomobilistViewSet1)
 
-router.register(r'api/automobilist/unfollow-model-or-version', views.AutomobilistViewSet2)
+#router.register(r'api/automobilist/unfollow-model-or-version', views.AutomobilistViewSet2)
 
 router.register(r'api/commands', views.CommandViewSet)
 
+router.register(r'api/automobilist/followed-models', views.FollowedModelsViewSet)
+
+router.register(r'api/automobilist/followed-versions', views.FollowedVersionsViewSet)
 
 # Wire up our API using automatic URL routing.
 
@@ -130,5 +133,9 @@ urlpatterns = [
     path('api/commands/validate-command/<int:manufacturer_user>/<int:command_pk>', views.CommandUpdateView.as_view(), name='validate_command'),
 
     path('api/automobilist/post-command', views.CommandPostView.as_view(), name='post_command'),
+
+    path('api/automobilist/automobilist-followed-models', views.FollowedModelsList.as_view(), name='get_followed_models'),
+
+    path('api/automobilist/automobilist-followed-versions', views.FollowedVersionsList.as_view(), name='get_followed_versions'),
 
 ]
