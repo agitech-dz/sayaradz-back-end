@@ -21,6 +21,8 @@ from sayaradz.models import Make, MakeUser
 from rest_framework import routers
 from sayaradz.views import UserViewSet, MakeViewSet, MakeUserViewSet
 
+from django.contrib.auth import views as auth_views
+
 # Routers provide an easy way of automatically determining the URL conf.
 
 router = routers.DefaultRouter()
@@ -42,5 +44,13 @@ urlpatterns = [
     path(r'', include(router.urls)),
 
     path(r'api/', include('rest_framework.urls', namespace='rest_framework'))
+    
+     #--------------------------oauth URLs-------------------------------------------------#
+    path('app1/', include('app1.urls')),   #pour le test mannuel
+    path('accounts2/', include('social_django.urls', namespace='social')),
+    path('tests/', include('tests.urls')), #les tests automatiques
+    path('oauth/', include('social_django.urls', namespace='social')),  
+    path('accounts/', include('allauth.urls')),
+    #-------------------------------------------------------------------------------------#
 
 ]

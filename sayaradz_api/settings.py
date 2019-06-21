@@ -39,6 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'sayaradz',
+    #-------------------------------social authentication--------------------------------#
+    'social_django', #pour integrer la connection avec facebook et google
+    'app1',          #pour tester le fonctionnement de social_django mannuellement
+    'tests',         #pour tester le fonctionnement de social_django automatiquement
+    #allauth
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    
+    #------------------------------------------------------------------------------------#
+   
 ]
 
 MIDDLEWARE = [
@@ -49,6 +62,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #---------------------------------ajouter 'OAuth'-------------------------------------#
+    'social_django.middleware.SocialAuthExceptionMiddleware',  
+    #-------------------------------------------------------------------------------------#
 ]
 
 ROOT_URLCONF = 'sayaradz_api.urls'
@@ -64,6 +80,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                 #-------------------- propre à 'OAuth'------------------------------------#
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+                #-------------------------------------------------------------------------#
             ],
         },
     },
@@ -132,3 +152,36 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+#----------------------------AUTHENTICATION_BACKENDS--------------------------------------#
+AUTHENTICATION_BACKENDS = (
+    
+    #allauth
+        # Needed to login by username in Django admin, regardless of `allauth`
+        'django.contrib.auth.backends.ModelBackend',
+
+        # `allauth` specific authentication methods, such as login by e-mail
+        'allauth.account.auth_backends.AuthenticationBackend',
+    #Oauth
+        'django.contrib.auth.backends.ModelBackend',
+    #google Oauth
+        'social_core.backends.google.GoogleOAuth2',
+    #FB Oauth
+        'social_core.backends.facebook.FacebookOAuth2',
+
+)
+#-----------------------------------------------------------------------------------------#
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL ='/app1/'
+
+#FaceBook Oauth
+SOCIAL_AUTH_FACEBOOK_KEY = '2248858301999268'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'e991ccf631c58109e72236cced75395b'
+
+#google Oauth
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='292708405640-ejccn0gfordtblnkge1i6aqsrmnnc9jh.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='CVy9Muvz8vkPaid8wAEToUP3'
+
+
+
+
