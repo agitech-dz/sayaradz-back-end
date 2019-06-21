@@ -236,8 +236,8 @@ fields = ('id', 'followedModels', 'followedVersions')
 """
 class AutomobilistSerializer1(serializers.ModelSerializer):
 
-	#followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.MyModel.objects.all()) 
-	#followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Version.objects.all()) 
+	followedModels = ""
+	followedVersions = ""
 
 	class Meta:
 		model = models.Automobilist
@@ -270,12 +270,12 @@ fields = ('id', 'followedModels', 'followedVersions')
 class AutomobilistSerializer2(serializers.ModelSerializer):
 
 	id = serializers.CharField(source='automobilist')
-	followedModels = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.MyModel.objects.all()) 
-	followedVersions = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Version.objects.all()) 
+	followedModels = ""
+	followedVersions = ""
 
 	class Meta:
 		model = models.Automobilist
-		fields = ('id', 'followedModels', 'followedVersions')
+		fields = ('id')
 
 	def update(self, instance, validated_data):
 
