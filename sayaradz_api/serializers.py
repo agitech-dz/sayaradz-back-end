@@ -15,7 +15,7 @@ class AdminSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'password' , 'is_superuser')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password' , 'is_superuser')
 
 """
 ManufacturerSerializer : defines Manufacturer model representation
