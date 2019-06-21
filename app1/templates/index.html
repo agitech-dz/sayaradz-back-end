@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>hello amira ! from index</h1>
+        <h2>nombre d'elements: {{posts|length}}</h2>
+        <ul>
+            {% for i in posts %}
+            <li>{{i |upper }}</li> 
+
+                {% if not forloop.last %}
+                <hr>
+                {% endif %}
+
+                {% empty %}
+                no informations
+            {% endfor %}
+           
+        </ul>
+        <br>
+
+
+
+        <a href="{% url 'social:begin' 'google-oauth2'  %}">login with google</a>
+
+        {% if user.is_authenticated %}
+            you are authenticated with 
+            <br>
+            username: <b>'{{request.user.username}}' </b><br>
+            first name: <b>'{{request.user.first_name}}'</b><br>
+            last name: <b>'{{request.user.last_name}}'</b><br>
+            email: <b>'{{request.user.email}}'</b><br>
+
+            <img src="{{request.user.profile.pic.url}}"  heigth='5000' width="5000"/>
+           
+            <form method="post" action="{% url 'social:disconnect' 'google-oauth2' %}">
+                {% csrf_token %}
+                <button type="submit">Disconnect from Google</button>
+              </form>
+        {% endif %}
+
+        <br>
+
+
+
+
+
+        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+      
+       
+         <p>Hello {{ request.user.first_name }}!</p>
+
+
+       
+             <form method="post" action="{% url 'social:disconnect' 'facebook' %}">
+                
+               {% csrf_token %}
+               <button type="submit">Disconnect from Facebook</button>
+               
+             </form>
+         
+            
+            
+        
+        <br><br>
+        
+         <h3>Facebook</h3>
+         {% if facebook_login %}
+            <p>Connected as <a href="https://facebook.com/{{ facebook_login.extra_data.id }}/" target="_blank">{{ facebook_login.extra_data.id }}</a></p>
+                {% if can_disconnect %}
+                  <form method="post" action="{% url 'social:disconnect' 'facebook' %}">
+                    {% csrf_token %}
+                    <button type="submit">Disconnect from Facebook</button>
+                  </form>
+                {% else %}
+                      <button type="button" disabled>Disconnect from Facebook</button>
+                      <p style="color: red">You must <a href="{% url 'password' %}">define a password</a> for your account before disconnecting from Facebook.</p>
+                {% endif %}
+         {% else %}
+              <a href="{% url 'social:begin' 'facebook' %}">Connect to Facebook</a>
+          {% endif %}
+        
+
+        
+        
+    </body>
+
+
+</html>
