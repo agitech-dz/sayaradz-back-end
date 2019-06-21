@@ -26,7 +26,7 @@ import notifications.urls
 
 router = routers.DefaultRouter()
 
-router.register(r'api/admins/', views.UserViewSet)
+router.register(r'api/admins', views.UserViewSet)
 
 router.register(r'api/manufacturers', views.ManufacturerViewSet, base_name='manufacturers')
 
