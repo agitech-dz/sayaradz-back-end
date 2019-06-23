@@ -22,7 +22,6 @@ from django.contrib.auth.models import User
 from rest_framework import routers
 from sayaradz import views 
 from rest_framework.authtoken import views as rest_framework_views
-from django.contrib.auth import views as auth_views
 from rest_framework.documentation import include_docs_urls 
 import notifications.urls
 
