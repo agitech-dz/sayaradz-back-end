@@ -400,7 +400,8 @@ class ColorViewSet(viewsets.ModelViewSet):
 
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = models.Color.objects.all().prefetch_related('')
+
+	queryset = models.Color.objects.all()
 	serializer_class = serializers.ColorSerializer
 
 	def list(self, request,*kwargs):
@@ -476,7 +477,7 @@ class AutomobilistVersionViewSet(ListAPIView):
 
 	def list(self, request,*kwargs, model):
 		if model == "all":
-			queryset = models.Version.all()
+			queryset = models.Version.objects.all()
 		else:
 			queryset = models.Version.objects.filter(model= model)
 		page = self.paginate_queryset(queryset)
