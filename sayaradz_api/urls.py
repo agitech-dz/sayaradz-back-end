@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url, include
+from django.conf.urls import include as include_
+
 from django.contrib.auth.models import User
 from rest_framework import routers
 from sayaradz import views 
 from rest_framework.authtoken import views as rest_framework_views
+from django.contrib.auth import views as auth_views
 from rest_framework.documentation import include_docs_urls 
 import notifications.urls
+
 
 # Routers provide an easy way of automatically determining the URL conf.
 
@@ -69,6 +74,8 @@ router.register(r'api/automobilist/followed-versions', views.FollowedVersionsVie
 urlpatterns = [
 
     path('admin/', admin.site.urls),    
+    
+    
 
     path(r'', include(router.urls)),
 

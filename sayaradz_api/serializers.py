@@ -167,9 +167,10 @@ feilds : ('code','name', 'manufacturer', 'manufacturer_name')
 class MyModelSerializer(serializers.ModelSerializer):
 
 	manufacturer_name = serializers.ReadOnlyField(source='manufacturer.name') 
+	id = serializers.CharField(source='code')
 	class Meta:
 		model = models.MyModel
-		fields = ('code','name', 'manufacturer', 'manufacturer_name')
+		fields = ('id','name', 'manufacturer', 'manufacturer_name')
 
 """
 OptionSerializer : defines Option model representation
@@ -183,10 +184,11 @@ class OptionSerializer(serializers.ModelSerializer):
 	tarif_price = serializers.ReadOnlyField(source='lignetarifoption.price')
 	tarif_date_begin = serializers.ReadOnlyField(source='lignetarifoption.datebegin')
 	tarif_date_end = serializers.ReadOnlyField(source='lignetarifoption.dateend') 
-	
+	id = serializers.CharField(source='code')
+
 	class Meta:
 		model = models.Option
-		fields = ('code','name', 'model', 'model_name', 'manufacturer', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
+		fields = ('id','name', 'model', 'model_name', 'manufacturer', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
 
 """
 VersionSerializer : defines Version model representation
@@ -199,10 +201,10 @@ class VersionSerializer(serializers.ModelSerializer):
 	tarif_price = serializers.ReadOnlyField(source='lignetarifversion.price')
 	tarif_date_begin = serializers.ReadOnlyField(source='lignetarifversion.datebegin')
 	tarif_date_end = serializers.ReadOnlyField(source='lignetarifversion.dateend') 
-
+	id = serializers.CharField(source='code')
 	class Meta:
 		model = models.Version
-		fields = ('code','name', 'options', 'model', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
+		fields = ('id','name', 'options', 'model', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
 
 
 """
@@ -215,10 +217,10 @@ class ColorSerializer(serializers.ModelSerializer):
 	tarif_price = serializers.ReadOnlyField(source='lignetarifcolor.price')
 	tarif_date_begin = serializers.ReadOnlyField(source='lignetarifcolor.datebegin')
 	tarif_date_end = serializers.ReadOnlyField(source='lignetarifcolor.dateend') 
-
+	id = serializers.CharField(source='code')
 	class Meta:
 		model = models.Color
-		fields = ('code','name', 'model', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
+		fields = ('id','name', 'model', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
 
 """
 AutomobilistSerializer : defines Automobilist model representation follow
@@ -354,6 +356,7 @@ class AdSerializer(serializers.ModelSerializer):
 	automobilist_username = serializers.ReadOnlyField(source='automobilist.username') 
 	automobilist_address = serializers.ReadOnlyField(source='automobilist.address') 
 	#version = serializers.ReadOnlyField(source='version.code') 
+
 
 	class Meta:
 		model = models.Ad

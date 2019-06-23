@@ -400,7 +400,7 @@ class ColorViewSet(viewsets.ModelViewSet):
 
 	pagination_class = StandardResultsSetPagination
 	permission_classes = (IsAuthenticated,)  
-	queryset = models.Color.objects.all().prefetch_related('options')
+	queryset = models.Color.objects.all().prefetch_related('')
 	serializer_class = serializers.ColorSerializer
 
 	def list(self, request,*kwargs):

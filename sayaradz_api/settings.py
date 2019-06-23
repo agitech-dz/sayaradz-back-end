@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'corsheaders', 
     'notifications',
     'sayaradz',
+    'social_django'
      
 ]
 
@@ -82,6 +83,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <- Here
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -99,11 +102,11 @@ WSGI_APPLICATION = 'sayaradz_api.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ.get("DATABASE_NAME"),
-            'USER': os.environ.get("DATABASE_USER"),
-            'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
-            'HOST': os.environ.get("DATABASE_HOST"),
-            'PORT': os.environ.get("DATABASE_PORT"),
+            'NAME': "sayaradz_db1",
+            'USER': "sayaradz_user",
+            'PASSWORD': "sayaradz",
+            'HOST': "localhost",
+            'PORT': "5432",
             'TEST': {
                 'NAME': 'sayaradz_test',
             },
@@ -158,7 +161,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+AUTHENTICATION_BACKENDS = (
+ 'social_core.backends.open_id.OpenIdAuth',  # for Google authentication
+ 'social_core.backends.google.GoogleOpenId',  # for Google authentication
+ 'social_core.backends.google.GoogleOAuth2',  # for Google authentication
+ 'social_core.backends.facebook.FacebookOAuth2',  # for Facebook authentication
+ 
+ 'django.contrib.auth.backends.ModelBackend',
+)
 
 REST_FRAMEWORK = {
 
@@ -193,6 +203,8 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
 """
 
 LOG_PATH = os.path.join(BASE_DIR, "log/")
