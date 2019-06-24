@@ -16,6 +16,8 @@ from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from notifications.signals import notify
 from django.http import Http404
+from rest_framework import generics
+
 
 
 
@@ -1005,5 +1007,33 @@ class FollowedVersionsList(ListAPIView):
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
 	search_fields = ('version', 'automobilist', 'date', 'automobilst__username', "model__name")
 	ordering_fields = '__all__'
+
+
+"""
+FollowedModelsList : Get only, allows to 
+"""
+class NewCarsStockView(generics.ListCreateAPIView):
+
+	model = models.NewCar
+	serializer_class = serializers.NewCarSerializer
+	queryset = models.NewCar.objects.all()
+
+	def create(self, request, *args, **kwargs):
+		
+		for element in request.data :
+			
+			options_list = element["options"].split(";")
+			element["options"] = options_list
+		
+		serializer = self.get_serializer(data=request.data, many=True)
+		if serializer.is_valid():
+			serializer.save()
+			headers = self.get_success_headers(serializer.data)
+			return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+		
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 
 

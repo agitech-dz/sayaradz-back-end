@@ -22,7 +22,6 @@ from django.contrib.auth.models import User
 from rest_framework import routers
 from sayaradz import views 
 from rest_framework.authtoken import views as rest_framework_views
-from django.contrib.auth import views as auth_views
 from rest_framework.documentation import include_docs_urls 
 import notifications.urls
 
@@ -75,8 +74,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),    
     
-    
-
     path(r'', include(router.urls)),
 
     path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
@@ -143,6 +140,7 @@ urlpatterns = [
 
     path('api/automobilist/automobilist-followed-models', views.FollowedModelsList.as_view(), name='get_followed_models'),
 
+    path('api/post-newcars-stock', views.NewCarsStockView.as_view(), name='post_newcars'),
     path('api/automobilist/automobilist-followed-versions', views.FollowedVersionsList.as_view(), name='get_followed_versions'),
 
 ]

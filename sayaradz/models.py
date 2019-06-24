@@ -93,17 +93,6 @@ class Version(models.Model):
        return self.name
 
 
-#CarSeller Model [Concessionnaire]
-class CarSeller(models.Model):
-    name = models.CharField(max_length=50)
-    telephone = models.CharField(max_length=15)
-
-    class Meta:
-        ordering = ['id']
-
-    def __str__(self):
-       return self.name
-
 #Color Model [Couleur]
 class Color(models.Model):
     code =  models.CharField(max_length=3, primary_key=True)
@@ -127,7 +116,7 @@ class Car(models.Model):
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path2)
     photo2 = models.ImageField(blank=True, upload_to=get_upload_path2)
     photo3 = models.ImageField(blank=True, upload_to=get_upload_path2)
-    seller = models.ForeignKey(CarSeller, on_delete=models.SET_NULL, null=True)
+    seller = models.TextField(default="")
 
     class Meta:
         ordering = ['numChassis']
