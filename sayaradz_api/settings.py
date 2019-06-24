@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'corsheaders', 
     'notifications',
     'sayaradz',
-    
+
      
 ]
 
@@ -83,8 +83,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',  # <- Here
-                'social_django.context_processors.login_redirect',
+                
             ],
         },
     },
@@ -101,12 +100,13 @@ WSGI_APPLICATION = 'sayaradz_api.wsgi.application'
 
 DATABASES = {
         'default': {
+            
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': "sayaradz_db1",
-            'USER': "sayaradz_user",
-            'PASSWORD': "sayaradz",
-            'HOST': "localhost",
-            'PORT': "5432",
+            'NAME': os.environ.get("DATABASE_NAME"),
+            'USER': os.environ.get("DATABASE_USER"),
+            'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
+            'HOST': os.environ.get("DATABASE_HOST"),
+            'PORT': os.environ.get("DATABASE_PORT"),
             'TEST': {
                 'NAME': 'sayaradz_test',
             },
@@ -195,6 +195,7 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
 
 
 """
