@@ -62,11 +62,13 @@ class AdminRegistrationSerializer(serializers.ModelSerializer):
 			raise serializers.ValidationError("Those passwords don't match.")
 		return attrs
 
+
+
 """
 AdminLoginSerializer : defines required Admin Login feilds  
 feilds : ("username", "password")
 """
-class AdminLoginSerializer(serializers.Serializer):
+class UserLoginSerializer(serializers.Serializer):
 
 	username = serializers.CharField(required=True)
 	password = serializers.CharField(required=True)
@@ -78,7 +80,7 @@ class AdminLoginSerializer(serializers.Serializer):
 
 	def __init__(self, *args, **kwargs):
 
-		super(AdminLoginSerializer, self).__init__(*args, **kwargs)
+		super(UserLoginSerializer, self).__init__(*args, **kwargs)
 		self.user = None
 
 	def validate(self, attrs):
@@ -92,16 +94,16 @@ class AdminLoginSerializer(serializers.Serializer):
 
 		else:
 			raise serializers.ValidationError(self.error_messages['invalid_credentials'])
-
 """
 TokenSerializer : defines Token Model presentation  
 feilds : ("auth_token", "created", "user_id")
 """
 class TokenSerializer(serializers.ModelSerializer):
 	auth_token = serializers.CharField(source='key')
+	is_superuser = serializers.ReadOnlyField(source='user.is_superuser')
 	class Meta:
 		model = Token
-		fields = ("auth_token", "created", "user")
+		fields = ("auth_token", "created", "user", "is_superuser")
 
 """
 ManufacturerUserRegistrationSerializer : defines required ManufacturerUser registration feilds  
@@ -128,37 +130,6 @@ class ManufacturerUserRegistrationSerializer(serializers.ModelSerializer):
 			raise serializers.ValidationError("Those passwords don't match.")
 		return attrs
 
-"""
-ManufacturerUserLoginSerializer : defines required ManufacturerUser Login feilds  
-feilds : ("username", "password")
-"""
-class ManufacturerUserLoginSerializer(serializers.Serializer):
-
-	username = serializers.CharField(required=True)
-	password = serializers.CharField(required=True)
-
-	default_error_messages = {
-		'inactive_account': _('User account is disabled.'),
-		'invalid_credentials': _('Unable to login with provided credentials.')
-	}
-
-	def __init__(self, *args, **kwargs):
-
-		super(ManufacturerUserLoginSerializer, self).__init__(*args, **kwargs)
-		self.user = None
-
-	def validate(self, attrs):
-
-		self.user = authenticate(username=attrs.get("username"), password=attrs.get('password'))
-		if self.user:
-
-			if not self.user.is_active:
-				raise serializers.ValidationError(self.error_messages['inactive_account'])
-
-			return attrs
-
-		else:
-			raise serializers.ValidationError(self.error_messages['invalid_credentials'])
 
 """
 ModelSerializer : defines Manufacturer model representation

@@ -84,9 +84,7 @@ urlpatterns = [
 
     path(r'api/manufacturers-filter', views.ManufacturerList.as_view(), name="manufacturer_filter"),
 
-    path('api/admin/login/', views.AdminLoginAPIView.as_view(), name="login_admin"),
-
-    path('api/manufacturer-user/login', views.ManufacturerUserLoginAPIView.as_view(), name="login_manufactureruser"),
+    path('api/auth/login/', views.UserLoginAPIView.as_view(), name="login__"),
 
     path('api/admin/logout', views.LogoutView.as_view(), name="logout_admin"),
 

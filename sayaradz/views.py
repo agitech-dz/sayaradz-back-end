@@ -4,7 +4,7 @@ from rest_framework.pagination import PageNumberPagination
 from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from sayaradz_api import serializers 
 from sayaradz import models
 from rest_framework import status
@@ -80,7 +80,7 @@ ManufacturerUserViewSet : get, delete, patch, partial_update, put, paginated out
 """
 class ManufacturerUserViewSet(viewsets.ModelViewSet):
 	pagination_class = StandardResultsSetPagination
-	permission_classes = (IsAuthenticated,)  
+	permission_classes = (IsAuthenticated, IsAdminUser)  
 	queryset = models.ManufacturerUser.objects.all()
 	serializer_class = serializers.ManufacturerUserSerializer
 
@@ -146,93 +146,6 @@ class ManufacturerUserRegistrationAPIView(CreateAPIView):
 		headers = self.get_success_headers(serializer.data)
 		return Response(data, status=status.HTTP_201_CREATED, headers=headers)
 
-"""
-AdminLoginAPIView : post only, allows admin authentification
-"""
-class AdminLoginAPIView(GenericAPIView):
-
-	authentication_classes = ()
-	permission_classes = ()
-	serializer_class = serializers.AdminLoginSerializer
-	
-	def post(self, request, *args, **kwargs):
-
-		serializer = self.get_serializer(data=request.data)
-
-		if serializer.is_valid():
-			
-			user = serializer.user
-			if user.is_superuser:
-				token, _ = Token.objects.get_or_create(user=user)
-
-				return Response(
-					data=serializers.TokenSerializer(token).data,
-					status=status.HTTP_200_OK,
-				)
-			else:
-				return Response(
-				data="Login Failed",
-				status=status.HTTP_400_BAD_REQUEST,
-				)
-			
-
-			return Response(
-				data=TokenSerializer(token).data,
-				status=status.HTTP_200_OK,
-			)
-
-		else:
-			
-			return Response(
-				data=serializer.errors,
-				status=status.HTTP_400_BAD_REQUEST,
-			)
-
-"""
-ManufacturerUserLoginAPIView : post only, allows manufacturer user authentification
-"""
-class ManufacturerUserLoginAPIView(GenericAPIView):
-
-	authentication_classes = ()
-	permission_classes = ()
-	serializer_class = serializers.ManufacturerUserLoginSerializer
-	
-	def post(self, request, *args, **kwargs):
-
-		serializer = self.get_serializer(data=request.data)
-
-		if serializer.is_valid():
-
-			user = serializer.user
-			if not user.is_superuser:
-				manufactureruser = models.ManufacturerUser.objects.get(user_ptr_id = user)
-				if not manufactureruser.is_blocked:
-					token, _ = Token.objects.get_or_create(user=user)
-
-					return Response(
-						data=serializers.TokenSerializer(token).data,
-						status=status.HTTP_200_OK,
-					)
-				else:
-					return Response(
-						data={
-							"is_blocked": True
-							},
-						status=status.HTTP_200_OK,
-					)
-
-			else:
-				return Response(
-				data="Login Failed",
-				status=status.HTTP_400_BAD_REQUEST,
-				)
-
-		else:
-			return Response(
-				data=serializer.errors,
-				status=status.HTTP_400_BAD_REQUEST,
-			)
-
 class TokenAPIView(RetrieveDestroyAPIView):
 
 	lookup_field = "key"
@@ -257,12 +170,43 @@ class TokenAPIView(RetrieveDestroyAPIView):
 
 		return super(TokenAPIView, self).destroy(request, key, *args, **kwargs)
 
+
+"""
+ManufacturerUserLoginAPIView : post only, allows manufacturer user authentification
+"""
+class UserLoginAPIView(GenericAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.UserLoginSerializer
+	
+	def post(self, request, *args, **kwargs):
+
+		serializer = self.get_serializer(data=request.data)
+
+		if serializer.is_valid():
+			
+			user = serializer.user
+			
+			token, _ = Token.objects.get_or_create(user=user)
+
+			return Response(
+				data=serializers.TokenSerializer(token).data,
+				status=status.HTTP_200_OK,
+			)
+
+		else:
+			
+			return Response(
+				data=serializer.errors,
+				status=status.HTTP_400_BAD_REQUEST,
+			)
 """
 LogoutView : post only, allows users logout
 """
 class LogoutView(GenericAPIView):
 
-	serializer_class = serializers.ManufacturerUserLoginSerializer
+	serializer_class = serializers.UserLoginSerializer
 	def post(self, request):
 
 		django_logout(request)
@@ -1014,6 +958,7 @@ FollowedModelsList : Get only, allows to
 """
 class NewCarsStockView(generics.ListCreateAPIView):
 
+	permission_classes = (IsAuthenticated,) 
 	model = models.NewCar
 	serializer_class = serializers.NewCarSerializer
 	queryset = models.NewCar.objects.all()
@@ -1034,6 +979,36 @@ class NewCarsStockView(generics.ListCreateAPIView):
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+"""
+FollowedModelsList : Get only, allows to 
+
+class TarifsView(generics.ListCreateAPIView):
+
+	permission_classes = (IsAuthenticated,) 
+	model = models.NewCar
+	serializer_class = serializers.NewCarSerializer
+	queryset = models.NewCar.objects.all()
+	type_tarif = "Version"
+
+	def create(self, request, *args, **kwargs):
+		
+		for element in request.data :
+			
+			options_list = element["options"].split(";")
+			element["options"] = options_list
+		
+		serializer = self.get_serializer(data=request.data, many=True)
+		if serializer.is_valid():
+			serializer.save()
+			headers = self.get_success_headers(serializer.data)
+			return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+		
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+	def get_serializer_class(self):
+		if self.request.user.is_staff:
+			return FullAccountSerializer
+		return BasicAccountSerializer
 
 
-
+"""
