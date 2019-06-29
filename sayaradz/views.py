@@ -964,7 +964,7 @@ class NewCarsStockView(generics.ListCreateAPIView):
 	queryset = models.NewCar.objects.all()
 
 	def create(self, request, *args, **kwargs):
-		
+		print(request.data)
 		for element in request.data :
 			
 			options_list = element["options"].split(";")
