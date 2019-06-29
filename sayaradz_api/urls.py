@@ -139,6 +139,9 @@ urlpatterns = [
     path('api/automobilist/automobilist-followed-models', views.FollowedModelsList.as_view(), name='get_followed_models'),
 
     path('api/post-newcars-stock', views.NewCarsStockView.as_view(), name='post_newcars'),
+   
+    path('api/post-tarifs', views.TarifsUploadView.as_view(), name='post_tarifs'), 
+
     path('api/automobilist/automobilist-followed-versions', views.FollowedVersionsList.as_view(), name='get_followed_versions'),
 
 ]

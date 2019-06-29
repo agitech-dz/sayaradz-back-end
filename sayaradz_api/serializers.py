@@ -271,6 +271,18 @@ class AutomobilistSerializer2(serializers.ModelSerializer):
 		return instance
 
 """
+LigneTarifSerializer : defines LigneTarifmodel representation
+fields = ('id', 'code','dateBegin', 'dateEnd', 'price')
+"""
+class LigneTarifSerializer(serializers.ModelSerializer):
+
+	#version = VersionSerializer(read_only = True)
+
+	class Meta:
+		model = models.LigneTarif
+		fields = ('id','dateBegin', 'dateEnd', 'price')
+
+"""
 LigneTarifVersionSerializer : defines LigneTarifVersion model representation
 fields = ('code','name', 'manufacturer')
 """

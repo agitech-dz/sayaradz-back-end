@@ -979,36 +979,89 @@ class NewCarsStockView(generics.ListCreateAPIView):
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-"""
-FollowedModelsList : Get only, allows to 
 
-class TarifsView(generics.ListCreateAPIView):
+
+class TarifsUploadView(generics.CreateAPIView):
 
 	permission_classes = (IsAuthenticated,) 
-	model = models.NewCar
-	serializer_class = serializers.NewCarSerializer
-	queryset = models.NewCar.objects.all()
-	type_tarif = "Version"
-
+	model = models.LigneTarif
+	type = "0"
+	
 	def create(self, request, *args, **kwargs):
-		
+		ligneTarifVersion = []
+		ligneTarifColor = []
+		ligneTarifOption = []
+
+		allData = []
+
 		for element in request.data :
-			
-			options_list = element["options"].split(";")
-			element["options"] = options_list
+			 
+			if element["type"] == "0":
+				del element["type"]
+				ligneTarifVersion.append(element)
+
+			elif element["type"] == "1":
+				del element["type"]
+				ligneTarifColor.append(element)
+
+			elif element["type"] == "2":
+				del element["type"]
+				ligneTarifOption.append(element)
 		
-		serializer = self.get_serializer(data=request.data, many=True)
+		print(ligneTarifVersion)
+
+		serializer = self.get_serializer(data=ligneTarifVersion, many=True)
 		if serializer.is_valid():
 			serializer.save()
 			headers = self.get_success_headers(serializer.data)
-			return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+			allData.extend(serializer.data)
+
+		else:
+
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+		self.type = "1"
+		serializer = self.get_serializer(data=ligneTarifColor, many=True)
+		if serializer.is_valid():
+			serializer.save()
+			headers = self.get_success_headers(serializer.data)
+			allData.extend(serializer.data)
+
+		else:
+
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+		self.type = "2"
+		serializer = self.get_serializer(data=ligneTarifOption, many=True)
+		if serializer.is_valid():
+			serializer.save()
+			headers = self.get_success_headers(serializer.data)
+			allData.extend(serializer.data)
+
+		else:
+
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+			
+		return Response(allData, status=status.HTTP_201_CREATED, headers=headers)
 		
-		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+		
 
 	def get_serializer_class(self):
-		if self.request.user.is_staff:
-			return FullAccountSerializer
-		return BasicAccountSerializer
 
+		if self.type == "0":
+			return serializers.LigneTarifVersionSerializer
 
-"""
+		elif self.type == "1":
+			return serializers.LigneTarifColorSerializer
+
+		return serializers.LigneTarifOptionSerializer
+
+	def get_queryset(self):
+
+		if self.type == "0":
+			return models.LigneTarifVersion.objects.all()
+
+		if self.type == "1":
+			return models.LigneTarifColor.objects.all()
+
+		return models.LigneTarifOption.objects.all()
