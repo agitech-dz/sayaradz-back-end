@@ -193,7 +193,7 @@ class FollowedModels(models.Model):
         ordering = ['date']
 
     def __str__(self):
-       return self.model + ' ' + self.Automobilist
+       return self.model + ' ' + self.automobilist
 
 class FollowedVersions(models.Model):
 
@@ -206,7 +206,7 @@ class FollowedVersions(models.Model):
         ordering = ['date']
 
     def __str__(self):
-       return self.version + ' ' + self.Automobilist
+       return self.version + ' ' + self.automobilist
 
         
 
