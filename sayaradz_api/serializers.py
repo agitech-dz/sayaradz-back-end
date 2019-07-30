@@ -322,10 +322,10 @@ class NewCarSerializer(serializers.ModelSerializer):
 
 	#version = VersionSerializer(read_only = True)
 	options = serializers.PrimaryKeyRelatedField(required=True, many=True, read_only=False, queryset=models.Option.objects.all()) 
-
+	id = serializers.CharField(source='numChassis')
 	class Meta:
 		model = models.NewCar
-		fields = ('numChassis', 'color','version', 'options', 'seller')
+		fields = ('id', 'color','version', 'options', 'seller')
 
 """
 AdSerializer : defines Ad (Annonce) model representation
