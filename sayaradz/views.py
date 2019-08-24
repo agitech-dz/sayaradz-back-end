@@ -631,17 +631,17 @@ AutomobilistMyModelViewSet : get (read only endpoint) paginated output
 """
 class AdViewSet(viewsets.ModelViewSet):
 
-	pagination_class = StandardResultsSetPagination
+	#pagination_class = StandardResultsSetPagination
 	#permission_classes = (IsAuthenticated,)  
 	queryset = models.Ad.objects.all()
 	serializer_class = serializers.AdSerializer
 
 	def list(self, request,*kwargs):
 		queryset = models.Ad.objects.all()
-		page = self.paginate_queryset(queryset)
-		if page is not None:
-			serializer = self.get_serializer(page, many=True)
-			return self.get_paginated_response(serializer.data)
+		#page = self.paginate_queryset(queryset)
+		#if page is not None:
+		#	serializer = self.get_serializer(page, many=True)
+		#	return self.get_paginated_response(serializer.data)
 
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
