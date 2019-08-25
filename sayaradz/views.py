@@ -366,47 +366,20 @@ class ColorViewSet(viewsets.ModelViewSet):
 AutomobilistManufacturerViewSet : get (read only endpoint)
 """
 class AutomobilistManufacturerViewSet(ListAPIView):
-	pagination_class = StandardResultsSetPagination
-	
-
 	queryset = models.Manufacturer.objects.all()
 	serializer_class = serializers.ManufacturerSerializer
-	#filter_backends = (DjangoFilterBackend,)
-	#filter_fields = ('name', 'nationality')
-	def list(self, request,*kwargs):
-		queryset = models.Manufacturer.objects.all()
-		page = self.paginate_queryset(queryset)
-		if page is not None:
-			serializer = self.get_serializer(page, many=True)
-			return self.get_paginated_response(serializer.data)
-
-		count = models.Manufacturer.objects.all().count()
-		serializer = self.get_serializer(queryset,many=True)
-		data = serializer.data
-		return Response({
-			'results':data,
-			'meta':{
-				'count':count
-				},
-			})
+	
 
 """
 AutomobilistMyModelViewSet : get (read only endpoint) paginated output
 """
 class AutomobilistMyModelViewSet(ListAPIView):
-
-	pagination_class = StandardResultsSetPagination
 	
 	queryset = models.MyModel.objects.all()
 	serializer_class = serializers.MyModelSerializer
 
 	def list(self, request,*kwargs, manufacturer):
 		queryset = models.MyModel.objects.filter(manufacturer= manufacturer)
-		page = self.paginate_queryset(queryset)
-		if page is not None:
-			serializer = self.get_serializer(page, many=True)
-			return self.get_paginated_response(serializer.data)
-
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response(data)
@@ -416,8 +389,6 @@ AutomobilistVersionViewSet : get (Read only endpoint) paginated output
 """
 class AutomobilistVersionViewSet(ListAPIView):
 
-	pagination_class = StandardResultsSetPagination
-	
 	queryset = models.Version.objects.all().prefetch_related('options')
 	serializer_class = serializers.VersionSerializer
 
@@ -426,10 +397,6 @@ class AutomobilistVersionViewSet(ListAPIView):
 			queryset = models.Version.objects.all()
 		else:
 			queryset = models.Version.objects.filter(model= model)
-		page = self.paginate_queryset(queryset)
-		if page is not None:
-			serializer = self.get_serializer(page, many=True)
-			return self.get_paginated_response(serializer.data)
 
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
