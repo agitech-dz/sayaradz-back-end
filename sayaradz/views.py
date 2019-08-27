@@ -590,7 +590,7 @@ class 	AdList(ListAPIView):
 	serializer_class = serializers.AdSerializer
 	filter_class = AdFilter
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend,)
-	search_fields = ('model__name', 'version__name', 'manufacturer__name', 'minPrice', 'date', 'automobilist__first_name', 'automobilist__last_name', 'automobilist__username' )
+	search_fields = ('model__name', 'version__name', 'manufacturer__name', 'minPrice', 'date', 'automobilist__first_name', 'automobilist__last_name', 'automobilist__username', 'year', 'distance' )
 	ordering_fields = '__all__'
 
 """
