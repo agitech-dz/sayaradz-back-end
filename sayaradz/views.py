@@ -460,27 +460,61 @@ LigneTarifVersionViewSet
 """
 class LigneTarifVersionViewSet(viewsets.ModelViewSet):
 
-    queryset = models.LigneTarifVersion.objects.all()
+	queryset = models.LigneTarifVersion.objects.all()
 
-    serializer_class = serializers.LigneTarifVersionSerializer
+	serializer_class = serializers.LigneTarifVersionSerializer
+	
+	pagination_class = StandardResultsSetPagination
+	def list(self, request,*kwargs):
+		queryset = models.LigneTarifVersion.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
 
 """
 LigneTarifOptionViewSet
 """
 class LigneTarifOptionViewSet(viewsets.ModelViewSet):
 
-    queryset = models.LigneTarifOption.objects.all()
+	queryset = models.LigneTarifOption.objects.all()
 
-    serializer_class = serializers.LigneTarifOptionSerializer
+	serializer_class = serializers.LigneTarifOptionSerializer
+	
+	pagination_class = StandardResultsSetPagination
+	def list(self, request,*kwargs):
+		queryset = models.LigneTarifOption.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
 
 """
 LigneTarifColorViewSet
 """
 class LigneTarifColorViewSet(viewsets.ModelViewSet):
+	queryset = models.LigneTarifColor.objects.all()
+	serializer_class = serializers.LigneTarifColorSerializer
+	pagination_class = StandardResultsSetPagination
+	def list(self, request,*kwargs):
+		queryset = models.LigneTarifColor.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
 
-    queryset = models.LigneTarifColor.objects.all()
-
-    serializer_class = serializers.LigneTarifColorSerializer
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+	
 
 """
 NewCarViewSet
@@ -798,6 +832,17 @@ class CommandViewSet(mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.G
 	queryset = models.Command.objects.all()
 	http_method_names = ('get', 'delete', 'patch')
 	serializer_class = serializers.CommandSerializer
+	pagination_class = StandardResultsSetPagination
+	def list(self, request,*kwargs):
+		queryset = models.Command.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
 
 
 
