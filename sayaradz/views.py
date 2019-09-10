@@ -317,6 +317,17 @@ class OptionViewSet(viewsets.ModelViewSet):
 	permission_classes = (IsAuthenticated,)  
 	queryset = models.Option.objects.all()
 	serializer_class = serializers.OptionSerializer
+	pagination_class = StandardResultsSetPagination
+	def list(self, request,*kwargs):
+		queryset = models.Option.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
 
 """
 VersionViewSet : get, delete, patch, partial_update, put, paginated output
@@ -476,8 +487,20 @@ NewCarViewSet
 """
 class NewCarViewSet(viewsets.ModelViewSet):
 
-    queryset = models.NewCar.objects.all()
-    serializer_class = serializers.NewCarSerializer
+	queryset = models.NewCar.objects.all()
+	serializer_class = serializers.NewCarSerializer
+	pagination_class = StandardResultsSetPagination
+	def list(self, request,*kwargs):
+		queryset = models.NewCar.objects.all()
+		page = self.paginate_queryset(queryset)
+		if page is not None:
+			serializer = self.get_serializer(page, many=True)
+			return self.get_paginated_response(serializer.data)
+
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response({'results':data})
+
 
 """
 AutomobilistViewSet
