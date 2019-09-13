@@ -603,6 +603,8 @@ class ComposeCarView(APIView):
 NewCarFilter : filter New Cars output data by ['code', 'name','manufacturer', 'manufacturer__name']
 """
 class NewCarFilter(django_filters.FilterSet):
+	options= django_filters.ModelMultipleChoiceFilter(queryset=models.Option.objects.all())
+
 	class Meta:
 		model = models.NewCar
 		fields = ['numChassis', 'color','version', 'options', 'color__name', 'isExisted']
@@ -1127,3 +1129,51 @@ class TransactionViewSet(viewsets.ModelViewSet):
     queryset = models.Transaction.objects.all()
 
     serializer_class = serializers.TransactionSerializer
+
+
+"""
+Composer vehiule dispo 
+"""
+class NewCarsFilterView(generics.ListCreateAPIView):
+
+	permission_classes = (IsAuthenticated,) 
+	model = models.NewCar
+	serializer_class = serializers.NewCarSerializer
+	queryset = models.NewCar.objects.all()
+
+	def create(self, request, *args, **kwargs):
+		print(request.data)
+
+			
+		version = request.data["version"]
+		cars = models.NewCar.objects.filter(version=version, isExisted=True)
+		if request.data["color"] is not None:
+			color = request.data["color"]
+			cars = models.NewCar.objects.filter(color=color)
+			
+		options=request.data["options"]
+		
+		for option in options:
+			option_model = models.Option.objects.get(code=option)
+			cars = cars.filter(options=option_model)
+		found_cars = []
+		recommended_cars = []
+		count_found = 0
+		for car in cars:
+			if(len(car.options.all())==len(options)):
+				count_found = count_found + 1
+				found_cars.append(car)
+			else:
+				recommended_cars.append(car)
+
+		serializer1 = self.get_serializer(found_cars, many=True)
+		serializer2 = self.get_serializer(recommended_cars, many=True)
+		return Response(
+			{
+				"count_found": count_found,
+				"found_cars": serializer1.data,
+				"recommended_cars": serializer2.data
+			}, 
+			status=status.HTTP_200_OK)
+		
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

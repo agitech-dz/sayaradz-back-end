@@ -150,4 +150,6 @@ urlpatterns = [
 
     path('api/automobilist/automobilist-followed-versions', views.FollowedVersionsList.as_view(), name='get_followed_versions'),
 
+    path('api/automobilist/compose-car-filter', views.NewCarsFilterView.as_view(), name='compose_filter'), 
+
 ]
