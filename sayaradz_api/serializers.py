@@ -25,7 +25,7 @@ class ManufacturerSerializer(serializers.ModelSerializer):
 	
 	class Meta:
 		model = models.Manufacturer
-		fields = ('id','name', 'nationality')
+		fields = ('id','name', 'nationality', 'image')
 
 """
 ManufacturerUserSerializer : defines ManufacturerUser model representation
@@ -141,7 +141,7 @@ class MyModelSerializer(serializers.ModelSerializer):
 	id = serializers.CharField(source='code')
 	class Meta:
 		model = models.MyModel
-		fields = ('id','name', 'manufacturer', 'manufacturer_name')
+		fields = ('id','name', 'manufacturer', 'manufacturer_name', 'image')
 
 """
 OptionSerializer : defines Option model representation
@@ -175,7 +175,7 @@ class VersionSerializer(serializers.ModelSerializer):
 	id = serializers.CharField(source='code')
 	class Meta:
 		model = models.Version
-		fields = ('id','name', 'options', 'model', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
+		fields = ('id','name', 'options', 'model', 'image', 'tarif_id', 'tarif_price', 'tarif_date_begin', 'tarif_date_end')
 
 
 """
@@ -201,7 +201,7 @@ class AutomobilistSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = models.Automobilist
-		fields = ('id', 'first_name', 'last_name', "username", "password", 'address', 'telephone', 'avatar')
+		fields = ('id', 'first_name', 'last_name', "username", "password", 'address', 'telephone', 'profile_image')
 
 """
 AutomobilistSerializer1 : defines Automobilist model representation follow
