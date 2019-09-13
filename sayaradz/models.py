@@ -116,7 +116,7 @@ class Car(models.Model):
     photo1 = models.ImageField(blank=True, upload_to=get_upload_path2)
     photo2 = models.ImageField(blank=True, upload_to=get_upload_path2)
     photo3 = models.ImageField(blank=True, upload_to=get_upload_path2)
-    seller = models.TextField(default="")
+    seller = models.TextField(default="") 
 
     class Meta:
         ordering = ['numChassis']
@@ -129,6 +129,8 @@ class OccCar(Car):
 
 #NewCar Model [Voiture Neuve] 
 class NewCar(Car):
+
+    isExisted = models.BooleanField(default=False) #non réservée et non commandé
 
     def __str__(self):
        return self.numChassis
@@ -239,10 +241,12 @@ class Ad(models.Model):
     description = models.TextField()
     year = models.CharField(max_length=4)
     distance = models.CharField(max_length=10)
+    energy = models.CharField(max_length=20)
+    personsNumber = models.IntegerField()
     automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ['date']
+        ordering = ['-date']
         unique_together = ("id", "automobilist")
 
 #Offer Model [Offre]
@@ -255,7 +259,7 @@ class Offer(models.Model):
     isAccepted = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['date']
+        ordering = ['-date']
 
 #Notify the Automobilist if its offer has been accepted by the Ad owner Notifocation contains  
 class AutomobilistNotification(Notification):
@@ -270,7 +274,7 @@ class AutomobilistNotification(Notification):
     notification_type = models.CharField(max_length=3, choices=notification_type_choices, default=notification_type_choices.OA)
 
     class Meta:
-        ordering = ['timestamp']
+        ordering = ['-timestamp']
         
     
     def __str__(self):
@@ -282,7 +286,7 @@ class AutomobilistAcceptOfferNotification(AutomobilistNotification):
     offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
     
     class Meta:
-        ordering = ['timestamp']
+        ordering = ['-timestamp']
         
     def __str__(self):
        return self.verb
@@ -291,7 +295,7 @@ class AutomobilistAcceptOfferNotification(AutomobilistNotification):
 class AutomobilistFollowedModelChangeNotification(AutomobilistNotification):
 
     class Meta:
-        ordering = ['timestamp']
+        ordering = ['-timestamp']
        
     
     def __str__(self):
@@ -301,7 +305,7 @@ class AutomobilistFollowedModelChangeNotification(AutomobilistNotification):
 class AutomobilistFollowedVersionChangeNotification(AutomobilistNotification):
 
     class Meta:
-        ordering = ['timestamp']
+        ordering = ['-timestamp']
         
     
     def __str__(self):
@@ -311,7 +315,7 @@ class AutomobilistFollowedVersionChangeNotification(AutomobilistNotification):
 class AutomobilistCommandValidatedNotification(AutomobilistNotification):
 
     class Meta:
-        ordering = ['timestamp']
+        ordering = ['-timestamp']
        
     
     def __str__(self):

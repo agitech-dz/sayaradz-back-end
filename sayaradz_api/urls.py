@@ -126,6 +126,10 @@ urlpatterns = [
 
     path('api/automobilist/colors', views.AutomobilistColorViewSet.as_view(), name='automobilist_colors'),
 
+    path('api/automobilist/<model>/options', views.AutomobilistModelOptionViewSet.as_view(), name='automobilist_models_options'),
+
+    path('api/automobilist/colors', views.AutomobilistOptionViewSet.as_view(), name='automobilist_options'),
+
     path('api/inbox/notifications/', include(notifications.urls, namespace='notifications')),
 
     path('api/automobilist/offers-notifications/<recipient>', views.AutomobilistOfferAcceptNotificationView.as_view(), name='accept_offers_notifications'),

@@ -414,7 +414,7 @@ class AutomobilistVersionViewSet(ListAPIView):
 		return Response(data)
 
 """
-AutomobilistModelColorVersionViewSet : get (Read only endpoint) paginated output
+AutomobilistModelColorViewSet : get colors related to a model
 """
 class AutomobilistModelColorViewSet(ListAPIView):
 
@@ -429,12 +429,35 @@ class AutomobilistModelColorViewSet(ListAPIView):
 		return Response(data)
 
 """
-AutomobilistColorVersionViewSet : get (Read only endpoint) paginated output
+AutomobilistColorViewSet : get all colors
 """
 class AutomobilistColorViewSet(ListAPIView):
 
 	queryset = models.Color.objects.all()
 	serializer_class = serializers.ColorSerializer
+
+"""
+AutomobilistModelOptionViewSet : get options related to a model
+"""
+class AutomobilistModelOptionViewSet(ListAPIView):
+
+	queryset = models.Option.objects.all()
+	serializer_class = serializers.OptionSerializer
+
+	def list(self, request,*kwargs, model):
+
+		queryset = models.Option.objects.filter(model_id= model)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
+
+"""
+AutomobilistOptionViewSet : get all options
+"""
+class AutomobilistOptionViewSet(ListAPIView):
+
+	queryset = models.Option.objects.all()
+	serializer_class = serializers.OptionSerializer
 
 """
 AutomobilistViewSet1
