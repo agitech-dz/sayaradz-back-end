@@ -36,7 +36,7 @@ router.register(r'api/manufacturers', views.ManufacturerViewSet, base_name='manu
 
 router.register(r'api/manufacturers-users', views.ManufacturerUserViewSet)
 
-router.register(r'api/models', views.MyModelViewSet)
+router.register(r'api/models', views.MyModelViewSet, base_name='models')
 
 router.register(r'api/options', views.OptionViewSet)
 

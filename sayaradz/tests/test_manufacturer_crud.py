@@ -14,8 +14,6 @@ class ManufacturerAPIViewTestCase(APITestCase):
 
     url = reverse("manufacturers-list")
 
-    print(url)
-
     @classmethod
     def setUpTestData(cls):
         user = User.objects.create_user(username="testadmin",email="test@testadmin.com",password="you_know_nothing")
@@ -82,9 +80,9 @@ class ManufacturerAPIViewTestCase(APITestCase):
         self.assertEqual(json.loads(response.content), {"id": m.id,"name": "updated_name", "nationality": "updated_nationality"})
 
     """
-    Test Partial Update existing manifacturer name after login
+    Test Partial Update existing manufacturer name after login
     """  
-    def testPartialUpdateManifacturer(self):
+    def testPartialUpdateManufacturer(self):
 
         self.client.login(username="testadmin", password="you_know_nothing")
         m = models.Manufacturer.objects.create(name="existing_manifactuerer2", nationality="testnationality1")
@@ -93,3 +91,16 @@ class ManufacturerAPIViewTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(json.loads(response.content), {"id": m.id,"name": "existing_manifactuerer2", "nationality": "updated_nationality"})
 
+    """
+    Test Delete a manufacturer 
+    """
+    def testDeleteManufacturer(self):
+
+        self.client.login(username="testadmin", password="you_know_nothing")
+        m = models.Manufacturer.objects.create(name="existing_manifactuerer2", nationality="testnationality1")
+        response = self.client.delete("/api/manufacturers/"+str(m.id)+"/")
+
+        response = self.client.get("/api/manufacturers/"+str(m.id)+"/")
+
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(json.loads(response.content), {"detail": "Not found."})

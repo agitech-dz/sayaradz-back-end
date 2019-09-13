@@ -97,19 +97,19 @@ WSGI_APPLICATION = 'sayaradz_api.wsgi.application'
 
 
 DATABASES = {
-        'default': {
-            
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ.get("DATABASE_NAME"),
-            'USER': os.environ.get("DATABASE_USER"),
-            'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
-            'HOST': os.environ.get("DATABASE_HOST"),
-            'PORT': os.environ.get("DATABASE_PORT"), #port
-            'TEST': {
-                'NAME': 'sayaradz_test',
-            },
-        }
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "sayaradz_db1",
+        'USER': "sayaradz_user",
+        'PASSWORD': "sayaradz",
+        'HOST': "localhost",
+        'PORT': "5432",
+        'TEST': {
+        'NAME': 'sayaradz_test',
+        },
     }
+}
 TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 
 # Password validation
