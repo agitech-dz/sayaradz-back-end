@@ -1314,3 +1314,13 @@ def login_google(request):
 	                safe=False)
 	else:
 		return JsonResponse({'error': 'Invalid data'}, safe=False)
+
+
+"""
+FollowedModelsViewSet : get (read only endpoint) paginated output
+"""
+class AutomobilistNotificationViewSet(viewsets.ModelViewSet):
+
+	#permission_classes = (IsAuthenticated,)  
+	queryset = models.AutomobilistNotification.objects.all()
+	serializer_class = serializers.AutomobilistNotificationSerializer
