@@ -130,7 +130,7 @@ class OccCar(Car):
 #NewCar Model [Voiture Neuve] 
 class NewCar(Car):
 
-    isExisted = models.BooleanField(default=False) #non réservée et non commandé
+    isExisted = models.BooleanField(default=True) #non réservée et non commandé
 
     def __str__(self):
        return self.numChassis

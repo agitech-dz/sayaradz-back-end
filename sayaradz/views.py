@@ -605,7 +605,7 @@ NewCarFilter : filter New Cars output data by ['code', 'name','manufacturer', 'm
 class NewCarFilter(django_filters.FilterSet):
 	class Meta:
 		model = models.NewCar
-		fields = ['numChassis', 'color','version', 'options', 'color__name']
+		fields = ['numChassis', 'color','version', 'options', 'color__name', 'isExisted']
 
 """
 NewCarList : Get only, allows to get New Car output data 
@@ -920,6 +920,12 @@ class CommandUpdateView(UpdateAPIView):
 		if serializer.is_valid():
 
 			serializer.save()
+			car_data = {"isExisted": False}
+			#delete car from stock
+			car = models.NewCar.objects.get(pk=command.car)
+
+			car_serializer = serializers.NewCarSerializer(car, data=car_data, partial=True)
+			car_serializer.save()
 			#add notification
 			"""
 			actor : manufacturer user
