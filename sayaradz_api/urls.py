@@ -104,7 +104,9 @@ urlpatterns = [
 
     path('api/models-filter', views.MyModelList.as_view(), name="model_filter"),
 
-     path('api/automobilist/facebook_login/', views.login_view, name='login'),
+    path('api/automobilist/facebook_login/', views.login_facebook, name='login_facebook'),
+
+    path('api/automobilist/google_login/', views.login_google, name='login_google'),
 
     path('api/automobilist/manufacturers', views.AutomobilistManufacturerViewSet.as_view(), name='automobilist_manufacturers'),
 

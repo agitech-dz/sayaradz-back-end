@@ -22,6 +22,9 @@ from django.views.decorators.csrf import csrf_exempt
 import facebook
 from rest_framework.authtoken.models import Token
 import json
+#from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from google.auth.transport import requests
+from google.oauth2 import id_token
 
 
 
@@ -1183,7 +1186,7 @@ class NewCarsFilterView(generics.ListCreateAPIView):
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @csrf_exempt
-def login_view(request):
+def login_facebook(request):
 	"""Function for login and register
 	:return:token for authorization or error
 	"""
@@ -1224,6 +1227,53 @@ def login_view(request):
 		new_user = True
 	token, created  = Token.objects.get_or_create(user=user)
 	if token:
+		return JsonResponse({'auth_token': token.key, 'new_automobilist': new_user, 'automobilist_id': user.id},
+	                safe=False)
+	else:
+		return JsonResponse({'error': 'Invalid data'}, safe=False)
+
+
+@csrf_exempt
+def login_google(request):
+
+	requestJson = json.loads(request.body)
+	request = requests.Request()
+
+	id_info = id_token.verify_oauth2_token(requestJson['accessToken'], request, "627073783203-91jqscu6j71of3hulleeftckl0iuvec7.apps.googleusercontent.com")
+
+	if id_info['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
+		return Response("Unable to Validate User: Wrong Issuer")
+		# raise ValueError('Wrong issuer.')
+
+	if not id_info:
+		return Response("Unable to Validate User: Invalid Token")
+		# raise Exception("Unable to Validate Token")
+
+	id = id_info['email']
+
+	new_user = False
+	try:
+		user = models.Automobilist.objects.get(email=id)
+
+	except models.Automobilist.DoesNotExist:
+		password = models.Automobilist.objects.make_random_password()
+		user = models.Automobilist(
+			email=id,
+			first_name= id_info['given_name'] or "",
+			last_name= id_info['family_name'] or "",
+			address= id_info['locale'] or "",
+			profile_image=  id_info['picture'] or "",
+			facebook_id="",
+			username= id_info['given_name'] + " " + id_info['family_name'],
+			gender= ""
+		)
+		user.set_password(password)
+		user.save()
+		new_user = True
+	token, created  = Token.objects.get_or_create(user=user)
+
+	if token:
+
 		return JsonResponse({'auth_token': token.key, 'new_automobilist': new_user, 'automobilist_id': user.id},
 	                safe=False)
 	else:
