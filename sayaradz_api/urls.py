@@ -130,7 +130,7 @@ urlpatterns = [
 
     path('api/automobilist/<model>/options', views.AutomobilistModelOptionViewSet.as_view(), name='automobilist_models_options'),
 
-    path('api/automobilist/colors', views.AutomobilistOptionViewSet.as_view(), name='automobilist_options'),
+    path('api/automobilist/options', views.AutomobilistOptionViewSet.as_view(), name='automobilist_options'),
 
     path('api/inbox/notifications/', include(notifications.urls, namespace='notifications')),
 
