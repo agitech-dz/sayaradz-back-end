@@ -45,6 +45,7 @@ class ManufacturerUser(User):
 class Manufacturer(models.Model):
     name = models.CharField(max_length=75, unique=True)
     nationality = models.CharField(max_length=45, blank=True)
+    image= models.TextField()
 
     class Meta:
         ordering = ['id']
@@ -57,6 +58,7 @@ class MyModel(models.Model):
     code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    image= models.TextField()
 
     class Meta:
         ordering = ['code']
@@ -84,7 +86,8 @@ class Version(models.Model):
     name = models.CharField(max_length=50)
     options = models.ManyToManyField(Option)
     model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
-
+    image= models.TextField()
+    
     class Meta:
         ordering = ['code']
         unique_together = ("code", "model")
