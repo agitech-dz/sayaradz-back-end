@@ -445,7 +445,6 @@ class AutomobilistCommandValidatedNotificationSerializer(serializers.ModelSerial
 		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type', 'commandCarPhoto')
 
 
-AutomobilistNotification
 
 class AutomobilistNotificationSerializer(serializers.ModelSerializer):
 
