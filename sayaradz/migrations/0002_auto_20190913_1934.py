@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='automobilist',
             name='facebook_id',
-            field=models.CharField(default=11, max_length=200, unique=True),
+            field=models.CharField(default=11, max_length=200),
             preserve_default=False,
         ),
         migrations.AddField(
