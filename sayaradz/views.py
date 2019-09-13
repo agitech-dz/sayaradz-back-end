@@ -1126,3 +1126,12 @@ class TarifsUploadView(generics.CreateAPIView):
 			return models.LigneTarifColor.objects.all()
 
 		return models.LigneTarifOption.objects.all()
+
+"""
+TransactionViewSet
+"""
+class TransactionViewSet(viewsets.ModelViewSet):
+
+    queryset = models.Transaction.objects.all()
+
+    serializer_class = serializers.TransactionSerializer

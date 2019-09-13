@@ -436,4 +436,16 @@ class FollowedModelsSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.FollowedModels
 		fields = ('id','model', 'automobilist', 'date')	
+
+
+"""
+TransactionSerializer : defines Transaction  model representation
+"""
+class TransactionSerializer(serializers.ModelSerializer):
+
+	command_car = serializers.ReadOnlyField(source='command.car') 
+	automobilist_username = serializers.ReadOnlyField(source='automobilist.username') 
+	class Meta:
+		model = models.Transaction
+		fields = ('id','date', 'state', 'amount', 'automobilist','automobilist_username', 'command', 'command_car')	
 		

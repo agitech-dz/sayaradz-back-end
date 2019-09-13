@@ -66,6 +66,8 @@ router.register(r'api/automobilist/followed-models', views.FollowedModelsViewSet
 
 router.register(r'api/automobilist/followed-versions', views.FollowedVersionsViewSet)
 
+router.register(r'api/automobilist/transactions', views.TransactionViewSet)
+
 # Wire up our API using automatic URL routing.
 
 # Additionally, we include login URLs for the browsable API.
