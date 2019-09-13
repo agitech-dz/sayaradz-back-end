@@ -444,6 +444,23 @@ class AutomobilistCommandValidatedNotificationSerializer(serializers.ModelSerial
 		model = models.AutomobilistCommandValidatedNotification
 		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type', 'commandCarPhoto')
 
+
+AutomobilistNotification
+
+class AutomobilistNotificationSerializer(serializers.ModelSerializer):
+
+	actorUserName = serializers.ReadOnlyField(source='actor.username') 
+	actorEmail = serializers.ReadOnlyField(source='actor.email')
+	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
+	actor = serializers.CharField(source='actor_object_id')
+	actorTarget = serializers.CharField(source='target_object_id') #ad id
+	
+
+
+	class Meta:
+		model = models.AutomobilistNotification
+		fields = ('id', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type')
+
 """
 FollowedVersionSerializer : defines Followed Models  model representation
 """
