@@ -881,12 +881,6 @@ class AutomobilistCommandValidatedNotificationView(ListAPIView):
 
 	def list(self, request,*kwargs, recipient):
 		queryset = models.AutomobilistCommandValidatedNotification.objects.filter(recipient = recipient)
-		page = self.paginate_queryset(queryset) 
-		if page is not None:
-			serializer = self.get_serializer(page, many=True)
-			return self.get_paginated_response(serializer.data)
-
-		
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response(data)
@@ -958,7 +952,6 @@ FollowedModelsViewSet : get (read only endpoint) paginated output
 """
 class FollowedVersionsViewSet(viewsets.ModelViewSet):
 
-	pagination_class = StandardResultsSetPagination
 	#permission_classes = (IsAuthenticated,)  
 	queryset = models.FollowedVersions.objects.all()
 	serializer_class = serializers.FollowedVersionsSerializer
@@ -968,7 +961,6 @@ FollowedModelsViewSet : get (read only endpoint) paginated output
 """
 class FollowedModelsViewSet(viewsets.ModelViewSet):
 
-	pagination_class = StandardResultsSetPagination
 	#permission_classes = (IsAuthenticated,)  
 	queryset = models.FollowedModels.objects.all()
 	serializer_class = serializers.FollowedModelsSerializer
