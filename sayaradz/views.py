@@ -1136,7 +1136,6 @@ Composer vehiule dispo
 """
 class NewCarsFilterView(generics.ListCreateAPIView):
 
-	permission_classes = (IsAuthenticated,) 
 	model = models.NewCar
 	serializer_class = serializers.NewCarSerializer
 	queryset = models.NewCar.objects.all()
