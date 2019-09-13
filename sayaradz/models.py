@@ -321,3 +321,20 @@ class AutomobilistCommandValidatedNotification(AutomobilistNotification):
     def __str__(self):
        return self.verb
 
+
+#Model Model [Modèle]
+class Transaction(models.Model):
+    id = models.CharField(max_length=50, primary_key=True)
+    date = models.DateTimeField(auto_now=True)
+    state= models.CharField(max_length=25)
+    amount= models.FloatField()
+    automobilist = models.ForeignKey(Automobilist, on_delete=models.CASCADE)
+    command = models.ForeignKey(Command, on_delete=models.CASCADE)
+
+
+    class Meta:
+        ordering = ['-date']
+        unique_together = ("id", "automobilist", 'command')
+
+    def __str__(self):
+       return self.id
