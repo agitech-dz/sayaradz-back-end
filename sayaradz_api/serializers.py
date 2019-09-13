@@ -343,7 +343,7 @@ class AdSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = models.Ad
-		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'year', 'distance', 'description', 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_username', 'automobilist_address')
+		fields = ('id','model', 'model_name', 'version', 'version_name', 'manufacturer', 'manufacturer_name', 'year', 'distance', 'personsNumber', 'energy', 'description', 'photo1', 'photo2', 'photo3', 'minPrice', 'date', 'automobilist', 'automobilist_username', 'automobilist_address')
 
 """
 OfferSerializer : defines Ad (Annonce) model representation
@@ -373,10 +373,34 @@ class AutomobilistAcceptOfferNotificationSerializer(serializers.ModelSerializer)
 	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
 	actor = serializers.CharField(source='actor_object_id')
 	actorTarget = serializers.CharField(source='target_object_id') #ad id
+	image = serializers.ImageField(source="offer.ad.photo1")
 
 	class Meta:
 		model = models.AutomobilistAcceptOfferNotification
-		fields = ('id', 'offer', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type')
+		fields = ('id', 'offer', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
+
+
+"""
+AutomobilistPostOfferNotificationSerializer : defines AutomobilistPostNotificationSerializer model representation
+feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
+	actor: sender(Automobilist_id offer owner)
+	action_objet: offerId
+	recepient: ad owner
+	verb: offeredPrice
+	target: ad id
+"""
+class AutomobilistPostOfferNotificationSerializer(serializers.ModelSerializer):
+
+	actorUserName = serializers.ReadOnlyField(source='actor.username') 
+	actorEmail = serializers.ReadOnlyField(source='actor.email')
+	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
+	actor = serializers.CharField(source='actor_object_id')
+	actorTarget = serializers.CharField(source='target_object_id') #ad id
+	image = serializers.ImageField(source="offer.ad.photo1")
+
+	class Meta:
+		model = models.AutomobilistPostOfferNotification
+		fields = ('id', 'offer', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
 
 """
 CommandSerializer : defines Command model representation

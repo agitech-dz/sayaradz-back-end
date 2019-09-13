@@ -276,6 +276,7 @@ class AutomobilistNotification(Notification):
         ('MC', 'model_changed'),
         ('VC', 'version_changed'),
         ('CV', 'command_valitaded'),
+        ('OP', 'offer_posted') #offer posted
     )
 
     notification_type = models.CharField(max_length=3, choices=notification_type_choices, default=notification_type_choices.OA)
@@ -297,6 +298,18 @@ class AutomobilistAcceptOfferNotification(AutomobilistNotification):
         
     def __str__(self):
        return self.verb
+
+#Notify the Automobilist if an other automobilist posts an offer on his Ad  
+class AutomobilistPostOfferNotification(AutomobilistNotification):
+
+    offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
+    
+    class Meta:
+        ordering = ['-timestamp']
+        
+    def __str__(self):
+       return self.verb
+
 
 #Notify the Automobilist if a followed model has been modified  
 class AutomobilistFollowedModelChangeNotification(AutomobilistNotification):
