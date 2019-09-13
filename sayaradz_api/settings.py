@@ -47,8 +47,6 @@ INSTALLED_APPS = [
     'corsheaders', 
     'notifications',
     'sayaradz',
-
-     
 ]
 
 
@@ -82,6 +80,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 
+                
             ],
         },
     },
@@ -100,11 +99,11 @@ DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("DATABASE_NAME"),
-        'USER': os.environ.get("DATABASE_USER"),
-        'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
-        'HOST': os.environ.get("DATABASE_HOST"),
-        'PORT': os.environ.get("DATABASE_PORT"), #port
+        'NAME': "sayaradz_db1",
+        'USER': "sayaradz_user",
+        'PASSWORD': "sayaradz",
+        'HOST': "localhost",
+        'PORT': "5432",
         'TEST': {
         'NAME': 'sayaradz_test',
         },
@@ -176,6 +175,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+
     ),
     
     'DEFAULT_FILTER_BACKENDS': (
@@ -183,16 +183,17 @@ REST_FRAMEWORK = {
 
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
-
-
     
-    
-
 }
+
 
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+
+FACEBOOK_APP_ID = '1127379627651688'
+FACEBOOK_APP_SECRET = '6260d4207f64693be0496de6772a9c16'
 
 
 

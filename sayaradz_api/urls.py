@@ -74,6 +74,8 @@ router.register(r'api/automobilist/transactions', views.TransactionViewSet)
 
 urlpatterns = [
 
+   
+
     path('admin/', admin.site.urls),    
     
     path(r'', include(router.urls)),
@@ -81,6 +83,8 @@ urlpatterns = [
     path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
 
     path(r'api/docs', include_docs_urls(title='Sayara DZ API')),
+
+    #path(r'auth/', include('rest_framework_social_oauth2.urls')),
 
     path(r'api/manufacturers-user-filter', views.ManufacturerUserList.as_view(), name="manufactureruser_filter"),
 
@@ -99,6 +103,8 @@ urlpatterns = [
     path('api/manufacturer-user/register/', views.ManufacturerUserRegistrationAPIView.as_view(), name="register_manufactureruser"),
 
     path('api/models-filter', views.MyModelList.as_view(), name="model_filter"),
+
+     path('api/automobilist/facebook_login/', views.login_view, name='login'),
 
     path('api/automobilist/manufacturers', views.AutomobilistManufacturerViewSet.as_view(), name='automobilist_manufacturers'),
 

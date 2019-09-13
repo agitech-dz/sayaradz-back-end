@@ -17,6 +17,11 @@ from rest_framework.views import APIView
 from notifications.signals import notify
 from django.http import Http404
 from rest_framework import generics
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import facebook
+from rest_framework.authtoken.models import Token
+import json
 
 
 
@@ -1176,3 +1181,50 @@ class NewCarsFilterView(generics.ListCreateAPIView):
 			status=status.HTTP_200_OK)
 		
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+def login_view(request):
+	"""Function for login and register
+	:return:token for authorization or error
+	"""
+	data = json.loads(request.body.decode('utf-8'))
+	access_token = data.get('accessToken')
+	new_user = False
+	try:
+		graph = facebook.GraphAPI(access_token=access_token)
+		user_info = graph.get_object(
+		id='me',
+		fields='first_name, middle_name, last_name, id, '
+		'currency, hometown, location, locale, '
+		'email, gender, interested_in, picture.type(large),'
+		' birthday, cover')
+	except facebook.GraphAPIError:
+		return JsonResponse({'error': 'Invalid data'}, safe=False)
+
+	try:
+		user = models.Automobilist.objects.get(facebook_id=user_info.get('id'))
+
+	except models.Automobilist.DoesNotExist:
+		password = models.Automobilist.objects.make_random_password()
+		user = models.Automobilist(
+			first_name=user_info.get('first_name'),
+			last_name=user_info.get('last_name'),
+			email=user_info.get('email')
+			or '{0} without email'.format(user_info.get('last_name')),
+			facebook_id=user_info.get('id'),
+			profile_image=user_info.get('picture')['data']['url'],
+			address= user_info.get('hometown') or "",
+			#date_joined=datetime.now(),
+			username=user_info.get('email') or user_info.get('last_name'),
+			gender= user_info.get('gender') or "",
+			#is_active=1
+		)
+		user.set_password(password)
+		user.save()
+		new_user = True
+	token, created  = Token.objects.get_or_create(user=user)
+	if token:
+		return JsonResponse({'auth_token': token.key, 'new_automobilist': new_user, 'automobilist_id': user.id},
+	                safe=False)
+	else:
+		return JsonResponse({'error': 'Invalid data'}, safe=False)

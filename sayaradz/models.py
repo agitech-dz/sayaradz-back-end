@@ -177,6 +177,10 @@ class Automobilist(User):
     avatar = models.ImageField(blank=True, upload_to=get_upload_path4)
     #followedModels = models.ManyToManyField(MyModel)
     #followedVersions = models.ManyToManyField(Version)
+    facebook_id = models.CharField(max_length=200, unique=True)
+    profile_image = models.CharField(max_length=300, blank=True)
+    gender = models.CharField(max_length=10, blank=True)
+
 
     class Meta:
         ordering = ['id']
