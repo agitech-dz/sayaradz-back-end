@@ -325,7 +325,7 @@ class NewCarSerializer(serializers.ModelSerializer):
 	id = serializers.CharField(source='numChassis')
 	class Meta:
 		model = models.NewCar
-		fields = ('id', 'color','version', 'options', 'seller', 'isExisted')
+		fields = ('id', 'color','version', 'options', 'seller', 'isExisted', 'photo1')
 
 """
 AdSerializer : defines Ad (Annonce) model representation
@@ -438,10 +438,11 @@ class AutomobilistCommandValidatedNotificationSerializer(serializers.ModelSerial
 	commandCar = serializers.ReadOnlyField(source='target.car_id')
 	commandTotal = serializers.ReadOnlyField(source='target.total')
 	manufacturer = serializers.CharField(source='verb')
+	commandCarPhoto = serializers.CharField(source='target.car.photo1')
 
 	class Meta:
 		model = models.AutomobilistCommandValidatedNotification
-		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type')
+		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type', 'commandCarPhoto')
 
 """
 FollowedVersionSerializer : defines Followed Models  model representation

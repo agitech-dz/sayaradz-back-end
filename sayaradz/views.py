@@ -963,23 +963,24 @@ class CommandUpdateView(UpdateAPIView):
 			car = models.NewCar.objects.get(pk=command.car)
 
 			car_serializer = serializers.NewCarSerializer(car, data=car_data, partial=True)
-			car_serializer.save()
-			#add notification
-			"""
-			actor : manufacturer user
-			recipient: command owner
-			verb: Manufacturer Name (Marque)
-			target = command
-			"""
-			recipient =  command.automobilist#receive notification
-			actor = manufacturerUser
-			verb = models.Manufacturer.objects.get(pk= manufacturerUser.manufacturer_id).name
-			target = command
-			notification_type= "CV"
-			notification = models.AutomobilistCommandValidatedNotification(actor= actor, recipient= recipient, verb= verb, target= target, notification_type='CV')
-			notification.save()
-			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
-			return Response(serializer.data)
+			if car_serializer.is_valid():
+				car_serializer.save()
+				#add notification
+				"""
+				actor : manufacturer user
+				recipient: command owner
+				verb: Manufacturer Name (Marque)
+				target = command
+				"""
+				recipient =  command.automobilist#receive notification
+				actor = manufacturerUser
+				verb = models.Manufacturer.objects.get(pk= manufacturerUser.manufacturer_id).name
+				target = command
+				notification_type= "CV"
+				notification = models.AutomobilistCommandValidatedNotification(actor= actor, recipient= recipient, verb= verb, target= target, notification_type='CV')
+				notification.save()
+				#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
+				return Response(serializer.data)
 		# return a meaningful error response
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
