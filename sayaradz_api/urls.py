@@ -146,6 +146,10 @@ urlpatterns = [
 
     path('api/automobilist/validated-commands-notifications/<recipient>', views.AutomobilistCommandValidatedNotificationView.as_view(), name='validate_commands_notifications'),
 
+    path('api/automobilist/changed-models-notifications/<recipient>', views.AutomobilistFollowedModelChangedNotificationView.as_view(), name='change_model_notifications'),
+
+    path('api/automobilist/changed-versions-notifications/<recipient>', views.AutomobilistFollowedVersionChangedNotificationView.as_view(), name='change_version_notifications'),
+    
     path('api/automobilist/posted-offers-notifications/<recipient>', views.AutomobilistOfferPostNotificationView.as_view(), name='post_offer_notifications'),
     
     path('api/automobilist/notifications/<recipient>', views.AutomobilistNotificationViewSet.as_view(), name='all_notifications'),

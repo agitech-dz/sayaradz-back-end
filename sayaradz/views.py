@@ -1066,6 +1066,55 @@ class AutomobilistCommandValidatedNotificationView(ListAPIView):
 		return Response(data)
 
 """
+AutomobilistFollowedModelChangedNotificationView : A
+"""
+class AutomobilistFollowedModelChangedNotificationView(ListAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.AutomobilistFollowedModelChangedNotificationSerializer
+
+	def get_queryset(self, recipient):
+
+		try:
+			return models.AutomobilistFollowedModelChangeNotification.objects.filter(recipient = recipient)
+
+		except models.AutomobilistFollowedModelChangeNotification.DoesNotExist:
+
+			raise Http404
+
+	def list(self, request,*kwargs, recipient):
+		queryset = self.get_queryset(recipient)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
+
+"""
+AutomobilistFollowedModelChangedNotificationView : A
+"""
+class AutomobilistFollowedVersionChangedNotificationView(ListAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.AutomobilistFollowedVersionChangedNotificationSerializer
+
+	def get_queryset(self, recipient):
+
+		try:
+			return models.AutomobilistFollowedVersionChangeNotification.objects.filter(recipient = recipient)
+
+		except models.AutomobilistFollowedVersionChangeNotification.DoesNotExist:
+
+			raise Http404
+
+	def list(self, request,*kwargs, recipient):
+		queryset = self.get_queryset(recipient)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
+
+
+"""
 CommandUpdateView : Validate command
 """
 class CommandUpdateView(UpdateAPIView):
