@@ -373,7 +373,7 @@ class AutomobilistAcceptOfferNotificationSerializer(serializers.ModelSerializer)
 	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
 	actor = serializers.CharField(source='actor_object_id')
 	actorTarget = serializers.CharField(source='target_object_id') #ad id
-	image = serializers.ImageField(source="offer.ad.photo1")
+	#image = serializers.ImageField(source="offer.ad.photo1")
 
 	class Meta:
 		model = models.AutomobilistAcceptOfferNotification
@@ -396,7 +396,7 @@ class AutomobilistPostOfferNotificationSerializer(serializers.ModelSerializer):
 	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
 	actor = serializers.CharField(source='actor_object_id')
 	actorTarget = serializers.CharField(source='target_object_id') #ad id
-	image = serializers.ImageField(source="offer.ad.photo1")
+	#image = serializers.ImageField(source="offer.ad.photo1")
 
 	class Meta:
 		model = models.AutomobilistPostOfferNotification
@@ -420,7 +420,7 @@ class AutomobilistFollowedModelChangedNotificationSerializer(serializers.ModelSe
 	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
 	actor = serializers.CharField(source='actor_object_id')
 	actorTarget = serializers.CharField(source='target_object_id') #ad id
-	image = serializers.ImageField(source="model.image")
+	#image = serializers.ImageField(source="model.image")
 
 	class Meta:
 		model = models.AutomobilistFollowedModelChangeNotification
@@ -444,7 +444,7 @@ class AutomobilistFollowedVersionChangedNotificationSerializer(serializers.Model
 	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
 	actor = serializers.CharField(source='actor_object_id')
 	actorTarget = serializers.CharField(source='target_object_id') #ad id
-	image = serializers.ImageField(source="version.image")
+	#image = serializers.ImageField(source="version.image")
 
 	class Meta:
 		model = models.AutomobilistFollowedVersionChangeNotification
@@ -487,11 +487,11 @@ class AutomobilistCommandValidatedNotificationSerializer(serializers.ModelSerial
 	commandCar = serializers.ReadOnlyField(source='target.car_id')
 	commandTotal = serializers.ReadOnlyField(source='target.total')
 	manufacturer = serializers.CharField(source='verb')
-	commandCarPhoto = serializers.CharField(source='target.car.photo1')
+	#commandCarPhoto = serializers.CharField(source='target.car.photo1')
 
 	class Meta:
 		model = models.AutomobilistCommandValidatedNotification
-		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type', 'commandCarPhoto')
+		fields = ('id', 'command', 'recipient', 'manufacturer', 'command', 'commandCar', 'commandTotal','commandDate', 'timestamp', 'unread', 'notification_type', 'image')
 
 
 
@@ -507,7 +507,7 @@ class AutomobilistNotificationSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = models.AutomobilistNotification
-		fields = ('id', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type')
+		fields = ('id', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
 
 """
 FollowedVersionSerializer : defines Followed Models  model representation

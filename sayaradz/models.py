@@ -280,7 +280,7 @@ class AutomobilistNotification(Notification):
     )
 
     notification_type = models.CharField(max_length=3, choices=notification_type_choices, default=notification_type_choices.OA)
-
+    image = models.TextField(null=True)
     class Meta:
         ordering = ['-timestamp']
         
