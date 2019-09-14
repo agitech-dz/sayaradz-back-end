@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from PIL import Image
 import uuid
@@ -19,6 +20,7 @@ def get_upload_path4(instance, filename):
 
 #upload Ad Photo from mobile client to "ads/photos/" folder
 def get_upload_path3(instance, filename):
+
         return '/'.join(['images', 'ads_photos',datetime.now().strftime("%Y/%m/%d")+filename])
 
 #upload Automobilist Avatars from web client to "automobilists_account/avatars/" folder      
@@ -31,7 +33,7 @@ class ManufacturerUser(User):
     address = models.TextField()
     telephone =  models.CharField(max_length=15)
     manufacturer = models.ForeignKey( 'manufacturer', on_delete=models.CASCADE)
-    avatar = models.ImageField(blank=True, upload_to=get_upload_path1)
+    avatar = models.ImageField(blank=True)
     is_blocked = models.BooleanField(default=False)
     
     class Meta:
@@ -116,9 +118,9 @@ class Car(models.Model):
     color = models.ForeignKey(Color, on_delete=models.SET_NULL, db_column='color', null=True)
     version = models.ForeignKey(Version, on_delete=models.SET_NULL, db_column='version', null=True)
     options = models.ManyToManyField(Option)
-    photo1 = models.ImageField(blank=True, upload_to=get_upload_path2)
-    photo2 = models.ImageField(blank=True, upload_to=get_upload_path2)
-    photo3 = models.ImageField(blank=True, upload_to=get_upload_path2)
+    photo1 = models.ImageField(blank=True)
+    photo2 = models.ImageField(blank=True)
+    photo3 = models.ImageField(blank=True)
     seller = models.TextField(default="") 
 
     class Meta:
@@ -177,7 +179,7 @@ class Automobilist(User):
     
     address = models.TextField()
     telephone =  models.CharField(max_length=15)
-    avatar = models.ImageField(blank=True, upload_to=get_upload_path4)
+    avatar = models.ImageField(blank=True)
     #followedModels = models.ManyToManyField(MyModel)
     #followedVersions = models.ManyToManyField(Version)
     facebook_id = models.CharField(max_length=200, unique=True)
@@ -240,9 +242,9 @@ class Ad(models.Model):
     model = models.ForeignKey(MyModel, on_delete=models.SET_NULL, null=True)
     version = models.ForeignKey(Version, on_delete=models.SET_NULL, null=True)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.SET_NULL, null=True)
-    photo1 = models.ImageField(blank=True, upload_to=get_upload_path3)
-    photo2 = models.ImageField(blank=True, upload_to=get_upload_path3)
-    photo3 = models.ImageField(blank=True, upload_to=get_upload_path3)
+    photo1 = models.ImageField(blank=True)
+    photo2 = models.ImageField(blank=True)
+    photo3 = models.ImageField(blank=True)
     minPrice = models.FloatField()
     date = models.DateTimeField(auto_now=True)
     description = models.TextField()
