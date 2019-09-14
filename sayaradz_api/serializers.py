@@ -410,7 +410,7 @@ feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
 	action_objet: model
 	recepient: automobilist
 	verb: model name
-	target: automobilist
+	target: model 
 	model : followed model
 """
 class AutomobilistFollowedModelChangedNotificationSerializer(serializers.ModelSerializer):
@@ -420,12 +420,35 @@ class AutomobilistFollowedModelChangedNotificationSerializer(serializers.ModelSe
 	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
 	actor = serializers.CharField(source='actor_object_id')
 	actorTarget = serializers.CharField(source='target_object_id') #ad id
-	image = serializers.ImageField(source="actor.image")
+	image = serializers.ImageField(source="model.image")
 
 	class Meta:
 		model = models.AutomobilistFollowedModelChangeNotification
 		fields = ('id', 'model', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
 
+
+"""
+AutomobilistFollowedVersionChangedNotificationSerializer : defines AutomobilistFollowedModelChangedNotification model representation
+feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
+	actor: manufacturer changed 
+	action_objet: version
+	recepient: automobilist
+	verb: version name
+	target: version 
+	version : followed version
+"""
+class AutomobilistFollowedVersionChangedNotificationSerializer(serializers.ModelSerializer):
+
+	actorUserName = serializers.ReadOnlyField(source='actor.username') 
+	actorEmail = serializers.ReadOnlyField(source='actor.email')
+	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
+	actor = serializers.CharField(source='actor_object_id')
+	actorTarget = serializers.CharField(source='target_object_id') #ad id
+	image = serializers.ImageField(source="version.image")
+
+	class Meta:
+		model = models.AutomobilistFollowedVersionChangeNotification
+		fields = ('id', 'version', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
 
 
 """

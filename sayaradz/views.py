@@ -396,6 +396,42 @@ class VersionViewSet(viewsets.ModelViewSet):
 		data = serializer.data
 		return Response({'results':data})
 
+	def partial_update(self, request,*kwargs, pk):
+
+		queryset = models.Version.objects.get(pk= pk)
+
+		serializer = serializers.VersionSerializer(queryset, data=request.data, partial=True)
+		# get current manufacturer user
+		user = serializers.ManufacturerUserSerializer(request.user).instance
+		
+		if serializer.is_valid():
+
+			serializer.save()
+			#add notification post offer
+			"""
+			actor: manufacturer changed 
+			action_objet: version
+			recepient: automobilist
+			verb: model name
+			target: model 
+			model : followed model
+			"""
+			version_ = serializer.instance
+			actor = user
+			verb = version_.name
+			target = version_
+			target_object_id = version_.code
+			followers = models.FollowedVersions.objects.filter(version=version_.code)
+			for follower in followers:
+
+				recipient =  follower.automobilist #smodels.Automobilist.objects.get(pk=follower.automobilist) #receive notification
+				notification = models.AutomobilistFollowedVersionChangeNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, version= version_, notification_type= "VC")
+				notification.save()
+			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
+			return Response(serializer.data)
+		# return a meaningful error response
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 """
 ColorViewSet : get, delete, patch, partial_update, put, paginated output
 """

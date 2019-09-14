@@ -327,6 +327,8 @@ class AutomobilistFollowedModelChangeNotification(AutomobilistNotification):
 #Notify the Automobilist if a followed version has been modified  
 class AutomobilistFollowedVersionChangeNotification(AutomobilistNotification):
 
+    version = models.ForeignKey(Version, on_delete=models.CASCADE)
+
     class Meta:
         ordering = ['-timestamp']
         
