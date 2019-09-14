@@ -314,6 +314,9 @@ class AutomobilistPostOfferNotification(AutomobilistNotification):
 #Notify the Automobilist if a followed model has been modified  
 class AutomobilistFollowedModelChangeNotification(AutomobilistNotification):
 
+
+    model = models.ForeignKey(MyModel, on_delete=models.CASCADE)
+
     class Meta:
         ordering = ['-timestamp']
        

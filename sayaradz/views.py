@@ -292,6 +292,44 @@ class MyModelViewSet(viewsets.ModelViewSet):
 		data = serializer.data
 		return Response({'results':data})
 
+	def partial_update(self, request,*kwargs, pk):
+
+		queryset = models.MyModel.objects.get(pk= pk)
+
+		serializer = serializers.MyModelSerializer(queryset, data=request.data, partial=True)
+		# get current manufacturer user
+		user = serializers.ManufacturerUserSerializer(request.user).instance
+		
+		if serializer.is_valid():
+
+			serializer.save()
+			#add notification post offer
+			"""
+			actor: manufacturer changed 
+			action_objet: model
+			recepient: automobilist
+			verb: model name
+			target: model 
+			model : followed model
+			"""
+			model_ = serializer.instance
+			actor = user
+			verb = model_.name
+			target = model_
+			target_object_id = model_.code
+			followers = models.FollowedModels.objects.filter(model=model_.code)
+			for follower in followers:
+
+				recipient =  follower.automobilist #smodels.Automobilist.objects.get(pk=follower.automobilist) #receive notification
+				notification = models.AutomobilistFollowedModelChangeNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, model= model_, notification_type= "MC")
+				notification.save()
+			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
+			return Response(serializer.data)
+		# return a meaningful error response
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 """
 MyModelFilter : filter Model output data by ['code', 'name','manufacturer', 'manufacturer__name']
 """
@@ -940,6 +978,31 @@ class CommandViewSet(mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.G
 		data = serializer.data
 		return Response({'results':data})
 
+
+
+"""
+AutomobilistFollowedModelChangedNotificationView : A
+"""
+class AutomobilistFollowedModelChangedNotificationView(ListAPIView):
+
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = serializers.AutomobilistFollowedModelChangedNotificationSerializer
+
+	def get_queryset(self, recipient):
+
+		try:
+			return models.AutomobilistFollowedModelChangedNotification.objects.filter(recipient = recipient)
+
+		except models.AutomobilistFollowedModelChangedNotification.DoesNotExist:
+
+			raise Http404
+
+	def list(self, request,*kwargs, recipient):
+		queryset = self.get_queryset(recipient)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
 
 
 """

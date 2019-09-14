@@ -402,6 +402,32 @@ class AutomobilistPostOfferNotificationSerializer(serializers.ModelSerializer):
 		model = models.AutomobilistPostOfferNotification
 		fields = ('id', 'offer', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
 
+
+"""
+AutomobilistFollowedModelChangedNotificationSerializer : defines AutomobilistFollowedModelChangedNotification model representation
+feilds : ('id', 'actor','action_object', 'recepient', 'verb','target')
+	actor: manufacturer changed 
+	action_objet: model
+	recepient: automobilist
+	verb: model name
+	target: automobilist
+	model : followed model
+"""
+class AutomobilistFollowedModelChangedNotificationSerializer(serializers.ModelSerializer):
+
+	actorUserName = serializers.ReadOnlyField(source='actor.username') 
+	actorEmail = serializers.ReadOnlyField(source='actor.email')
+	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
+	actor = serializers.CharField(source='actor_object_id')
+	actorTarget = serializers.CharField(source='target_object_id') #ad id
+	image = serializers.ImageField(source="actor.image")
+
+	class Meta:
+		model = models.AutomobilistFollowedModelChangeNotification
+		fields = ('id', 'model', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
+
+
+
 """
 CommandSerializer : defines Command model representation
 feilds : ('id', 'date', 'total', 'automobilist','car', 'isVlidated', 'reservation', 'reservationDate', 'reservationAmount')
