@@ -68,8 +68,6 @@ router.register(r'api/automobilist/followed-versions', views.FollowedVersionsVie
 
 router.register(r'api/automobilist/transactions', views.TransactionViewSet)
 
-router.register(r'api/automobilist/notifications', views.AutomobilistNotificationViewSet)
-
 # Wire up our API using automatic URL routing.
 
 # Additionally, we include login URLs for the browsable API.
@@ -150,6 +148,7 @@ urlpatterns = [
 
     path('api/automobilist/posted-offers-notifications/<recipient>', views.AutomobilistOfferPostNotificationView.as_view(), name='post_offer_notifications'),
     
+    path('api/automobilist/notifications/<recipient>', views.AutomobilistNotificationViewSet.as_view(), name='all_notifications'),
 
     path('api/commands/validate-command/<int:manufacturer_user>/<int:command_pk>', views.CommandUpdateView.as_view(), name='validate_command'),
 

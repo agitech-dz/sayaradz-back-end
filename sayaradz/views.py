@@ -878,7 +878,22 @@ class AutomobilistOfferAcceptNotificationView(ListAPIView):
 	authentication_classes = ()
 	permission_classes = ()
 	serializer_class = serializers.AutomobilistAcceptOfferNotificationSerializer
-	queryset = models.AutomobilistAcceptOfferNotification.objects.all()
+
+	def get_queryset(self, recipient):
+
+		try:
+			return models.AutomobilistAcceptOfferNotification.objects.filter(recipient = recipient)
+
+		except models.AutomobilistAcceptOfferNotification.DoesNotExist:
+
+			raise Http404
+
+
+	def list(self, request,*kwargs, recipient):
+		queryset = self.get_queryset(recipient)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
 
 """
 AutomobilistOfferPostNotificationView : A
@@ -888,7 +903,21 @@ class AutomobilistOfferPostNotificationView(ListAPIView):
 	authentication_classes = ()
 	permission_classes = ()
 	serializer_class = serializers.AutomobilistPostOfferNotificationSerializer
-	queryset = models.AutomobilistPostOfferNotification.objects.all()
+
+	def get_queryset(self, recipient):
+
+		try:
+			return models.AutomobilistPostOfferNotification.objects.filter(recipient = recipient)
+
+		except models.AutomobilistPostOfferNotification.DoesNotExist:
+
+			raise Http404
+
+	def list(self, request,*kwargs, recipient):
+		queryset = self.get_queryset(recipient)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
 
 
 """
@@ -921,10 +950,18 @@ class AutomobilistCommandValidatedNotificationView(ListAPIView):
 	authentication_classes = ()
 	permission_classes = ()
 	serializer_class = serializers.AutomobilistCommandValidatedNotificationSerializer
-	queryset = models.AutomobilistCommandValidatedNotification.objects.all()
+
+	def get_queryset(self, recipient):
+
+		try:
+			return models.AutomobilistCommandValidatedNotification.objects.filter(recipient = recipient)
+
+		except models.AutomobilistCommandValidatedNotification.DoesNotExist:
+
+			raise Http404
 
 	def list(self, request,*kwargs, recipient):
-		queryset = models.AutomobilistCommandValidatedNotification.objects.filter(recipient = recipient)
+		queryset = self.get_queryset(recipient)
 		serializer = self.get_serializer(queryset,many=True)
 		data = serializer.data
 		return Response(data)
@@ -1319,8 +1356,22 @@ def login_google(request):
 """
 FollowedModelsViewSet : get (read only endpoint) paginated output
 """
-class AutomobilistNotificationViewSet(viewsets.ModelViewSet):
+class AutomobilistNotificationViewSet(ListAPIView):
 
 	#permission_classes = (IsAuthenticated,)  
-	queryset = models.AutomobilistNotification.objects.all()
 	serializer_class = serializers.AutomobilistNotificationSerializer
+
+	def get_queryset(self, recipient):
+
+		try:
+			return models.AutomobilistNotification.objects.filter(recipient = recipient)
+
+		except models.AutomobilistNotification.DoesNotExist:
+
+			raise Http404
+
+	def list(self, request,*kwargs, recipient):
+		queryset = self.get_queryset(recipient)
+		serializer = self.get_serializer(queryset,many=True)
+		data = serializer.data
+		return Response(data)
