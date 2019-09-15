@@ -112,6 +112,8 @@ urlpatterns = [
     path('api/automobilist/google_login/', views.login_google, name='login_google'),
 
     path('api/automobilist/manufacturers', views.AutomobilistManufacturerViewSet.as_view(), name='automobilist_manufacturers'),
+	
+path('api/automobilist/all-manufacturers', views.AutomobilistManufacturerViewSetPaginated.as_view(), name='automobilist_manufacturers_paginated'),
 
     path('api/automobilist/<manufacturer>/models', views.AutomobilistMyModelViewSet.as_view(), name='automobilist_models'),
 	
