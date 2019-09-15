@@ -1563,5 +1563,5 @@ class AutomobilistMyModelView(ListAPIView):
 	
 class AutomobilistVersionView(ListAPIView):
 	
-	queryset = models.Version.objects.all()
+	queryset = models.Version.objects.all().prefetch_related('options')
 	serializer_class = serializers.VersionSerializer
