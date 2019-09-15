@@ -900,12 +900,20 @@ class OfferUpdateView(UpdateAPIView):
 	authentication_classes = ()
 	permission_classes = ()
 	serializer_class = serializers.OfferSerializer
+	
+	def get_queryset(self, pk):
 
+		try:
+			return models.Offer.objects.get(pk=pk)
+
+		except models.Offer.DoesNotExist:
+
+			raise Http404
 
 	def patch(self, request, pk):
 		try:
 			# if no model exists by this PK, raise a 404 error
-			offer = models.Offer.objects.get(pk=pk)
+			offer = self.get_queryset(pk)
 
 		except models.Offer.DoesNotExist:
 
