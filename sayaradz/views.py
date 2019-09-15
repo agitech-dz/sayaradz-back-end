@@ -910,14 +910,6 @@ class OfferUpdateView(UpdateAPIView):
 		try:
 			return models.Offer.objects.get(pk=pk)
 
-<<<<<<< HEAD
-	def get_queryset(self, pk):
-
-		try:
-			return models.Offer.objects.get(pk=pk)
-
-=======
->>>>>>> 143b3e4ce0a4f9a2fe778727511991c0501acc67
 		except models.Offer.DoesNotExist:
 
 			raise Http404
