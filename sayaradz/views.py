@@ -820,7 +820,7 @@ class OfferPostView(CreateAPIView):
 			target = ad_
 			action_object=offer
 
-			notification = models.AutomobilistPostOfferNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, offer= offer, notification_type= "PO", image=image, action_objet=action_objet)
+			notification = models.AutomobilistPostOfferNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, offer= offer, notification_type= "PO", image=image, action_object=action_objet)
 			notification.save()
 			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
 			return Response(serializer.data)
