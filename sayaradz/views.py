@@ -307,7 +307,7 @@ class MyModelViewSet(viewsets.ModelViewSet):
 			#add notification post offer
 			"""
 			actor: manufacturer changed 
-			action_objet: model
+			action_object: model
 			recepient: automobilist
 			verb: model name
 			target: model 
@@ -413,7 +413,7 @@ class VersionViewSet(viewsets.ModelViewSet):
 			#add notification post offer
 			"""
 			actor: manufacturer changed 
-			action_objet: version
+			action_object: version
 			recepient: automobilist
 			verb: model name
 			target: model 
@@ -430,7 +430,7 @@ class VersionViewSet(viewsets.ModelViewSet):
 			for follower in followers:
 
 				recipient =  follower.automobilist #smodels.Automobilist.objects.get(pk=follower.automobilist) #receive notification
-				notification = models.AutomobilistFollowedVersionChangeNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, version= version_, notification_type= "VC", image=image, action_object=action_objet)
+				notification = models.AutomobilistFollowedVersionChangeNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, version= version_, notification_type= "VC", image=image, action_object=action_object)
 				notification.save()
 			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
 			return Response(serializer.data)
@@ -820,7 +820,7 @@ class OfferPostView(CreateAPIView):
 			target = ad_
 			action_object=offer
 
-			notification = models.AutomobilistPostOfferNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, offer= offer, notification_type= "PO", image=image, action_object=action_objet)
+			notification = models.AutomobilistPostOfferNotification(actor= actor, recipient= recipient, verb= verb, target_object_id= target_object_id, target= target, offer= offer, notification_type= "PO", image=image, action_object=action_object)
 			notification.save()
 			#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
 			return Response(serializer.data)
@@ -1180,9 +1180,9 @@ class CommandUpdateView(UpdateAPIView):
 				verb = models.Manufacturer.objects.get(pk= manufacturerUser.manufacturer_id).name
 				target = command
 				image=target.car.photo1
-				action_objet=car
+				action_object=car
 				
-				notification = models.AutomobilistCommandValidatedNotification(actor= actor, recipient= recipient, verb= verb, target= target, notification_type='CV', image=image, action_objet=action_object)
+				notification = models.AutomobilistCommandValidatedNotification(actor= actor, recipient= recipient, verb= verb, target= target, notification_type='CV', image=image, action_object=action_object)
 				notification.save()
 				#serializer = serializers.AutomobilistAcceptOfferNotificationSerializer(notification)
 				return Response(serializer.data)
