@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url, include
 from django.conf.urls import include as include_
-
+from django.conf import settings
 from django.contrib.auth.models import User
 from rest_framework import routers
 from sayaradz import views 
 from rest_framework.authtoken import views as rest_framework_views
 from rest_framework.documentation import include_docs_urls 
 import notifications.urls
+from django.conf.urls.static import static
+
 
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -67,6 +69,8 @@ router.register(r'api/automobilist/followed-models', views.FollowedModelsViewSet
 router.register(r'api/automobilist/followed-versions', views.FollowedVersionsViewSet)
 
 router.register(r'api/automobilist/transactions', views.TransactionViewSet)
+
+router.register(r'api/automobilist/all-notifications', views.AutomobilistNotificationCrudView)
 
 # Wire up our API using automatic URL routing.
 
@@ -168,4 +172,4 @@ urlpatterns = [
 
     path('api/automobilist/compose-car-filter', views.NewCarsFilterView.as_view(), name='compose_filter'), 
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

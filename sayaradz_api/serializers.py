@@ -502,12 +502,12 @@ class AutomobilistNotificationSerializer(serializers.ModelSerializer):
 	actorTelephone = serializers.ReadOnlyField(source='actor.telephone')  
 	actor = serializers.CharField(source='actor_object_id')
 	actorTarget = serializers.CharField(source='target_object_id') #ad id
-	
+	actionObject = serializers.ReadOnlyField(source='action_object_object_id') #ad id
 
 
 	class Meta:
 		model = models.AutomobilistNotification
-		fields = ('id', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
+		fields = ('id', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image', 'actionObject')
 
 """
 FollowedVersionSerializer : defines Followed Models  model representation
