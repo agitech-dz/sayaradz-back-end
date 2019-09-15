@@ -904,12 +904,20 @@ class OfferUpdateView(UpdateAPIView):
 	authentication_classes = ()
 	permission_classes = ()
 	serializer_class = serializers.OfferSerializer
-
+	
 	def get_queryset(self, pk):
 
 		try:
 			return models.Offer.objects.get(pk=pk)
 
+<<<<<<< HEAD
+	def get_queryset(self, pk):
+
+		try:
+			return models.Offer.objects.get(pk=pk)
+
+=======
+>>>>>>> 143b3e4ce0a4f9a2fe778727511991c0501acc67
 		except models.Offer.DoesNotExist:
 
 			raise Http404
@@ -1545,6 +1553,7 @@ class AutomobilistNotificationViewSet(ListAPIView):
 		return Response(data)
 
 
+
 """
 FollowedModelsViewSet : get (read only endpoint) paginated output
 """
@@ -1554,3 +1563,4 @@ class AutomobilistNotificationCrudView(viewsets.ModelViewSet):
 	serializer_class = serializers.AutomobilistNotificationSerializer 
 	queryset = models.AutomobilistNotification.objects.all()
 	
+

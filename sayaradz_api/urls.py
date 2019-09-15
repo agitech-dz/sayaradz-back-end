@@ -27,7 +27,6 @@ import notifications.urls
 from django.conf.urls.static import static
 
 
-
 # Routers provide an easy way of automatically determining the URL conf.
 
 router = routers.DefaultRouter()
