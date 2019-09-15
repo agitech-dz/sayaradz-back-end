@@ -1556,3 +1556,12 @@ class AutomobilistNotificationCrudView(viewsets.ModelViewSet):
 	queryset = models.AutomobilistNotification.objects.all()
 	
 
+class AutomobilistMyModelView(ListAPIView):
+	
+	queryset = models.MyModel.objects.all()
+	serializer_class = serializers.MyModelSerializer
+	
+class AutomobilistVersionView(ListAPIView):
+	
+	queryset = models.Version.objects.all()
+	serializer_class = serializers.VersionSerializer
