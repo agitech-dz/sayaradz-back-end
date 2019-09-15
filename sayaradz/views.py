@@ -81,7 +81,14 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
          super().destroy(*args, **kwargs)
          return Response(serializer.data, status=status.HTTP_200_OK)
 
+"""
+ManufacturerViewSet : get, delete, patch, partial_update, put, paginated output
+"""
+class AutomobilstManufacturerViewPaginated(viewsets.ModelViewSet):
+	pagination_class = StandardResultsSetPagination
 
+	queryset = models.Manufacturer.objects.all()
+	serializer_class = serializers.ManufacturerSerializer
 
 
 """
