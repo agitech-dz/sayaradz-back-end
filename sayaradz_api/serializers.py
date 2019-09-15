@@ -507,7 +507,7 @@ class AutomobilistNotificationSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = models.AutomobilistNotification
-		fields = ('id', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image', 'action_object_id')
+		fields = ('id', 'actor', 'actorUserName','actorEmail', 'actorTelephone', 'actorTarget', 'recipient', 'verb', 'timestamp', 'unread', 'notification_type', 'image')
 
 """
 FollowedVersionSerializer : defines Followed Models  model representation
