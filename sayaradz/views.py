@@ -1,6 +1,6 @@
 import django_filters
 from rest_framework import filters
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.pagination import PageNumberPagination
 from django.contrib.auth import logout
 from django.shortcuts import render
@@ -92,7 +92,7 @@ class ManufacturerUserViewSet(viewsets.ModelViewSet):
 	permission_classes = (IsAuthenticated, IsAdminUser)  
 	queryset = models.ManufacturerUser.objects.all()
 	serializer_class = serializers.ManufacturerUserSerializer
-	parser_classes = (MultiPartParser, FormParser)
+	parser_classes = (MultiPartParser, FormParser, JSONParser)
 	def list(self, request,*kwargs):
 		queryset = models.ManufacturerUser.objects.all()
 		page = self.paginate_queryset(queryset)
@@ -634,7 +634,7 @@ class NewCarViewSet(viewsets.ModelViewSet):
 	queryset = models.NewCar.objects.all()
 	serializer_class = serializers.NewCarSerializer
 	pagination_class = StandardResultsSetPagination
-	parser_classes = (MultiPartParser, FormParser)
+	parser_classes = (MultiPartParser, FormParser, JSONParser)
 	def list(self, request,*kwargs):
 		queryset = models.NewCar.objects.all()
 		page = self.paginate_queryset(queryset)
@@ -772,7 +772,7 @@ class AdViewSet(viewsets.ModelViewSet):
 	#permission_classes = (IsAuthenticated,)  
 	queryset = models.Ad.objects.all()
 	serializer_class = serializers.AdSerializer
-	parser_classes = (MultiPartParser, FormParser)
+	parser_classes = (MultiPartParser, FormParser, JSONParser)
 	def list(self, request,*kwargs):
 		queryset = models.Ad.objects.all()
 		#page = self.paginate_queryset(queryset)
