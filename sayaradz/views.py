@@ -471,7 +471,7 @@ class AutomobilistManufacturerViewSet(ListAPIView):
 AutomobilistManufacturerViewSet : get (read only endpoint)
 """
 class AutomobilistManufacturerViewSetPaginated(ListAPIView):
-	pagination_class = StandardResultsSetPagination
+	
 	queryset = models.Manufacturer.objects.all()
 	serializer_class = serializers.ManufacturerSerializer
 """
@@ -1563,11 +1563,11 @@ class AutomobilistNotificationCrudView(viewsets.ModelViewSet):
 	
 
 class AutomobilistMyModelView(ListAPIView):
-	pagination_class = StandardResultsSetPagination
+	
 	queryset = models.MyModel.objects.all()
 	serializer_class = serializers.MyModelSerializer
 	
 class AutomobilistVersionView(ListAPIView):
-	pagination_class = StandardResultsSetPagination
+	
 	queryset = models.Version.objects.all().prefetch_related('options')
 	serializer_class = serializers.VersionSerializer
